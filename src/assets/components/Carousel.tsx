@@ -47,7 +47,7 @@ export default function Carousel() {
       <OuterBox>
         <InnerContainer>
           {carouselImages.map((image, index) => (
-            <StyledCarouselItem>
+            <StyledCarouselItem key={index}>
               <div
                 key={index}
                 style={{
@@ -56,7 +56,6 @@ export default function Carousel() {
                 }}
               >
                 <StyledImage src={image} alt={image} key={index} />
-                {/* <a href="">{images[index]}</a> */}
               </div>
             </StyledCarouselItem>
           ))}
