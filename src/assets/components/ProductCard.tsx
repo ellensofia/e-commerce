@@ -45,7 +45,7 @@ const StyledCarouselItem = styled.div`
 `;
 
 const ProductText = styled.div`
-  width: 400px;
+  max-width: 400px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -79,7 +79,7 @@ const StyledImage = styled.img`
   position: relative;
   max-height: 100%;
   height: 60vh;
-  @media (max-width: 600px) {
+  @media (max-width: 1090px) {
     width: 25%;
   }
 `;

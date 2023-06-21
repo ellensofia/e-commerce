@@ -21,6 +21,7 @@ export default function Header() {
         </StyledMiddle>
       </nav>
       <StyledRight>
+        {/* <SearchBar keyword={keyword} onChange={updateKeyword} /> */}
         <div>searchbar</div>
         <div>menu</div>
       </StyledRight>
@@ -35,7 +36,7 @@ const StyledHeader = styled.header`
   top: 0;
   border-bottom: 1px solid black;
   align-items: center;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
 `;
 
 const StyledListItem = styled.li`
