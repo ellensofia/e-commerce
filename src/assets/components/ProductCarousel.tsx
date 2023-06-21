@@ -11,7 +11,6 @@ const images = [image1, image2, image3];
 
 export default function ProductCarousel() {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
-  const [delay, setDelay] = useState(5000);
   const [carouselImages, setCarouselImages] = useState(images);
 
   const navigate = (direction: string) => {
@@ -66,13 +65,14 @@ const OuterBox = styled.div`
   justify-content: center;
   flex-direction: column;
   border-top: 1px solid #5e5e5e;
+  border-bottom: 1px solid #5e5e5e;
   @media (max-width: 600px) {
     width: 100vw;
   }
 `;
 
 const InnerContainer = styled.div`
-  padding: 1.6rem 4rem 0;
+  /* padding: 1.6rem 4rem 0; */
   height: 50vh;
   width: 100%;
 `;
@@ -80,6 +80,8 @@ const InnerContainer = styled.div`
 const Navigations = styled.div`
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
+
   display: flex;
   width: 110%;
   justify-content: space-between;
