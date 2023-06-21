@@ -40,14 +40,23 @@ const StyledHeader = styled.header`
 
 const StyledListItem = styled.li`
   list-style: none;
+  a {
+    color: #000;
+  }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const StyledMiddle = styled.ul`
   display: flex;
   gap: 1rem;
+  padding: 0;
 `;
 
 const StyledRight = styled.div`
   display: flex;
+  align-items: center;
   gap: 1rem;
 `;
