@@ -1,9 +1,58 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "./assets/components/Header";
 import Hero from "./assets/components/Hero";
 import ProductCarousel from "./assets/components/ProductCarousel";
+import SearchBar from "./assets/components/SearchBar";
+interface Story {
+  points: number;
+  title: string;
+  author: string;
+  // Add other properties if needed
+}
 
 export default function App() {
+  const [stories, setStories] = useState<Story[]>([]);
+  const [allStories, setAllStories] = useState<Story[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [keyword, setKeyword] = useState("");
+
+  const fetchStories = async () => {
+    try {
+      const data = await (
+        await fetch(
+          "https://hn.algolia.com/api/v1/search_by_date?tags=front_page&hitsPerPage=20"
+        )
+      ).json();
+      const stortedStories = data.hits.sort((story: Story, nextStory: Story) =>
+        story.points < nextStory.points ? 1 : -1
+      );
+      setAllStories(stortedStories);
+      console.log(stortedStories);
+      setStories(stortedStories);
+      setError(null);
+    } catch (err: any) {
+      setError(err?.message ?? "Unknown error");
+      setStories([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const updateKeyword = (keyword: string) => {
+    const filtered = allStories.filter((story) => {
+      return `${story.title.toLowerCase()} ${story.author.toLowerCase()}`.includes(
+        keyword.toLowerCase()
+      );
+    });
+    setKeyword(keyword);
+    setStories(filtered);
+  };
+
+  useEffect(() => {
+    fetchStories();
+  }, []);
   return (
     <>
       <Header />
@@ -11,6 +60,16 @@ export default function App() {
       <StyledLayout>
         <ProductCarousel />
       </StyledLayout>
+      <SearchBar keyword={keyword} onChange={updateKeyword} />
+      <StoryList>
+        {stories.map((story) => (
+          <StoryItem key={story.title}>
+            <div>{story.title}</div>
+            <div>{story.author}</div>
+            {/* Add other story information as needed */}
+          </StoryItem>
+        ))}
+      </StoryList>
     </>
   );
 }
@@ -20,4 +79,12 @@ const StyledLayout = styled.div`
   justify-content: center;
   align-items: center;
   height: calc(100vh - 57px);
+`;
+
+const StoryList = styled.div`
+  /* Add styling for the story list */
+`;
+
+const StoryItem = styled.div`
+  /* Add styling for each story item */
 `;
