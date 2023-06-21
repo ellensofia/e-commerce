@@ -8,92 +8,132 @@ const images = [image1, image2, image3];
 
 export default function Carousel() {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
-  const [delay, setDelay] = useState(4500);
+  const [delay, setDelay] = useState(5000);
+  const [carouselImages, setCarouselImages] = useState(images);
 
   const navigate = (direction: string) => {
-    if ("left") {
-      setCurrentItemIndex(
-        currentItemIndex === 0 ? images.length - 1 : currentItemIndex - 1
-      );
-    } else if ("right") {
-      setCurrentItemIndex((currentItemIndex + 1) % images.length);
+    if (direction === "left") {
+      if (currentItemIndex === 0) {
+        const newImageIndex = currentItemIndex % images.length;
+        const newImage = images[newImageIndex];
+        setCarouselImages((prevImages) => [...prevImages, newImage]);
+        setCurrentItemIndex(currentItemIndex - 1);
+      } else {
+        setCurrentItemIndex(currentItemIndex - 1);
+      }
+    } else if (direction === "right") {
+      const newImageIndex = currentItemIndex % images.length;
+      const newImage = images[newImageIndex];
+      setCarouselImages((prevImages) => [...prevImages, newImage]);
+      setCurrentItemIndex(currentItemIndex + 1);
     }
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentItemIndex((currentItemIndex + 1) % images.length);
+      const newImageIndex = currentItemIndex % images.length;
+      const newImage = images[newImageIndex];
+      setCarouselImages((prevImages) => [...prevImages, newImage]);
+      setCurrentItemIndex(currentItemIndex + 1);
     }, delay);
 
     return () => {
       clearInterval(interval);
     };
-  }, [currentItemIndex, delay]);
-
-  //   const next = (current + 1) % slides.length;
-  //   const id = setTimeout(() => setCurrent(next), time);
-  //   return () => clearTimeout(id);
-  // }, [current]);
+  }, [currentItemIndex, delay, carouselImages]);
 
   return (
-    // <OuterBox>
-    <InnerContainer>
-      {images.map((image, index) => (
-        <StyledCarouselItem>
-          <div
-            key={index}
-            style={{
-              transform: `translateX(${(index - currentItemIndex) * 100}%)`,
-              transition: "transform 1.3s ease-in-out",
-            }}
-          >
-            <StyledImage src={image} alt={image} />
-            <a href="">{images[index]}</a>
-          </div>
-        </StyledCarouselItem>
-      ))}
-      <Navigations>
-        <button onClick={() => navigate("left")}>left</button>
-        <button onClick={() => navigate("right")}>right</button>
-      </Navigations>
-    </InnerContainer>
-    // </OuterBox>
+    <>
+      <OuterBox>
+        <InnerContainer>
+          {carouselImages.map((image, index) => (
+            <StyledCarouselItem>
+              <div
+                key={index}
+                style={{
+                  transform: `translateX(${(index - currentItemIndex) * 100}%)`,
+                  transition: "transform 1.6s ease-in-out",
+                }}
+              >
+                <StyledImage src={image} alt={image} key={index} />
+                {/* <a href="">{images[index]}</a> */}
+              </div>
+            </StyledCarouselItem>
+          ))}
+        </InnerContainer>
+        <Navigations>
+          <StyledButton onClick={() => navigate("left")}></StyledButton>
+          <StyledButton onClick={() => navigate("")}></StyledButton>
+          <StyledButton onClick={() => navigate("right")}></StyledButton>
+        </Navigations>
+      </OuterBox>
+    </>
   );
 }
 
-const InnerContainer = styled.div`
-  border: 1px solid black;
-  position: relative;
-  height: 50vh;
+const OuterBox = styled.div`
+  position: absolute;
   display: flex;
   width: 60vw;
+  flex-direction: column;
+  @media (max-width: 600px) {
+    width: 90vw;
+  }
+`;
+
+const InnerContainer = styled.div`
+  height: 50vh;
+  width: 100%;
 `;
 
 const StyledCarouselItem = styled.div`
-  border: 1px solid black;
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: #e9cccc50;
   overflow: hidden;
 `;
 
 const StyledImage = styled.img`
-  border: 1px solid black;
-  width: auto;
-  max-height: 100%;
+  width: 60vw;
   object-fit: cover;
   position: relative;
-  height: 50vh;
-  width: 60vw;
+  max-height: 100%;
+  height: 60vh;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e9cccc50;
+  }
 `;
 
 const Navigations = styled.div`
-  border: 1px solid black;
   position: relative;
   bottom: 0;
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: flex-end;
+  gap: 1rem;
+  background-color: #e9cccc6b;
+  padding: 1rem 0;
+`;
+
+const StyledButton = styled.div`
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #ffffffa4;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ffffffbd;
+  }
 `;
