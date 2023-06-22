@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import Categories from "./assets/components/Categories";
 import Header from "./assets/components/Header";
 import Hero from "./assets/components/Hero";
 import ProductCarousel from "./assets/components/ProductCarousel";
@@ -29,7 +30,6 @@ export default function App() {
         story.points < nextStory.points ? 1 : -1
       );
       setAllStories(stortedStories);
-      console.log(stortedStories);
       setStories(stortedStories);
       setError(null);
     } catch (err: any) {
@@ -60,16 +60,8 @@ export default function App() {
       <StyledLayout>
         <ProductCarousel />
       </StyledLayout>
+      <Categories />
       <SearchBar keyword={keyword} onChange={updateKeyword} />
-      <StoryList>
-        {stories.map((story) => (
-          <StoryItem key={story.title}>
-            <div>{story.title}</div>
-            <div>{story.author}</div>
-            {/* Add other story information as needed */}
-          </StoryItem>
-        ))}
-      </StoryList>
     </>
   );
 }

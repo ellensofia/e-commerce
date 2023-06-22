@@ -56,12 +56,12 @@ const ProductText = styled.div`
 
 const Title = styled.h3`
   margin: 0;
-  font-size: 3rem;
+  font-size: 1.8rem;
 `;
 
 const Details = styled.div`
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   display: flex;
   gap: 1rem;
   color: #626262;
@@ -74,11 +74,10 @@ const Button = styled.button`
 `;
 
 const StyledImage = styled.img`
-  width: 24rem;
+  max-height: 100%;
   object-fit: cover;
   position: relative;
-  max-height: 100%;
-  height: 60vh;
+  padding: 2rem;
   @media (max-width: 1090px) {
     width: 25%;
   }
