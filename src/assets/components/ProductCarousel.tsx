@@ -74,7 +74,7 @@ const OuterBox = styled.div`
 `;
 
 const InnerContainer = styled.div`
-  height: 50vh;
+  height: 37.5rem;
   width: 70%;
   margin: 0 auto;
   padding: 0 15rem;
