@@ -1,9 +1,10 @@
 import { styled } from "styled-components";
+import SearchBar from "./SearchBar";
 
 export default function Header() {
   return (
     <StyledHeader>
-      <a>Logotype</a>
+      <Logotype>Logotype</Logotype>
       <nav>
         <StyledMiddle>
           <StyledListItem>
@@ -21,9 +22,16 @@ export default function Header() {
         </StyledMiddle>
       </nav>
       <StyledRight>
-        {/* <SearchBar keyword={keyword} onChange={updateKeyword} /> */}
-        <div>searchbar</div>
-        <div>menu</div>
+        <a>My account</a>
+        <SearchBar
+          keyword={"keyword"}
+          onChange={function (keyword: string): void {
+            throw new Error("Function not implemented.");
+          }}
+        ></SearchBar>
+        <BurgerMenu>
+          <Burger></Burger>
+        </BurgerMenu>
       </StyledRight>
     </StyledHeader>
   );
@@ -52,12 +60,46 @@ const StyledListItem = styled.li`
 
 const StyledMiddle = styled.ul`
   display: flex;
-  gap: 1rem;
+  gap: 2.6rem;
   padding: 0;
+`;
+
+const Logotype = styled.a`
+  font-family: "bugaki";
+`;
+
+const BurgerMenu = styled.div``;
+
+const Burger = styled.div`
+  padding: 0;
+  width: 2rem;
+  height: 0.1rem;
+  background-color: #333;
+  position: relative;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: #333;
+    width: 2rem;
+    height: 0.1rem;
+    top: -0.6rem;
+  }
+
+  &::after {
+    top: 0.6rem;
+  }
 `;
 
 const StyledRight = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  & a {
+    color: #333;
+    white-space: nowrap;
+    font-size: 0.8rem;
+  }
 `;
