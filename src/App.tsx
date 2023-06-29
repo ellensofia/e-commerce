@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Categories from "./assets/components/Categories";
+import Footer from "./assets/components/Footer";
 import Header from "./assets/components/Header";
 import Hero from "./assets/components/Hero";
 import ProductCarousel from "./assets/components/ProductCarousel";
@@ -62,6 +63,7 @@ export default function App() {
       </StyledLayout>
       <Categories />
       <SearchBar keyword={keyword} onChange={updateKeyword} />
+      <Footer />
     </>
   );
 }
