@@ -36,9 +36,7 @@ const Burger = styled.div<{ menuOpen: boolean }>`
   }
 
   &::after {
-    /* top: 0.6rem; */
     top: ${({ menuOpen }) => (menuOpen ? "0" : "-0.6rem")};
-
     transform: ${({ menuOpen }) => (menuOpen ? "rotate(45deg)" : "0")};
   }
 
@@ -46,5 +44,11 @@ const Burger = styled.div<{ menuOpen: boolean }>`
     transform: ${({ menuOpen }) => (menuOpen ? "rotate(-45deg)" : "rotate(0)")};
     top: 0.6rem;
     top: ${({ menuOpen }) => (menuOpen ? "0" : "0.6rem")};
+  }
+
+  display: none;
+
+  @media (max-width: 600px) {
+    display: block;
   }
 `;
