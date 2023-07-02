@@ -34,10 +34,20 @@ export default function SearchBar({ keyword, onChange }: Props) {
 const SearchField = styled.div<{ isExpanded: boolean }>`
   position: relative;
   transition: width 0.3s ease;
-  margin-right: 0.3rem;
+  margin-right: 1.6rem;
   display: flex;
   align-items: center;
   width: ${({ isExpanded }) => (isExpanded ? "14rem" : "1.5rem")};
+
+  @media (max-width: 900px) {
+    width: ${({ isExpanded }) => (isExpanded ? "8rem" : "1.5rem")};
+    margin-right: ${({ isExpanded }) => (isExpanded ? "2rem" : "0.6rem")};
+  }
+
+  @media (max-width: 900px) {
+    width: ${({ isExpanded }) => (isExpanded ? "8rem" : "1.5rem")};
+    margin-right: ${({ isExpanded }) => (isExpanded ? "1rem" : "0.6rem")};
+  }
 `;
 
 const SearchIconWrapper = styled.button<{ isExpanded: boolean }>`
@@ -51,6 +61,7 @@ const SearchIconWrapper = styled.button<{ isExpanded: boolean }>`
   z-index: 10;
   transition: width 0.3s ease;
   padding: 0;
+  right: ${({ isExpanded }) => (isExpanded ? "-.4rem" : "0rem")};
 `;
 
 const StyledInputBase = styled.input`
