@@ -55,6 +55,11 @@ const OuterContainer = styled.div`
   align-items: center;
   padding: 3rem 4rem;
   background-color: #dfdfdf;
+
+  @media (max-width: 900px) {
+    padding: 2rem 1.5rem;
+  }
+
   @media (max-width: 600px) {
     padding: 1rem 2rem;
   }
@@ -103,7 +108,6 @@ const BottomSection = styled.div`
     grid-template-columns: 1fr;
     display: flex;
     align-items: unset;
-
     flex-direction: column-reverse;
   }
 `;

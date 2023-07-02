@@ -52,10 +52,10 @@ const StyledHeader = styled.header`
   top: 0;
   border-bottom: 1px solid black;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 3.6rem 1rem 2rem;
 
   @media (max-width: 600px) {
-    padding: 1rem;
+    padding: 1rem 1rem;
   }
 `;
 
@@ -75,10 +75,13 @@ const StyledMiddle = styled.ul<{ menuOpen: boolean }>`
   padding: 0;
   transition: 0.3s 0.8s ease;
 
+  @media (max-width: 900px) {
+    gap: 1rem;
+  }
+
   @media (max-width: 600px) {
     display: none;
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
     gap: 1rem;

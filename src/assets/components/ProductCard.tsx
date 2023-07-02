@@ -48,6 +48,7 @@ const StyledCarouselItem = styled.div`
   width: 100%;
   overflow: hidden;
   display: flex;
+  gap: 20%;
   align-items: center;
 `;
 
