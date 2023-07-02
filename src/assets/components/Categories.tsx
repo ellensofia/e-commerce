@@ -47,9 +47,18 @@ const OuterBox = styled.div`
 
 const InnerBox = styled.div`
   align-items: center;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
   margin: 0 auto;
   gap: 1rem;
+  @media (max-width: 600px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr;
+  }
 
   img {
     flex: 1;
@@ -97,10 +106,16 @@ const Text = styled.p`
   transform: translate(-50%, -50%);
   text-transform: uppercase;
   white-space: nowrap;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
 `;
 
 const Title = styled.h3`
   color: #1b1b1b;
   font-size: 2rem;
   margin-bottom: 1rem;
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
+  }
 `;

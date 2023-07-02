@@ -61,7 +61,7 @@ const OuterContainer = styled.div`
   }
 
   @media (max-width: 600px) {
-    padding: 1rem 2rem;
+    padding: 2rem 0rem;
   }
 `;
 
