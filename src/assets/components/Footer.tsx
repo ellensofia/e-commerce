@@ -55,6 +55,9 @@ const OuterContainer = styled.div`
   align-items: center;
   padding: 3rem 4rem;
   background-color: #dfdfdf;
+  @media (max-width: 600px) {
+    padding: 1rem 2rem;
+  }
 `;
 
 const InnerContainer = styled.div`
@@ -63,6 +66,10 @@ const InnerContainer = styled.div`
   justify-content: space-between;
   padding-bottom: 3rem;
   border-bottom: 1px solid black;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const LinkSection = styled.div`
@@ -92,6 +99,11 @@ const BottomSection = styled.div`
   display: grid;
   align-items: end;
   grid-template-columns: 1fr 1fr 1fr;
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `;
 
 const NewsletterSection = styled.div`
@@ -117,6 +129,10 @@ const Input = styled.input`
   background-color: transparent;
   width: 14rem;
   border: 1px solid black;
+  @media (max-width: 600px) {
+    max-width: 14rem;
+    width: 100%;
+  }
 `;
 
 const Button = styled.button`
@@ -126,6 +142,7 @@ const Button = styled.button`
   background-color: transparent;
   border-radius: 0;
   font-size: 0.8rem;
+  white-space: nowrap;
 `;
 
 const Text = styled.p`
