@@ -103,7 +103,7 @@ const Text = styled.p`
   transform: translate(-50%, -50%);
   text-transform: uppercase;
   white-space: nowrap;
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     font-size: 0.8rem;
   }
   @media (max-width: 400px) {

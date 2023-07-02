@@ -70,6 +70,7 @@ const OuterBox = styled.div`
   border-bottom: 1px solid #5e5e5e;
   @media (max-width: 600px) {
     width: 100vw;
+    margin: 2rem 0;
   }
 `;
 
