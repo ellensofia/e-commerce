@@ -49,15 +49,12 @@ const InnerBox = styled.div`
   align-items: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
   margin: 0 auto;
   gap: 1rem;
+
   @media (max-width: 600px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: 400px) {
-    grid-template-columns: 1fr;
   }
 
   img {
@@ -107,7 +104,10 @@ const Text = styled.p`
   text-transform: uppercase;
   white-space: nowrap;
   @media (max-width: 600px) {
-    font-size: 1rem;
+    font-size: 0.8rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 0.675rem;
   }
 `;
 

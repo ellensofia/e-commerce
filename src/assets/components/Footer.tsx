@@ -74,6 +74,7 @@ const InnerContainer = styled.div`
 
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
+    padding-bottom: 2rem;
   }
 `;
 
@@ -93,6 +94,10 @@ const List = styled.ul`
 const Title = styled.h4`
   color: #333;
   font-size: 1.25rem;
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
 `;
 
 const Signup = styled.h4`
@@ -109,6 +114,7 @@ const BottomSection = styled.div`
     display: flex;
     align-items: unset;
     flex-direction: column-reverse;
+    padding-top: 2rem;
   }
 `;
 
@@ -120,7 +126,7 @@ const NewsletterSection = styled.div`
 const NewsletterTitle = styled.div`
   grid-column: span 2;
   font-weight: bold;
-  padding-bottom: 1rem;
+  padding-bottom: 0.6rem;
 `;
 
 const Copy = styled.div`
@@ -154,6 +160,9 @@ const Button = styled.button`
 const Text = styled.p`
   color: #333;
   font-size: 1rem;
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const Link = styled.a`
@@ -165,5 +174,8 @@ const Link = styled.a`
   &:hover {
     color: black;
     text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
   }
 `;
