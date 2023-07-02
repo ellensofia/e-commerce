@@ -102,6 +102,8 @@ const BottomSection = styled.div`
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
     display: flex;
+    align-items: unset;
+
     flex-direction: column-reverse;
   }
 `;
