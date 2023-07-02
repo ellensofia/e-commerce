@@ -19,7 +19,7 @@ const StyledBurgerMenu = styled.div<{ menuOpen: boolean }>`
 `;
 
 const Burger = styled.div<{ menuOpen: boolean }>`
-  width: 2rem;
+  width: 1.6rem;
   height: 0.1rem;
   background-color: #333;
   position: relative;
@@ -30,7 +30,7 @@ const Burger = styled.div<{ menuOpen: boolean }>`
     content: "";
     position: absolute;
     background-color: #333;
-    width: 2rem;
+    width: 1.6rem;
     height: 0.1rem;
     transition: 0.3s ease;
   }
