@@ -1,5 +1,4 @@
-import StarIcon from "@mui/icons-material/Star";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
+import { Rating } from "@mui/material";
 import styled from "styled-components";
 import { Product } from "../../data";
 export interface Props {
@@ -27,11 +26,29 @@ export default function productCard({
       <StyledImage src={image} alt={product_name} key={index} />
       <ProductText>
         <Title>{product_name}</Title>
+        <span>
+          <span>Reviews </span>
+
+          <span>{reviews.average_rating}</span>
+        </span>
         <Review>
-          <p>Reviews</p>
-          <StarIcon /> <StarIcon />
-          <StarIcon />
-          <StarBorderIcon /> <StarBorderIcon />
+          <Rating
+            name={`rating-${index}`}
+            value={parseFloat(reviews.average_rating.toFixed(1))}
+            precision={0.5}
+            readOnly
+            sx={{
+              "& .MuiRating-iconFilled": {
+                color: "#555555",
+              },
+              "& .MuiRating-iconHover": {
+                color: "pink",
+              },
+              "& .MuiRating-icon SVG": {
+                color: "#555",
+              },
+            }}
+          />
         </Review>
         <p>{product_description}</p>
         <Details>
