@@ -41,7 +41,7 @@ export const products: Product[] = [
     directions:
       "After cleansing and applying serum, take a small amount of cream and gently massage it onto the face and neck. Use morning and evening for best results.",
     reviews: {
-      average_rating: 4.2,
+      average_rating: 3.2,
       total_reviews: 18,
     },
     image: image2,
@@ -116,7 +116,7 @@ export const products: Product[] = [
     directions:
       "Apply a generous amount of gel to the affected area and gently massage it into the skin. Reapply as needed. Can be used on the face and body.",
     reviews: {
-      average_rating: 4.9,
+      average_rating: 3.9,
       total_reviews: 42,
     },
     image: image1,
