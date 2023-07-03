@@ -3,44 +3,53 @@ import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutl
 import { useState } from "react";
 import styled from "styled-components";
 import { products } from "../../data";
-import image3 from "../images/image3.jpg";
-import image1 from "../images/product1.jpg";
-import image2 from "../images/product2.jpg";
 import ProductCard from "./ProductCard";
-
-const images = [image1, image2, image3];
 
 export default function ProductCarousel() {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
-  const [carouselImages, setCarouselImages] = useState(images);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const navigate = (direction: string) => {
+    if (isTransitioning) return;
+
+    setIsTransitioning(true);
+
     if (direction === "left") {
-      if (currentItemIndex === 0) {
-        const newImageIndex = currentItemIndex % images.length;
-        const newImage = images[newImageIndex];
-        setCarouselImages((prevImages) => [...prevImages, newImage]);
-        setCurrentItemIndex(currentItemIndex - 1);
-      } else {
-        setCurrentItemIndex(currentItemIndex - 1);
-      }
+      setCurrentItemIndex((prevIndex) =>
+        prevIndex === 0 ? products.length * 2 - 1 : prevIndex - 1
+      );
     } else if (direction === "right") {
-      const newImageIndex = currentItemIndex % images.length;
-      const newImage = images[newImageIndex];
-      setCarouselImages((prevImages) => [...prevImages, newImage]);
-      setCurrentItemIndex(currentItemIndex + 1);
+      setCurrentItemIndex((prevIndex) =>
+        prevIndex === products.length * 2 - 1 ? 0 : prevIndex + 1
+      );
     }
+
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 500);
   };
+
+  const shouldShowSecondContainer = currentItemIndex >= products.length;
 
   return (
     <>
       <OuterBox>
-        <InnerContainer>
+        <InnerContainer visible={!shouldShowSecondContainer}>
           {products.map((product, index) => (
             <ProductCard
               key={index}
               product={product}
               currentItemIndex={currentItemIndex}
+              index={index}
+            />
+          ))}
+        </InnerContainer>
+        <InnerContainer visible={shouldShowSecondContainer}>
+          {products.map((product, index) => (
+            <ProductCard
+              key={index}
+              product={product}
+              currentItemIndex={currentItemIndex - products.length}
               index={index}
             />
           ))}
@@ -62,22 +71,20 @@ const OuterBox = styled.div`
   position: relative;
   width: 100%;
   align-items: center;
-  /* margin: 2rem; */
   justify-content: center;
   overflow: hidden;
   border-top: 1px solid #5e5e5e;
   border-bottom: 1px solid #5e5e5e;
   @media (max-width: 600px) {
     width: 100vw;
-    /* margin: 2rem 0; */
   }
 `;
 
-const InnerContainer = styled.div`
+const InnerContainer = styled.div<{ visible: boolean }>`
   height: 37.5rem;
   margin: 0 auto;
+  display: ${({ visible }) => (visible ? "block" : "none")};
 `;
-
 const Navigations = styled.div`
   display: flex;
   justify-content: space-between;
