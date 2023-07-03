@@ -26,30 +26,28 @@ export default function productCard({
       <StyledImage src={image} alt={product_name} key={index} />
       <ProductText>
         <Title>{product_name}</Title>
-        <span>
-          <span>Reviews </span>
-
-          <span>{reviews.average_rating}</span>
-        </span>
         <Review>
-          <Rating
-            name={`rating-${index}`}
-            value={parseFloat(reviews.average_rating.toFixed(1))}
-            precision={0.5}
-            readOnly
-            sx={{
-              "& .MuiRating-iconFilled": {
-                color: "#555555",
-              },
-              "& .MuiRating-iconHover": {
-                color: "pink",
-              },
-              "& .MuiRating-icon SVG": {
-                color: "#555",
-              },
-            }}
-          />
+          <span>Reviews </span>
+          <TotalReviews>({reviews.total_reviews})</TotalReviews>
+          <span>{reviews.average_rating}</span>
         </Review>
+        <Rating
+          name={`rating-${index}`}
+          value={parseFloat(reviews.average_rating.toFixed(1))}
+          precision={0.5}
+          readOnly
+          sx={{
+            "& .MuiRating-iconFilled": {
+              color: "#555555",
+            },
+            "& .MuiRating-iconHover": {
+              color: "pink",
+            },
+            "& .MuiRating-icon SVG": {
+              color: "#555",
+            },
+          }}
+        />
         <p>{product_description}</p>
         <Details>
           {amount.map((size, i) => (
@@ -90,17 +88,16 @@ const Title = styled.h3`
   font-size: 1.25rem;
 `;
 
-const Review = styled.h5`
+const Review = styled.span`
   margin: 0;
   font-size: 0.8rem;
   display: flex;
   align-items: center;
-  gap: 0.1rem;
+  gap: 0.2rem;
+`;
 
-  p {
-    padding-top: 2px;
-    padding-right: 5px;
-  }
+const TotalReviews = styled.p`
+  font-size: 0.6rem;
 `;
 
 const Details = styled.div`
