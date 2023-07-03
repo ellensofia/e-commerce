@@ -2,6 +2,7 @@ import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutl
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import { useState } from "react";
 import styled from "styled-components";
+import { products } from "../../data";
 import image3 from "../images/image3.jpg";
 import image1 from "../images/product1.jpg";
 import image2 from "../images/product2.jpg";
@@ -35,10 +36,10 @@ export default function ProductCarousel() {
     <>
       <OuterBox>
         <InnerContainer>
-          {carouselImages.map((image, index) => (
+          {products.map((product, index) => (
             <ProductCard
               key={index}
-              image={image}
+              product={product}
               currentItemIndex={currentItemIndex}
               index={index}
             />
@@ -59,13 +60,11 @@ export default function ProductCarousel() {
 
 const OuterBox = styled.div`
   position: relative;
-  display: flex;
-  width: 90vw;
+  width: 100%;
   align-items: center;
   margin: 2rem;
   justify-content: center;
   overflow: hidden;
-  flex-direction: column;
   border-top: 1px solid #5e5e5e;
   border-bottom: 1px solid #5e5e5e;
   @media (max-width: 600px) {
@@ -76,9 +75,8 @@ const OuterBox = styled.div`
 
 const InnerContainer = styled.div`
   height: 37.5rem;
-  width: 70%;
   margin: 0 auto;
-  padding: 0 15rem;
+  padding-right: 10%;
 `;
 
 const Navigations = styled.div`

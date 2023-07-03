@@ -1,61 +1,67 @@
 import StarIcon from "@mui/icons-material/Star";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import styled from "styled-components";
-interface Props {
-  image: string;
+import { Product } from "../../data";
+export interface Props {
+  product: Product;
   currentItemIndex: number;
   index: number;
 }
 
-export default function productCard({ image, currentItemIndex, index }: Props) {
+export default function productCard({
+  product,
+  currentItemIndex,
+  index,
+}: Props) {
+  const { image, product_name, price, reviews, product_description, amount } =
+    product;
+
   return (
     <StyledCarouselItem
-      key={index}
+      index={index}
       style={{
-        transform: `translateX(${(index - currentItemIndex) * 80}%)`,
+        transform: `translateX(${(index - currentItemIndex) * 100}%)`,
         transition: "transform 1.6s ease-in-out",
       }}
     >
-      <StyledImage src={image} alt={image} key={index} />
+      <StyledImage src={image} alt={product_name} key={index} />
       <ProductText>
-        <Title>Exfoliating serum 10% glycolic acid</Title>
+        <Title>{product_name}</Title>
         <Review>
           <p>Reviews</p>
           <StarIcon /> <StarIcon />
           <StarIcon />
           <StarBorderIcon /> <StarBorderIcon />
         </Review>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-          molestiae molestias recusandae, aliquam quibusdam praesentium beatae
-          illo aspernatur mollitia unde dolore inventore at, dolor eum et
-          doloremque numquam ea nemo.
-        </p>
+        <p>{product_description}</p>
         <Details>
-          <span>15ml</span>
-          <span>30ml</span>
+          {amount.map((size, i) => (
+            <span key={i}>{size}</span>
+          ))}
         </Details>
-
+        <span>{price}EUR</span>
         <Button>Buy</Button>
       </ProductText>
     </StyledCarouselItem>
   );
 }
 
-const StyledCarouselItem = styled.div`
+const StyledCarouselItem = styled.div<{ index: number }>`
   position: absolute;
   height: 100%;
-  width: 100%;
+  width: 65%;
   overflow: hidden;
   display: flex;
-  gap: 20%;
   align-items: center;
+  padding-left: 10%;
+  display: flex;
+  gap: 2rem;
 `;
 
 const ProductText = styled.div`
-  max-width: 400px;
-  padding: 1rem;
+  padding: 1rem 6rem 1rem 1rem;
   display: flex;
+  max-width: 36rem;
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
