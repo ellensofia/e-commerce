@@ -45,6 +45,7 @@ export default function productCard({
             },
             "& .MuiRating-icon SVG": {
               color: "#555",
+              fontSize: "0.8rem",
             },
           }}
         />
@@ -71,21 +72,38 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   padding-left: 10%;
   display: flex;
   gap: 2rem;
+  @media (max-width: 1090px) {
+    width: 75%;
+    gap: 1rem;
+  }
 `;
 
 const ProductText = styled.div`
-  padding: 1rem 6rem 1rem 1rem;
   display: flex;
   max-width: 36rem;
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
   color: #505050;
+  @media (max-width: 1090px) {
+    font-size: 0.8rem;
+
+    p {
+      max-height: 4rem;
+      overflow: hidden;
+    }
+  }
 `;
 
 const Title = styled.h3`
   margin: 0;
   font-size: 1.25rem;
+  @media (max-width: 1090px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 900px) {
+    font-size: 0.85rem;
+  }
 `;
 
 const Review = styled.span`
@@ -121,8 +139,10 @@ const StyledImage = styled.img`
   max-height: 25.25rem;
   object-fit: cover;
   position: relative;
-  padding: 2rem;
-  @media (max-width: 1090px) {
+  /* @media (max-width: 1090px) {
     width: 25%;
+  } */
+  @media (max-width: 1090px) {
+    width: 45%;
   }
 `;
