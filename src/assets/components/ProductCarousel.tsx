@@ -62,14 +62,14 @@ const OuterBox = styled.div`
   position: relative;
   width: 100%;
   align-items: center;
-  margin: 2rem;
+  /* margin: 2rem; */
   justify-content: center;
   overflow: hidden;
   border-top: 1px solid #5e5e5e;
   border-bottom: 1px solid #5e5e5e;
   @media (max-width: 600px) {
     width: 100vw;
-    margin: 2rem 0;
+    /* margin: 2rem 0; */
   }
 `;
 
@@ -95,6 +95,5 @@ const StyledButton = styled.button`
   cursor: pointer;
   position: relative;
   color: #333;
-  border: 1px solid #fff;
   background: transparent;
 `;

@@ -69,8 +69,14 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding-left: 10%;
+  padding-left: 6%;
   display: flex;
+  padding-right: 3%;
+  margin-left: 6%;
+  /* border-right: 1px solid #333; */
+  border-left: 1px solid #333;
+  border-collapse: collapse;
+
   gap: 2rem;
   @media (max-width: 1090px) {
     width: 75%;
@@ -87,7 +93,6 @@ const ProductText = styled.div`
   color: #505050;
   @media (max-width: 1090px) {
     font-size: 0.8rem;
-
     p {
       max-height: 4rem;
       overflow: hidden;
