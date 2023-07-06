@@ -4,16 +4,16 @@ import BurgerMenu from "./BurgerMenu";
 import SearchBar from "./SearchBar";
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenuOpen = () => {
-    setMenuOpen((prevMenuOpen) => !prevMenuOpen);
+  const [menuopen, setMenuopen] = useState("false");
+  const toggleMenuopen = () => {
+    setMenuopen((prevMenuopen) => (prevMenuopen === "true" ? "false" : "true"));
   };
 
   return (
     <StyledHeader>
       <Logotype>Logotype</Logotype>
       <nav>
-        <StyledMiddle menuOpen={menuOpen}>
+        <StyledMiddle menuopen={menuopen}>
           <StyledListItem>
             <a href="">Home</a>
           </StyledListItem>
@@ -36,7 +36,7 @@ export default function Header() {
             throw new Error("Function not implemented.");
           }}
         ></SearchBar>
-        <BurgerMenu onClick={toggleMenuOpen} menuOpen={menuOpen} />
+        <BurgerMenu onClick={toggleMenuopen} menuopen={"true"} />
       </StyledRight>
     </StyledHeader>
   );
@@ -66,7 +66,7 @@ const StyledListItem = styled.li`
   }
 `;
 
-const StyledMiddle = styled.ul<{ menuOpen: boolean }>`
+const StyledMiddle = styled.ul<{ menuopen: string }>`
   display: flex;
   gap: 2.6rem;
   padding: 0;
@@ -86,12 +86,13 @@ const StyledMiddle = styled.ul<{ menuOpen: boolean }>`
     justify-content: center;
     gap: 1rem;
     z-index: 100;
-    max-height: ${({ menuOpen }) => (menuOpen ? "800px" : "0")};
-    display: ${({ menuOpen }) => (menuOpen ? "flex" : "none")};
-    position: ${({ menuOpen }) => (menuOpen ? "absolute" : "unset")};
-    background-color: ${({ menuOpen }) => (menuOpen ? "#fff" : "unset")};
-    width: ${({ menuOpen }) => (menuOpen ? "100%" : "unset")};
-    padding: ${({ menuOpen }) => (menuOpen ? "3rem 0" : "0")};
+    max-height: ${({ menuopen }) => (menuopen === "true" ? "800px" : "0")};
+    display: ${({ menuopen }) => (menuopen === "true" ? "flex" : "none")};
+    position: ${({ menuopen }) => (menuopen === "true" ? "absolute" : "unset")};
+    background-color: ${({ menuopen }) =>
+      menuopen === "true" ? "#fff" : "unset"};
+    width: ${({ menuopen }) => (menuopen === "true" ? "100%" : "unset")};
+    padding: ${({ menuopen }) => (menuopen === "true" ? "3rem 0" : "0")};
     overflow: hidden;
     transition: max-height 0.3s ease;
   }
