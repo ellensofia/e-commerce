@@ -84,7 +84,12 @@ const InnerContainer = styled.div<{ visible: boolean }>`
   height: 37.5rem;
   margin: 0 auto;
   display: ${({ visible }) => (visible ? "block" : "none")};
+
+  @media (max-width: 600px) {
+    height: 25.5rem;
+  }
 `;
+
 const Navigations = styled.div`
   display: flex;
   justify-content: space-between;

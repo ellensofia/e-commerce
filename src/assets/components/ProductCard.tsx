@@ -73,11 +73,15 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   display: flex;
   padding-right: 3%;
   margin-left: 6%;
-  /* border-right: 1px solid #333; */
   border-left: 1px solid #333;
   border-collapse: collapse;
 
   gap: 2rem;
+
+  &:last-of-type {
+    border-right: 1px solid #333;
+  }
+
   @media (max-width: 1090px) {
     width: 75%;
     gap: 1rem;
@@ -93,9 +97,13 @@ const ProductText = styled.div`
   color: #505050;
   @media (max-width: 1090px) {
     font-size: 0.8rem;
+    gap: 0.6rem;
     p {
       max-height: 4rem;
       overflow: hidden;
+      @media (max-width: 900px) {
+        font-size: 0.75rem;
+      }
     }
   }
 `;
@@ -107,7 +115,7 @@ const Title = styled.h3`
     font-size: 1rem;
   }
   @media (max-width: 900px) {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 `;
 
@@ -132,11 +140,10 @@ const Details = styled.div`
 `;
 
 const Button = styled.button`
-  padding: 0.8rem 1.8rem;
+  /* padding: 0.8rem 1.8rem; */
   border: 1px solid #333;
   width: fit-content;
   border-radius: 2rem;
-  font-size: 1.25;
   background-color: #fff;
 `;
 
@@ -144,10 +151,10 @@ const StyledImage = styled.img`
   max-height: 25.25rem;
   object-fit: cover;
   position: relative;
-  /* @media (max-width: 1090px) {
+  @media (max-width: 900px) {
     width: 25%;
-  } */
+  }
   @media (max-width: 1090px) {
-    width: 45%;
+    width: 40%;
   }
 `;
