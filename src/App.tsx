@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Categories from "./assets/components/Categories";
+import CustomerPick from "./assets/components/CustomerPick";
 import Footer from "./assets/components/Footer";
 import Header from "./assets/components/Header";
 import Hero from "./assets/components/Hero";
@@ -60,6 +61,7 @@ export default function App() {
       <StyledLayout>
         <ProductCarousel />
       </StyledLayout>
+      <CustomerPick />
       <Categories />
       <Footer />
     </>
@@ -70,7 +72,6 @@ const StyledLayout = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 57px);
 `;
 
 const StoryList = styled.div`
