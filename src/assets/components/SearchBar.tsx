@@ -1,5 +1,5 @@
 import SearchIcon from "@mui/icons-material/Search";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 interface Props {
@@ -8,18 +8,38 @@ interface Props {
 }
 
 export default function SearchBar({ keyword, onChange }: Props) {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isexpanded, setIsexpanded] = useState(false);
+  const searchFieldRef = useRef<HTMLDivElement>(null);
 
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        searchFieldRef.current &&
+        !searchFieldRef.current.contains(event.target as Node)
+      ) {
+        setIsexpanded(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const handleSearchFocus = () => {
+    setIsexpanded(true);
   };
 
   return (
-    <SearchField isExpanded={isExpanded}>
-      <SearchIconWrapper onClick={handleToggle} isExpanded={isExpanded}>
+    <SearchField isexpanded={isexpanded.toString()} ref={searchFieldRef}>
+      <SearchIconWrapper
+        onClick={handleSearchFocus}
+        isexpanded={isexpanded.toString()}
+      >
         <SearchIcon />
       </SearchIconWrapper>
-      {isExpanded && (
+      {isexpanded && (
         <StyledInputBase
           placeholder="Search…"
           aria-label="search"
@@ -31,26 +51,22 @@ export default function SearchBar({ keyword, onChange }: Props) {
   );
 }
 
-const SearchField = styled.div<{ isExpanded: boolean }>`
+const SearchField = styled.div<{ isexpanded: string }>`
   position: relative;
   transition: width 0.3s ease;
   margin-right: 1.6rem;
   display: flex;
   align-items: center;
-  width: ${({ isExpanded }) => (isExpanded ? "14rem" : "1.5rem")};
+  width: ${({ isexpanded }) => (isexpanded === "true" ? "14rem" : "1.5rem")};
 
   @media (max-width: 900px) {
-    width: ${({ isExpanded }) => (isExpanded ? "8rem" : "1.5rem")};
-    margin-right: ${({ isExpanded }) => (isExpanded ? "2rem" : "0.6rem")};
-  }
-
-  @media (max-width: 900px) {
-    width: ${({ isExpanded }) => (isExpanded ? "8rem" : "1.5rem")};
-    margin-right: ${({ isExpanded }) => (isExpanded ? "1rem" : "0.6rem")};
+    width: ${({ isexpanded }) => (isexpanded === "true" ? "8rem" : "1.5rem")};
+    margin-right: ${({ isexpanded }) =>
+      isexpanded === "true" ? "1rem" : "0.6rem"};
   }
 `;
 
-const SearchIconWrapper = styled.button<{ isExpanded: boolean }>`
+const SearchIconWrapper = styled.button<{ isexpanded: string }>`
   background: none;
   display: flex;
   align-items: center;
@@ -61,7 +77,6 @@ const SearchIconWrapper = styled.button<{ isExpanded: boolean }>`
   z-index: 10;
   transition: width 0.3s ease;
   padding: 0;
-  right: ${({ isExpanded }) => (isExpanded ? "-.4rem" : "0rem")};
 `;
 
 const StyledInputBase = styled.input`
