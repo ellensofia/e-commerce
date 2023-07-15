@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
-import Categories from "./assets/components/Categories";
-import CustomerPick from "./assets/components/CustomerPick";
 import Footer from "./assets/components/Footer";
 import Header from "./assets/components/Header";
-import Hero from "./assets/components/Hero";
-import ProductCarousel from "./assets/components/ProductCarousel";
 interface Story {
   points: number;
   title: string;
@@ -56,22 +53,20 @@ export default function App() {
   }, []);
   return (
     <>
-      <Header />
-      <Hero />
       <StyledLayout>
-        <ProductCarousel />
+        <Header />
+        <Outlet />
+        <Footer />
       </StyledLayout>
-      <CustomerPick />
-      <Categories />
-      <Footer />
     </>
   );
 }
 
 const StyledLayout = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 `;
 
 const StoryList = styled.div`

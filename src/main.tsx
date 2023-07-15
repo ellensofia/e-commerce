@@ -8,13 +8,18 @@ import {
 } from "react-router-dom";
 import App from "./App.tsx";
 import AboutPage from "./assets/pages/AboutPage.tsx";
+import ShopPage from "./assets/pages/ShopPage.tsx";
+import SingleProductPage from "./assets/pages/SingleProductPage.tsx";
+import StartPage from "./assets/pages/StartPage.tsx";
 import "./index.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
-      <Route index element={<App />} />
+    <Route path="/" element={<App />}>
+      <Route index element={<StartPage />} />
       <Route path="/about" element={<AboutPage />} />
+      <Route path="/shop" element={<ShopPage />} />
+      <Route path="/shop/:id" element={<SingleProductPage />} />
     </Route>
   )
 );
