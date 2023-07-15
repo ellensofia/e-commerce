@@ -7,7 +7,7 @@ export default function CustomerPick() {
       <InnerBox>
         <img src={image1} alt="" />
         <TextBox>
-          <CustomerTitle>Get the customers favorites</CustomerTitle>
+          <CustomerTitle>Loved by Skincare Enthusiasts</CustomerTitle>
           <ul>
             <li>
               <p>1</p>
@@ -37,9 +37,6 @@ const OuterBox = styled.div`
   width: 100%;
   padding: 2rem 0;
   background-color: #f8f8f7;
-  /* @media (max-width: 600px) {
-    width: 90vw;
-  } */
 `;
 
 const InnerBox = styled.div`
@@ -50,6 +47,19 @@ const InnerBox = styled.div`
   & img {
     width: 40%;
     object-fit: contain;
+    @media (max-width: 900px) {
+      width: 30%;
+    }
+  }
+  @media (max-width: 900px) {
+    gap: 1rem;
+  }
+  @media (max-width: 600px) {
+    & img {
+      width: 80%;
+    }
+    flex-wrap: wrap;
+    padding: 1rem;
   }
 `;
 
@@ -57,23 +67,33 @@ const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 200px;
 
   p:first-of-type {
     padding-right: 1rem;
     height: 100%;
     width: 2rem;
-    /* font-size: theme.responsiveSty */
-
     font-size: 1.8rem;
+    @media (max-width: 900px) {
+      font-size: 1rem;
+      padding-right: 0.5rem;
+    }
   }
 
+  p {
+    @media (max-width: 900px) {
+      font-size: 0.8rem;
+    }
+  }
   ul {
     padding: 1rem 0 0 0;
+    padding: 1rem;
     list-style: none;
   }
 
   li {
     padding-bottom: 2rem;
+    align-items: center;
     position: relative;
     display: flex;
 
@@ -94,4 +114,8 @@ const CustomerTitle = styled.h2`
   font-size: 1.5rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid #afafaf;
+  @media (max-width: 900px) {
+    padding-bottom: 1rem;
+    font-size: 1.25rem;
+  }
 `;

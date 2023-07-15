@@ -95,7 +95,7 @@ const Title = styled.h4`
   color: #333;
   font-size: 1.25rem;
 
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     font-size: 1rem;
   }
 `;
@@ -160,7 +160,7 @@ const Button = styled.button`
 const Text = styled.p`
   color: #333;
   font-size: 1rem;
-  @media (max-width: 600px) {
+  @media (max-width: 900px) {
     font-size: 0.8rem;
   }
 `;
@@ -175,7 +175,7 @@ const Link = styled.a`
     color: black;
     text-decoration: underline;
   }
-  @media (max-width: 600px) {
-    font-size: 0.8rem;
+  @media (max-width: 900px) {
+    font-size: 0.75rem;
   }
 `;
