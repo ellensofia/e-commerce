@@ -1,14 +1,21 @@
 import SearchIcon from "@mui/icons-material/Search";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 interface Props {
   keyword: string;
   onChange: (keyword: string) => void;
+  isExpanded: boolean;
+  setIsexpanded: (isExpanded: boolean) => void;
 }
 
-export default function SearchBar({ keyword, onChange }: Props) {
-  const [isexpanded, setIsexpanded] = useState(false);
+export default function SearchBar({
+  keyword,
+  onChange,
+  isExpanded,
+  setIsexpanded,
+}: Props) {
+  //   const [isexpanded, setIsexpanded] = useState(false);
   const searchFieldRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,60 +39,86 @@ export default function SearchBar({ keyword, onChange }: Props) {
   };
 
   return (
-    <SearchField isexpanded={isexpanded.toString()} ref={searchFieldRef}>
-      <SearchIconWrapper
-        onClick={handleSearchFocus}
-        isexpanded={isexpanded.toString()}
-      >
-        <SearchIcon />
-      </SearchIconWrapper>
-      {isexpanded && (
-        <StyledInputBase
-          placeholder="Search…"
-          aria-label="search"
-          key="search-bar"
-          onChange={(e) => onChange(e.target.value)}
-        />
-      )}
+    <SearchField isexpanded={isExpanded.toString()} ref={searchFieldRef}>
+      <SearchFieldInner>
+        {isExpanded && (
+          <StyledInput
+            isexpanded={isExpanded.toString()}
+            placeholder="Search…"
+            aria-label="search"
+            key="search-bar"
+            onChange={(e) => onChange(e.target.value)}
+          />
+        )}
+        <SearchIconBtn
+          onClick={handleSearchFocus}
+          isexpanded={isExpanded.toString()}
+        >
+          <SearchIcon />
+        </SearchIconBtn>
+      </SearchFieldInner>
     </SearchField>
   );
 }
 
-const SearchField = styled.div<{ isexpanded: string }>`
+const SearchField = styled.div<{ isexpanded?: string }>`
   position: relative;
   transition: width 0.3s ease;
-  margin-right: 1.6rem;
   display: flex;
   align-items: center;
-  width: ${({ isexpanded }) => (isexpanded === "true" ? "14rem" : "1.5rem")};
 
-  @media (max-width: 900px) {
-    width: ${({ isexpanded }) => (isexpanded === "true" ? "8rem" : "1.5rem")};
-    margin-right: ${({ isexpanded }) =>
-      isexpanded === "true" ? "1rem" : "0.6rem"};
+  @media (max-width: 400px) {
+    ${({ isexpanded }) =>
+      isexpanded === "true"
+        ? `
+      top: 3.4rem;
+      position: fixed;
+      background-color: white;
+      left: 0;
+      width: 88%;
+      z-index: 999;
+      padding: 1.6rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    `
+        : ""}
+    > div:first-of-type {
+      position: absolute;
+    }
   }
 `;
 
-const SearchIconWrapper = styled.button<{ isexpanded: string }>`
-  background: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  width: fit-content;
-  right: -0.4rem;
-  z-index: 10;
-  transition: width 0.3s ease;
-  padding: 0;
+const SearchFieldInner = styled.div<{ isexpanded?: string }>`
+  @media (max-width: 400px) {
+    > div:first-of-type {
+      position: absolute;
+    }
+  }
 `;
 
-const StyledInputBase = styled.input`
+const StyledInput = styled.input<{ isexpanded: string }>`
   padding-left: 0.4rem;
   padding: 0.4rem 0.4rem;
   border-radius: 2rem;
   border: 0.075rem solid #333;
   transition: width 0.3s ease;
-  width: 100%;
-  border-radius: 2rem;
+  position: relative;
+  width: 8rem;
+`;
+
+const SearchIconBtn = styled.button<{ isexpanded: string }>`
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
+  transition: width 0.3s ease;
+  padding: 0;
+  ${({ isexpanded }) =>
+    isexpanded === "true"
+      ? `
+        right: .4rem;
+        top: .1rem; `
+      : `
+        right: 0rem;
+        top: -.8rem;`}
 `;
