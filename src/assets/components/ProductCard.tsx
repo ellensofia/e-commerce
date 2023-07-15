@@ -79,13 +79,12 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding-left: 6%;
+  padding-left: 3%;
   display: flex;
-  padding-right: 3%;
-  margin-left: 6%;
+  padding-right: 6%;
+  margin-left: 8%;
   border-left: 1px solid #333;
   border-collapse: collapse;
-
   gap: 2rem;
 
   &:last-of-type {
@@ -93,8 +92,12 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   }
 
   @media (max-width: 1090px) {
-    width: 75%;
+    width: 70%;
     gap: 1rem;
+  }
+  @media (max-width: 600px) {
+    gap: 0rem;
+    width: 75%;
   }
 `;
 
@@ -108,6 +111,28 @@ const ProductText = styled.div`
   @media (max-width: 1090px) {
     font-size: 0.8rem;
     gap: 0.6rem;
+  }
+
+  @media (max-width: 600px) {
+    gap: 0.4rem;
+  }
+`;
+
+const Review = styled.span`
+  margin: 0;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  @media (max-width: 900px) {
+    font-size: 0.7rem;
+  }
+`;
+
+const TotalReviews = styled.p`
+  font-size: 0.6rem;
+  @media (max-width: 900px) {
+    font-size: 0.55rem;
   }
 `;
 
@@ -149,18 +174,6 @@ const ShowMoreBtn = styled.button`
   }
 `;
 
-const Review = styled.span`
-  margin: 0;
-  font-size: 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
-`;
-
-const TotalReviews = styled.p`
-  font-size: 0.6rem;
-`;
-
 const Details = styled.div`
   margin: 0;
   font-size: 0.781rem;
@@ -170,7 +183,6 @@ const Details = styled.div`
 `;
 
 const Button = styled.button`
-  /* padding: 0.8rem 1.8rem; */
   border: 1px solid #333;
   width: fit-content;
   border-radius: 2rem;
@@ -181,9 +193,7 @@ const StyledImage = styled.img`
   max-height: 25.25rem;
   object-fit: cover;
   position: relative;
-  @media (max-width: 900px) {
-    width: 25%;
-  }
+
   @media (max-width: 1090px) {
     width: 40%;
   }

@@ -101,29 +101,29 @@ const NavigationsLeft = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 0;
+  left: 1rem;
   z-index: 1;
+  @media (max-width: 600px) {
+    left: 0rem;
+  }
 `;
 
 const NavigationsRight = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 0;
+  right: 1rem;
   z-index: 1;
+  @media (max-width: 600px) {
+    right: 0rem;
+  }
 `;
 
 const StyledButton = styled.button`
-  padding: 1rem;
+  padding: 0rem;
   font-size: 2rem;
   cursor: pointer;
   position: relative;
   color: #333;
   background: transparent;
-  &.left {
-    left: 0;
-  }
-  &.right {
-    right: 0;
-  }
 `;

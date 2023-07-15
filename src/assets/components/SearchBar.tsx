@@ -75,14 +75,17 @@ const SearchField = styled.div<{ isexpanded?: string }>`
       position: fixed;
       background-color: white;
       left: 0;
-      width: 88%;
+      width: 100%;
       z-index: 999;
-      padding: 1.6rem;
+      padding: 1.6rem 1rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     `
         : ""}
     > div:first-of-type {
       position: absolute;
+      input {
+        /* width: 15rem; */
+      }
     }
   }
 `;
