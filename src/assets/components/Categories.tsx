@@ -1,38 +1,53 @@
+import { Container } from "@mui/material";
 import styled from "styled-components";
-import img1 from "../images/cateory-img1.jpg";
-import img2 from "../images/cateory-img2.jpg";
-import img3 from "../images/cateory-img3.jpg";
-import img4 from "../images/cateory-img4.jpg";
+import img1 from "../images/category-img1.jpg";
+import img2 from "../images/category-img2.jpg";
+import img3 from "../images/category-img3.jpg";
+import img4 from "../images/category-img4.jpg";
+import img5 from "../images/category-img5.jpg";
+import img6 from "../images/category-img6.jpg";
 
 export default function Categories() {
   return (
-    <OuterBox>
-      <div>
-        <Title>Categories</Title>
-        <InnerBox>
-          <ImageContainer>
-            <img src={img1} alt="Best sellers" />
-            <Text>Best sellers</Text>
-            <Overlay></Overlay>
-          </ImageContainer>
-          <ImageContainer>
-            <img src={img2} alt="Sensitive skin" />
-            <Text>Sensitive skin</Text>
-            <Overlay></Overlay>
-          </ImageContainer>
-          <ImageContainer>
-            <img src={img3} alt="Best sellers" />
-            <Text>Best sellers</Text>
-            <Overlay></Overlay>
-          </ImageContainer>
-          <ImageContainer>
-            <img src={img4} alt="Eye care" />
-            <Text>Eye care</Text>
-            <Overlay></Overlay>
-          </ImageContainer>
-        </InnerBox>
-      </div>
-    </OuterBox>
+    <Container>
+      <OuterBox>
+        <div>
+          <Title>Categories</Title>
+          <InnerBox>
+            <ImageContainer>
+              <img src={img1} alt="Best sellers" />
+              <Text>Best sellers</Text>
+              <Overlay></Overlay>
+            </ImageContainer>
+            <ImageContainer>
+              <img src={img2} alt="Sensitive skin" />
+              <Text>Sensitive skin</Text>
+              <Overlay></Overlay>
+            </ImageContainer>
+            <ImageContainer>
+              <img src={img3} alt="Best sellers" />
+              <Text>Anti-aging</Text>
+              <Overlay></Overlay>
+            </ImageContainer>
+            <ImageContainer>
+              <img src={img4} alt="Eye care" />
+              <Text>Eye care</Text>
+              <Overlay></Overlay>
+            </ImageContainer>
+            <ImageContainer>
+              <img src={img5} alt="Eye care" />
+              <Text>Sunscreens</Text>
+              <Overlay></Overlay>
+            </ImageContainer>
+            <ImageContainer>
+              <img src={img6} alt="Eye care" />
+              <Text>Body care</Text>
+              <Overlay></Overlay>
+            </ImageContainer>
+          </InnerBox>
+        </div>
+      </OuterBox>
+    </Container>
   );
 }
 
@@ -48,13 +63,13 @@ const OuterBox = styled.div`
 const InnerBox = styled.div`
   align-items: center;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   margin: 0 auto;
   gap: 1rem;
 
-  @media (max-width: 600px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.6rem;
   }
 
   img {
@@ -95,7 +110,7 @@ const Overlay = styled.div`
 
 const Text = styled.p`
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
   position: absolute;
   top: 50%;
   left: 50%;
