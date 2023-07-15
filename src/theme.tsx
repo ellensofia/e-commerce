@@ -5,6 +5,14 @@ import {
   Theme,
 } from "@mui/material";
 
+// Skapa en responsiv fontstorlek baserad på golden ratio
+const goldenRatio = 1.618;
+const baseFontSize = "1rem";
+const generateResponsiveFontSize = (size: number): string => {
+  const fontSize = size * goldenRatio;
+  return `calc(${fontSize} * ${baseFontSize})`;
+};
+
 export let theme: Theme = createTheme({
   breakpoints: {
     values: {
@@ -17,7 +25,7 @@ export let theme: Theme = createTheme({
   },
   typography: {
     fontFamily: [
-      "DM Sans",
+      //   "DM Sans",
       "avenir",
       "-apple-system",
       '"Segoe UI"',
@@ -27,32 +35,32 @@ export let theme: Theme = createTheme({
       "sans-serif",
     ].join(","),
     h1: {
+      fontSize: generateResponsiveFontSize(36), // 36 * golden ratio
       fontWeight: 400,
-      fontSize: "2.25rem",
       color: "black",
     },
     h2: {
+      fontSize: generateResponsiveFontSize(32), // 32 * golden ratio
       fontWeight: 400,
-      fontSize: "2rem",
     },
     h3: {
-      fontSize: "1.75rem",
+      fontSize: generateResponsiveFontSize(28), // 28 * golden ratio
     },
     h4: {
-      fontSize: "1.5rem",
+      fontSize: generateResponsiveFontSize(24), // 24 * golden ratio
       fontWeight: 500,
     },
     h5: {
-      fontSize: "1.25rem",
+      fontSize: generateResponsiveFontSize(20), // 20 * golden ratio
     },
     h6: {
-      fontSize: "1rem",
+      fontSize: generateResponsiveFontSize(16), // 16 * golden ratio
     },
     body1: {
-      fontSize: "20px",
+      fontSize: generateResponsiveFontSize(20), // 20 * golden ratio
       color: "#4f4f4f",
       "@media (max-width: 600px)": {
-        fontSize: "16px",
+        fontSize: generateResponsiveFontSize(16), // 16 * golden ratio
       },
     },
   },
@@ -83,10 +91,12 @@ export let theme: Theme = createTheme({
   },
   shadows: Array(25).fill("none") as Shadows,
 });
+
+// Gör temat responsivt
 theme = responsiveFontSizes(theme, {
   breakpoints: ["sm", "md", "lg"],
   factor: 1.75,
-  variants: ["h1", "h2", "h3", "h4", "h5", "h6"],
+  variants: ["h1", "h2", "h3", "h4", "h5", "h6", "body1", "body2"],
 });
 
 declare module "@mui/material/styles" {
