@@ -12,8 +12,10 @@ export interface Product {
   image: string;
 }
 
-import image1 from "../src/assets/images/product1.jpg";
-import image2 from "../src/assets/images/product2.jpg";
+import image1 from "../src/assets/images/cleanser.png";
+import image3 from "../src/assets/images/cleanser2.png";
+import image2 from "../src/assets/images/oasis-try-serum.png";
+import image4 from "../src/assets/images/tube.png";
 
 export const products: Product[] = [
   {
@@ -59,7 +61,7 @@ export const products: Product[] = [
       average_rating: 4.7,
       total_reviews: 32,
     },
-    image: image1,
+    image: image3,
   },
   {
     id: "4",
@@ -74,7 +76,7 @@ export const products: Product[] = [
       average_rating: 4.8,
       total_reviews: 27,
     },
-    image: image1,
+    image: image4,
   },
   {
     id: "5",
@@ -104,7 +106,7 @@ export const products: Product[] = [
       average_rating: 4.4,
       total_reviews: 22,
     },
-    image: image2,
+    image: image3,
   },
   {
     id: "7",
@@ -134,6 +136,6 @@ export const products: Product[] = [
       average_rating: 4.3,
       total_reviews: 16,
     },
-    image: image1,
+    image: image3,
   },
 ];
