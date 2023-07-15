@@ -32,7 +32,7 @@ export default function ProductCarousel() {
   const shouldShowSecondContainer = currentItemIndex >= products.length;
 
   return (
-    <>
+    <CarouselContainer>
       <OuterBox>
         <InnerContainer visible={!shouldShowSecondContainer}>
           {products.map((product, index) => (
@@ -54,21 +54,22 @@ export default function ProductCarousel() {
             />
           ))}
         </InnerContainer>
-        <Navigations>
-          <StyledButton onClick={() => navigate("left")}>
-            <ArrowBackIosNewOutlinedIcon />
-          </StyledButton>
-          <StyledButton onClick={() => navigate("right")}>
-            <ArrowForwardIosOutlinedIcon />
-          </StyledButton>
-        </Navigations>
       </OuterBox>
-    </>
+      <NavigationsLeft>
+        <StyledButton onClick={() => navigate("left")}>
+          <ArrowBackIosNewOutlinedIcon />
+        </StyledButton>
+      </NavigationsLeft>
+      <NavigationsRight>
+        <StyledButton onClick={() => navigate("right")}>
+          <ArrowForwardIosOutlinedIcon />
+        </StyledButton>
+      </NavigationsRight>
+    </CarouselContainer>
   );
 }
 
 const OuterBox = styled.div`
-  position: relative;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -78,6 +79,11 @@ const OuterBox = styled.div`
   @media (max-width: 600px) {
     width: 100vw;
   }
+`;
+
+const CarouselContainer = styled.div`
+  position: relative;
+  width: 100%;
 `;
 
 const InnerContainer = styled.div<{ visible: boolean }>`
@@ -90,13 +96,18 @@ const InnerContainer = styled.div<{ visible: boolean }>`
   }
 `;
 
-const Navigations = styled.div`
-  display: flex;
-  justify-content: space-between;
+const NavigationsLeft = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 0;
+  z-index: 1;
+`;
+
+const NavigationsRight = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   right: 0;
   z-index: 1;
 `;
@@ -108,4 +119,10 @@ const StyledButton = styled.button`
   position: relative;
   color: #333;
   background: transparent;
+  &.left {
+    left: 0;
+  }
+  &.right {
+    right: 0;
+  }
 `;

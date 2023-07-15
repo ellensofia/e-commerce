@@ -1,4 +1,5 @@
 import { Rating } from "@mui/material";
+import { useState } from "react";
 import styled from "styled-components";
 import { Product } from "../../data";
 export interface Props {
@@ -14,6 +15,8 @@ export default function productCard({
 }: Props) {
   const { image, product_name, price, reviews, product_description, amount } =
     product;
+
+  const [showFullDescription, setShowFullDescription] = useState(false);
 
   return (
     <StyledCarouselItem
@@ -49,7 +52,14 @@ export default function productCard({
             },
           }}
         />
-        <p>{product_description}</p>
+        <ProductDescription showFullDescription={showFullDescription}>
+          {product_description}
+        </ProductDescription>
+        <ShowMoreBtn
+          onClick={() => setShowFullDescription((prevState) => !prevState)}
+        >
+          {showFullDescription ? "Show Less" : "Show More"}
+        </ShowMoreBtn>
         <Details>
           {amount.map((size, i) => (
             <span key={i}>{size}</span>
@@ -98,13 +108,6 @@ const ProductText = styled.div`
   @media (max-width: 1090px) {
     font-size: 0.8rem;
     gap: 0.6rem;
-    p {
-      max-height: 4rem;
-      overflow: hidden;
-      @media (max-width: 900px) {
-        font-size: 0.75rem;
-      }
-    }
   }
 `;
 
@@ -116,6 +119,33 @@ const Title = styled.h3`
   }
   @media (max-width: 900px) {
     font-size: 0.75rem;
+  }
+`;
+
+const ProductDescription = styled.p<{ showFullDescription: boolean }>`
+  @media (max-width: 900px) {
+    font-size: 0.75rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: ${({ showFullDescription }) =>
+      showFullDescription ? "visible" : "hidden"};
+    -webkit-line-clamp: ${({ showFullDescription }) =>
+      showFullDescription ? "" : "3"};
+    text-overflow: ellipsis;
+  }
+`;
+
+const ShowMoreBtn = styled.button`
+  width: fit-content;
+  font-size: 0.6rem;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  display: none;
+
+  @media (max-width: 900px) {
+    display: block;
   }
 `;
 
