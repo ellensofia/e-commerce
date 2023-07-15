@@ -1,29 +1,32 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
+import LogoImg from "./../../assets/images/oasis-logo.png";
 import BurgerMenu from "./BurgerMenu";
 import SearchBar from "./SearchBar";
 
 export default function Header() {
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
+  const [menuopen, setMenuopen] = useState("false");
 
-  const [menuOpen, setMenuopen] = useState("false");
   const toggleMenuopen = () => {
     setMenuopen((prevMenuopen) => (prevMenuopen === "true" ? "false" : "true"));
   };
 
   return (
     <StyledHeader>
-      <Logotype>
-        {/* <img src={LogoImg} alt="" /> */}
-        Oasis
-      </Logotype>
+      <NavLink to={"/"}>
+        <Logotype>
+          <img src={LogoImg} alt="" />
+        </Logotype>
+      </NavLink>
       <nav>
-        <StyledMiddle menuopen={menuOpen}>
+        <StyledMiddle menuopen={menuopen}>
           <StyledListItem>
-            <a href="">Shop</a>
+            <NavLink to={"/shop"}>Shop</NavLink>
           </StyledListItem>
           <StyledListItem>
-            <a href="">About</a>
+            <NavLink to={"/about"}>About</NavLink>
           </StyledListItem>
           <StyledListItem>
             <a href="">Contact</a>
@@ -43,7 +46,7 @@ export default function Header() {
             throw new Error("Function not implemented.");
           }}
         ></SearchBar>
-        <BurgerMenu onClick={toggleMenuopen} menuOpen={menuOpen} />
+        <BurgerMenu onClick={toggleMenuopen} menuopen={menuopen} />
       </StyledRight>
     </StyledHeader>
   );
@@ -112,12 +115,11 @@ const StyledMiddle = styled.ul<{ menuopen: string }>`
   }
 `;
 
-const Logotype = styled.a`
-  font-family: "bugaki";
+const Logotype = styled.p`
   text-transform: uppercase;
-  font-size: 1.2rem;
+  color: #333;
   & img {
-    width: 100px;
+    width: 80px;
   }
 `;
 
@@ -130,6 +132,7 @@ const StyledRight = styled.div<{ isExpanded: string }>`
     color: #333;
     white-space: nowrap;
     font-size: 0.8rem;
-    margin-right: ${({ isExpanded }) => (isExpanded === "true" ? "0" : "1rem")};
+    margin-right: ${({ isExpanded }) =>
+      isExpanded === "true" ? "0" : "1.4rem"};
   }
 `;
