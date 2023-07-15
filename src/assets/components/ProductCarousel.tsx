@@ -84,6 +84,7 @@ const OuterBox = styled.div`
 const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
+  overflow: hidden;
 `;
 
 const InnerContainer = styled.div<{ visible: boolean }>`
