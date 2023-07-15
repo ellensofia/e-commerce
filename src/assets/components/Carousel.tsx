@@ -8,7 +8,7 @@ const images = [image1, image2, image3];
 
 export default function Carousel() {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
-  const [delay, setDelay] = useState(5000);
+  const [delay, setDelay] = useState(8000);
   const [carouselImages, setCarouselImages] = useState(images);
 
   const navigate = (direction: string) => {
@@ -56,6 +56,10 @@ export default function Carousel() {
                 }}
               >
                 <StyledImage src={image} alt={image} key={index} />
+                <TextBox>
+                  <h3>Special offer</h3>
+                  <p>50% off</p>
+                </TextBox>
               </div>
             </StyledCarouselItem>
           ))}
@@ -73,15 +77,32 @@ export default function Carousel() {
 const OuterBox = styled.div`
   position: absolute;
   display: flex;
-  width: 60vw;
+  width: 100vw;
   flex-direction: column;
   @media (max-width: 600px) {
     width: 90vw;
   }
 `;
 
+const TextBox = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.6rem;
+  color: #fff;
+  font-weight: 400;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 600px) {
+    width: 90vw;
+    font-size: 2rem;
+  }
+`;
+
 const InnerContainer = styled.div`
-  height: 50vh;
+  height: 80vh;
   width: 100%;
 `;
 
@@ -93,11 +114,11 @@ const StyledCarouselItem = styled.div`
 `;
 
 const StyledImage = styled.img`
-  width: 60vw;
+  width: 100vw;
   object-fit: cover;
   position: relative;
   max-height: 100%;
-  height: 60vh;
+  height: 80vh;
   @media (max-width: 600px) {
     width: 100%;
   }
