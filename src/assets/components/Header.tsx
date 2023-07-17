@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar";
 
 export default function Header() {
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
-  const [menuopen, setMenuopen] = useState("false");
+  const [menuOpen, setMenuopen] = useState("false");
 
   const toggleMenuopen = () => {
     setMenuopen((prevMenuopen) => (prevMenuopen === "true" ? "false" : "true"));
@@ -21,7 +21,7 @@ export default function Header() {
         </Logotype>
       </NavLink>
       <nav>
-        <StyledMiddle menuopen={menuopen}>
+        <StyledMiddle menuOpen={menuOpen}>
           <StyledListItem>
             <NavLink to={"/shop"}>Shop</NavLink>
           </StyledListItem>
@@ -37,7 +37,16 @@ export default function Header() {
         </StyledMiddle>
       </nav>
       <StyledRight isExpanded={isSearchExpanded.toString()}>
-        <a>My account</a>
+        <a>
+          <span className="material-symbols-outlined account_circle">
+            account_circle
+          </span>
+        </a>
+        <a>
+          <span className="material-symbols-outlined shopping_basket">
+            shopping_basket
+          </span>
+        </a>
         <SearchBar
           keyword={"keyword"}
           isExpanded={isSearchExpanded}
@@ -46,7 +55,7 @@ export default function Header() {
             throw new Error("Function not implemented.");
           }}
         ></SearchBar>
-        <BurgerMenu onClick={toggleMenuopen} menuopen={menuopen} />
+        <BurgerMenu onClick={toggleMenuopen} menuopen={menuOpen} />
       </StyledRight>
     </StyledHeader>
   );
@@ -76,7 +85,7 @@ const StyledListItem = styled.li`
   }
 `;
 
-const StyledMiddle = styled.ul<{ menuopen: string }>`
+const StyledMiddle = styled.ul<{ menuOpen: string }>`
   display: flex;
   gap: 2.6rem;
   padding: 0;
@@ -94,18 +103,17 @@ const StyledMiddle = styled.ul<{ menuopen: string }>`
   @media (max-width: 600px) {
     display: none;
     flex-direction: column;
-    text-decoration: ${({ menuopen }) =>
-      menuopen === "true" ? "underline" : "none"};
+    text-decoration: ${({ menuOpen }) =>
+      menuOpen === "true" ? "underline" : "none"};
     justify-content: center;
-    gap: 1rem;
     z-index: 100;
-    max-height: ${({ menuopen }) => (menuopen === "true" ? "800px" : "0")};
-    display: ${({ menuopen }) => (menuopen === "true" ? "flex" : "none")};
-    position: ${({ menuopen }) => (menuopen === "true" ? "absolute" : "unset")};
-    background-color: ${({ menuopen }) =>
-      menuopen === "true" ? "#fff" : "unset"};
-    width: ${({ menuopen }) => (menuopen === "true" ? "100%" : "unset")};
-    padding: ${({ menuopen }) => (menuopen === "true" ? "3rem 2rem" : "0")};
+    max-height: ${({ menuOpen }) => (menuOpen === "true" ? "800px" : "0")};
+    display: ${({ menuOpen }) => (menuOpen === "true" ? "flex" : "none")};
+    position: ${({ menuOpen }) => (menuOpen === "true" ? "absolute" : "unset")};
+    background-color: ${({ menuOpen }) =>
+      menuOpen === "true" ? "#fff" : "unset"};
+    width: ${({ menuOpen }) => (menuOpen === "true" ? "100%" : "unset")};
+    padding: ${({ menuOpen }) => (menuOpen === "true" ? "3rem 2rem" : "0")};
     overflow: hidden;
     transition: max-height 0.3s ease;
   }
@@ -131,8 +139,10 @@ const StyledRight = styled.div<{ isExpanded: string }>`
   & a {
     color: #333;
     white-space: nowrap;
-    font-size: 0.8rem;
-    margin-right: ${({ isExpanded }) =>
-      isExpanded === "true" ? "0" : "1.4rem"};
+    align-items: center;
+    display: flex;
+  }
+  .shopping_basket {
+    margin-right: ${({ isExpanded }) => (isExpanded === "true" ? "0" : "2rem")};
   }
 `;
