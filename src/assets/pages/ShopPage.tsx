@@ -8,6 +8,7 @@ export default function ShopPage() {
     <Container>
       <InnerContainer>
         <ShopTitle>Shop</ShopTitle>
+        <AllCategories>Filter by category</AllCategories>
         <ProductGrid>
           {products.map((product, index) => (
             <Product key={index} product={product} index={index} />
@@ -19,18 +20,34 @@ export default function ShopPage() {
 }
 
 const InnerContainer = styled.div`
-  margin-top: 9rem;
+  margin-top: 6rem;
 `;
 
 const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin-top: 3rem;
+  margin-top: 2rem;
   gap: 1.6rem;
 `;
 
 const ShopTitle = styled.h1`
   display: flex;
   font-size: 2rem;
-  grid-column: 1/3;
+  margin-bottom: 1rem;
+`;
+
+const AllCategories = styled.span`
+  font-size: 1.2rem;
+  position: relative;
+  color: #333;
+
+  &::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: -0.1rem;
+    background-color: #333;
+    width: 100%;
+    height: 1px;
+  }
 `;
