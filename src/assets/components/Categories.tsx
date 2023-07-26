@@ -35,13 +35,13 @@ export default function Categories() {
               <Overlay></Overlay>
             </ImageContainer>
             <ImageContainer>
-              <img src={img5} alt="Eye care" />
-              <Text>Sunscreens</Text>
+              <img src={img6} alt="Eye care" />
+              <Text>Body care</Text>
               <Overlay></Overlay>
             </ImageContainer>
             <ImageContainer>
-              <img src={img6} alt="Eye care" />
-              <Text>Body care</Text>
+              <img src={img5} alt="Eye care" />
+              <Text>Sunscreens</Text>
               <Overlay></Overlay>
             </ImageContainer>
           </InnerBox>
