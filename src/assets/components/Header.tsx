@@ -73,7 +73,7 @@ const StyledHeader = styled.header`
   align-items: center;
   padding: 1rem 3.6rem 1rem 2rem;
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     padding: 1rem 1rem;
   }
 `;
@@ -92,15 +92,13 @@ const StyledMiddle = styled.ul<{ menuOpen: string }>`
   top: 57px;
   text-transform: uppercase;
   left: 0;
-  padding: 0;
   font-size: 0.85rem;
   transition: 0.3s 0.8s ease;
-
   @media (max-width: 900px) {
     gap: 1rem;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     display: none;
     flex-direction: column;
     text-decoration: ${({ menuOpen }) =>

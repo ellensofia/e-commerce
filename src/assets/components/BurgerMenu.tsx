@@ -54,7 +54,7 @@ const Burger = styled.div<{ menuopen: string }>`
 
   display: none;
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     display: block;
   }
 `;

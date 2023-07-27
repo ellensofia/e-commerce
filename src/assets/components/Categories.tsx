@@ -90,6 +90,7 @@ const ImageContainer = styled.div`
   img {
     width: 100%;
     height: auto;
+    cursor: pointer;
   }
 `;
 const Overlay = styled.div`
@@ -118,6 +119,8 @@ const Text = styled.p`
   transform: translate(-50%, -50%);
   text-transform: uppercase;
   white-space: nowrap;
+  cursor: pointer;
+
   @media (max-width: 700px) {
     font-size: 0.8rem;
   }
@@ -130,6 +133,7 @@ const Title = styled.h3`
   color: #1b1b1b;
   font-size: 2rem;
   margin-bottom: 1rem;
+
   @media (max-width: 600px) {
     font-size: 1.2rem;
   }
