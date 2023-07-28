@@ -1,5 +1,5 @@
 import { Rating } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Product } from "../../data";
@@ -9,9 +9,15 @@ export interface Props {
 }
 
 export default function Product({ product, index }: Props) {
-  const { image, product_name, price, reviews, amount } = product;
+  const { image, product_name, prices, reviews, amount } = product;
 
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [selectedAmountIndex, setSelectedAmountIndex] = useState(0);
+  const [price, setPrice] = useState(prices[selectedAmountIndex]);
+
+  useEffect(() => {
+    setPrice(prices[selectedAmountIndex]);
+  }, [selectedAmountIndex, prices]);
 
   return (
     <OuterBox>
@@ -44,12 +50,16 @@ export default function Product({ product, index }: Props) {
         <NavLink to={"/shop/:id"}>Link</NavLink>
         <ShowMoreBtn
           onClick={() => setShowFullDescription((prevState) => !prevState)}
-        >
-          hej
-        </ShowMoreBtn>
+        ></ShowMoreBtn>
         <Details>
           {amount.map((size, i) => (
-            <span key={i}>{size}</span>
+            <AmountBtn
+              key={i}
+              onClick={() => setSelectedAmountIndex(i)}
+              selected={i === selectedAmountIndex}
+            >
+              <span key={i}>{size}</span>
+            </AmountBtn>
           ))}
         </Details>
         <span>{price}EUR</span>
@@ -111,6 +121,16 @@ const ShowMoreBtn = styled.button`
   padding: 0;
   cursor: pointer;
   text-decoration: underline;
+`;
+
+const AmountBtn = styled.button<{ selected: boolean }>`
+  width: fit-content;
+  font-size: 0.6rem;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  cursor: pointer;
+  border-bottom: ${({ selected }) => (selected ? "1px solid black" : "none")};
 `;
 
 const Details = styled.div`
