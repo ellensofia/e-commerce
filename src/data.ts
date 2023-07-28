@@ -51,7 +51,7 @@ export const products: Product[] = [
   {
     id: "3",
     product_name: "Cleansing Gel with Tea Tree Oil",
-    amount: ["15ml 100ml"],
+    amount: ["15ml", "100ml"],
     product_description:
       "A refreshing cleansing gel that effectively removes impurities, excess oil, and makeup without stripping the skin's natural moisture. Enriched with tea tree oil for its antibacterial properties. Leaves the skin feeling clean, balanced, and refreshed.",
     prices: [9.99, 23.5],
