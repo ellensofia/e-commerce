@@ -13,11 +13,12 @@ export default function Product({ product, index }: Props) {
 
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [selectedAmountIndex, setSelectedAmountIndex] = useState(0);
-  const [price, setPrice] = useState(prices[selectedAmountIndex]);
 
   useEffect(() => {
     setPrice(prices[selectedAmountIndex]);
   }, [selectedAmountIndex, prices]);
+
+  const [price, setPrice] = useState(prices[selectedAmountIndex]);
 
   return (
     <OuterBox>
