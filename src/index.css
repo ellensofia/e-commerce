@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -10,6 +10,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --font-primary: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-secondary: "Lao Mn";
+  --clr-light-grey: "#f8f8f7";
+  --clr-medium-grey: "#dfdfdf";
+  --clr-dark-grey: "#333";
+  --clr-black: "#000";
+  --clr-white: "#fff";
+  --clr-accent: "#D8E0BB";
 }
 
 * {
@@ -39,6 +47,21 @@ h1 {
   line-height: 1.1;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-secondary);
+}
+
+a,
+span,
+p {
+  font-family: var(--font-primary);
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -51,11 +74,16 @@ button {
   transition: border-color 0.25s;
 }
 
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0.3, "wght" 100, "GRAD" 50, "opsz" 34;
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+}
+
 @media (max-width: 900px) {
   button {
     font-size: 0.75rem;
     padding: 0.4rem 1.2rem;
-    background-color: red;
   }
 }
 
