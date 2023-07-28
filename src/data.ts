@@ -3,7 +3,7 @@ export interface Product {
   product_name: string;
   amount: string[];
   product_description: string;
-  price: number;
+  prices: number[];
   directions: string;
   reviews: {
     average_rating: number;
@@ -24,7 +24,7 @@ export const products: Product[] = [
     amount: ["15ml"],
     product_description:
       "A powerful serum containing 10% glycolic acid for gentle exfoliation and skin renewal. Helps to improve skin texture, reduce hyperpigmentation, and minimize the appearance of fine lines and wrinkles.",
-    price: 29.99,
+    prices: [29.99],
     directions:
       "Apply a small amount of serum to cleansed skin, avoiding the eye area. Gently massage in circular motions until fully absorbed. Use once or twice a week, depending on your skin's tolerance. Always follow with a moisturizer and sunscreen.",
     reviews: {
@@ -36,10 +36,10 @@ export const products: Product[] = [
   {
     id: "2",
     product_name: "Moisturizing Cream with Hyaluronic Acid",
-    amount: ["30ml", "15ml"],
+    amount: ["15ml", "30ml"],
     product_description:
       "An ultra-hydrating cream enriched with nourishing ingredients like hyaluronic acid and vitamins. Provides long-lasting moisture and helps to improve skin elasticity. Suitable for all skin types.",
-    price: 34.99,
+    prices: [34.99, 49.99],
     directions:
       "After cleansing and applying serum, take a small amount of cream and gently massage it onto the face and neck. Use morning and evening for best results.",
     reviews: {
@@ -51,10 +51,10 @@ export const products: Product[] = [
   {
     id: "3",
     product_name: "Cleansing Gel with Tea Tree Oil",
-    amount: ["15ml"],
+    amount: ["15ml 100ml"],
     product_description:
       "A refreshing cleansing gel that effectively removes impurities, excess oil, and makeup without stripping the skin's natural moisture. Enriched with tea tree oil for its antibacterial properties. Leaves the skin feeling clean, balanced, and refreshed.",
-    price: 19.99,
+    prices: [9.99, 23.5],
     directions:
       "Apply a small amount of gel to damp skin and massage gently in circular motions. Rinse thoroughly with water. Use morning and evening as part of your skincare routine.",
     reviews: {
@@ -69,7 +69,7 @@ export const products: Product[] = [
     amount: ["30ml", "100ml"],
     product_description:
       "A hydrating face mist enriched with pure rosewater to refresh and revitalize the skin. Provides an instant boost of hydration and helps to set makeup. Can be used throughout the day for a quick pick-me-up.",
-    price: 24.99,
+    prices: [24.99, 59.99],
     directions:
       "Hold the bottle a few inches away from the face and mist lightly. Allow the mist to dry naturally or gently pat it into the skin. Use whenever your skin needs a hydration boost.",
     reviews: {
@@ -84,7 +84,7 @@ export const products: Product[] = [
     amount: ["30ml", "60ml"],
     product_description:
       "A nourishing night cream that targets multiple signs of aging, including fine lines, wrinkles, and dullness. Infused with potent antioxidants and peptides to promote skin renewal and improve elasticity.",
-    price: 39.99,
+    prices: [39.99, 62.99],
     directions:
       "Apply a small amount of cream to cleansed face and neck before bedtime. Gently massage in upward motions until fully absorbed. Use every night for best results.",
     reviews: {
@@ -99,7 +99,7 @@ export const products: Product[] = [
     amount: ["30ml"],
     product_description:
       "A brightening serum infused with vitamin C to even out skin tone, reduce dark spots, and enhance radiance. Provides antioxidant protection and boosts collagen production for a youthful complexion.",
-    price: 32.99,
+    prices: [32.99],
     directions:
       "Apply a small amount of serum to cleansed face and neck. Gently pat it into the skin until fully absorbed. Use morning and evening for maximum brightening benefits.",
     reviews: {
@@ -114,7 +114,7 @@ export const products: Product[] = [
     amount: ["150ml"],
     product_description:
       "A soothing gel enriched with aloe vera to calm and hydrate the skin. Helps to relieve redness, irritation, and sunburn. Suitable for sensitive skin.",
-    price: 14.99,
+    prices: [14.99],
     directions:
       "Apply a generous amount of gel to the affected area and gently massage it into the skin. Reapply as needed. Can be used on the face and body.",
     reviews: {
@@ -129,7 +129,7 @@ export const products: Product[] = [
     amount: ["5ml", "15ml"],
     product_description:
       "A revitalizing eye cream that targets puffiness, dark circles, and fine lines around the delicate eye area. Formulated with peptides and botanical extracts to improve elasticity and brighten the skin.",
-    price: 27.99,
+    prices: [19.99, 27.99],
     directions:
       "Apply a small amount of cream around the eye area using your ring finger. Gently pat it into the skin until fully absorbed. Use morning and evening for best results.",
     reviews: {
