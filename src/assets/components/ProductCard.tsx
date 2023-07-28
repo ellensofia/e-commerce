@@ -1,5 +1,5 @@
 import { Rating } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Product } from "../../data";
 export interface Props {
@@ -13,10 +13,17 @@ export default function productCard({
   currentItemIndex,
   index,
 }: Props) {
-  const { image, product_name, price, reviews, product_description, amount } =
+  const { image, product_name, prices, reviews, product_description, amount } =
     product;
 
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [selectedAmountIndex, setSelectedAmountIndex] = useState(0);
+
+  useEffect(() => {
+    setPrice(prices[selectedAmountIndex]);
+  }, [selectedAmountIndex, prices]);
+
+  const [price, setPrice] = useState(prices[selectedAmountIndex]);
 
   return (
     <StyledCarouselItem
@@ -31,27 +38,28 @@ export default function productCard({
         <Title>{product_name}</Title>
         <Review>
           <span>Reviews </span>
-          <TotalReviews>({reviews.total_reviews})</TotalReviews>
+          {/* <TotalReviews>({reviews.total_reviews})</TotalReviews> */}
           <span>{reviews.average_rating}</span>
+          <Rating
+            name={`rating-${index}`}
+            value={parseFloat(reviews.average_rating.toFixed(1))}
+            precision={0.5}
+            readOnly
+            sx={{
+              paddingLeft: ".6rem",
+              "& .MuiRating-iconFilled": {
+                color: "#555555",
+              },
+              "& .MuiRating-iconHover": {
+                color: "pink",
+              },
+              "& .MuiRating-icon SVG": {
+                color: "#555",
+                fontSize: "0.8rem",
+              },
+            }}
+          />
         </Review>
-        <Rating
-          name={`rating-${index}`}
-          value={parseFloat(reviews.average_rating.toFixed(1))}
-          precision={0.5}
-          readOnly
-          sx={{
-            "& .MuiRating-iconFilled": {
-              color: "#555555",
-            },
-            "& .MuiRating-iconHover": {
-              color: "pink",
-            },
-            "& .MuiRating-icon SVG": {
-              color: "#555",
-              fontSize: "0.8rem",
-            },
-          }}
-        />
         <ProductDescription showFullDescription={showFullDescription}>
           {product_description}
         </ProductDescription>
@@ -60,9 +68,16 @@ export default function productCard({
         >
           {showFullDescription ? "Show Less" : "Show More"}
         </ShowMoreBtn>
+
         <Details>
           {amount.map((size, i) => (
-            <span key={i}>{size}</span>
+            <AmountBtn
+              key={i}
+              onClick={() => setSelectedAmountIndex(i)}
+              selected={i === selectedAmountIndex}
+            >
+              <span key={i}>{size}</span>
+            </AmountBtn>
           ))}
         </Details>
         <span>{price}EUR</span>
@@ -81,11 +96,11 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   align-items: center;
   padding-left: 3%;
   display: flex;
-  padding-right: 6%;
+  padding-right: 3%;
   margin-left: 8%;
   border-left: 1px solid #333;
   border-collapse: collapse;
-  gap: 2rem;
+  gap: 3rem;
 
   &:last-of-type {
     border-right: 1px solid #333;
@@ -94,6 +109,7 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   @media (max-width: 1090px) {
     width: 70%;
     gap: 1rem;
+    padding-right: 6%;
   }
   @media (max-width: 600px) {
     gap: 0rem;
@@ -103,7 +119,7 @@ const StyledCarouselItem = styled.div<{ index: number }>`
 
 const ProductText = styled.div`
   display: flex;
-  max-width: 36rem;
+  max-width: 31rem;
   flex-direction: column;
   gap: 1rem;
   justify-content: center;
@@ -123,7 +139,7 @@ const Review = styled.span`
   font-size: 0.8rem;
   display: flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.4rem;
   @media (max-width: 900px) {
     font-size: 0.7rem;
   }
@@ -131,6 +147,21 @@ const Review = styled.span`
 
 const TotalReviews = styled.p`
   font-size: 0.6rem;
+  @media (max-width: 900px) {
+    font-size: 0.55rem;
+  }
+`;
+
+const AmountBtn = styled.button<{ selected: boolean }>`
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+  border-bottom: ${({ selected }) => (selected ? "1px solid black" : "none")};
+  &:first-child {
+    /* border-bottom: 1px solid black; */
+    margin-right: 1rem;
+  }
   @media (max-width: 900px) {
     font-size: 0.55rem;
   }
@@ -180,6 +211,10 @@ const Details = styled.div`
   display: flex;
   gap: 1rem;
   color: #626262;
+
+  span &:first-of-type {
+    text-decoration: underline;
+  }
 `;
 
 const Button = styled.button`
