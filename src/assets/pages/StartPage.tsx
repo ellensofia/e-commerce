@@ -4,6 +4,7 @@ import Categories from "../components/Categories";
 import CustomerPick from "../components/CustomerPick";
 import Hero from "../components/Hero";
 import ProductCarousel from "../components/ProductCarousel";
+import TextSection from "../components/TextSection";
 
 interface Story {
   points: number;
@@ -56,20 +57,13 @@ export default function StartPage() {
   return (
     <>
       <Hero />
-      <StyledLayout>
-        <ProductCarousel />
-      </StyledLayout>
-      <CustomerPick />
+      <ProductCarousel />
       <Categories />
+      <CustomerPick />
+      <TextSection />
     </>
   );
 }
-
-const StyledLayout = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 const StoryList = styled.div`
   /* Add styling for the story list */
