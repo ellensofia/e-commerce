@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import logo from "../../assets/images/oasis-logo.png";
 
 export default function Footer() {
   return (
@@ -31,9 +32,9 @@ export default function Footer() {
         </LinkSection>
       </InnerContainer>
       <BottomSection>
-        <Copy>
-          <span>© Copyright 2022 Ellen Dahlgren, All rights reserved</span>
-        </Copy>
+        <Logo>
+          <img src={logo} alt="" />
+        </Logo>
         <NewsletterSection>
           <NewsletterTitle>Sign up for our newsletter. </NewsletterTitle>
           <Text>
@@ -46,22 +47,24 @@ export default function Footer() {
           </Signup>
         </NewsletterSection>
       </BottomSection>
+      <Copy>
+        <span>© Copyright 2022 Oasis, All rights reserved</span>
+      </Copy>
     </OuterContainer>
   );
 }
 
 const OuterContainer = styled.div`
-  margin-top: 2rem;
   align-items: center;
-  padding: 3rem 4rem;
-  background-color: #dfdfdf;
+  padding: 2rem 4rem;
+  background-color: var(--clr-medium-grey);
 
   @media (max-width: 900px) {
     padding: 2rem 1.5rem;
   }
 
   @media (max-width: 600px) {
-    padding: 2rem 0rem;
+    padding: 1rem 0rem;
   }
 `;
 
@@ -69,12 +72,11 @@ const InnerContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid black;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--clr-black);
 
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
-    padding-bottom: 2rem;
   }
 `;
 
@@ -92,12 +94,8 @@ const List = styled.ul`
 `;
 
 const Title = styled.h4`
-  color: #333;
-  font-size: 1.25rem;
-
-  @media (max-width: 900px) {
-    font-size: 1rem;
-  }
+  color: var(--clr-dark-grey);
+  font-size: var(--font-size-base);
 `;
 
 const Signup = styled.h4`
@@ -105,7 +103,7 @@ const Signup = styled.h4`
 `;
 
 const BottomSection = styled.div`
-  padding-top: 3rem;
+  padding-top: 2rem;
   display: grid;
   align-items: end;
   grid-template-columns: 1fr 1fr 1fr;
@@ -114,33 +112,56 @@ const BottomSection = styled.div`
     display: flex;
     align-items: unset;
     flex-direction: column-reverse;
-    padding-top: 2rem;
   }
 `;
 
 const NewsletterSection = styled.div`
   padding: 1rem;
   grid-column: span 2;
+  @media (max-width: 600px) {
+    padding-bottom: 2rem;
+  }
 `;
 
-const NewsletterTitle = styled.div`
+const NewsletterTitle = styled.h3`
   grid-column: span 2;
-  font-weight: bold;
+  font-weight: 400;
   padding-bottom: 0.6rem;
+  font-size: var(--font-size-md);
+`;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+
+  img {
+    width: 100px;
+  }
 `;
 
 const Copy = styled.div`
-  color: #333;
-  font-size: 0.8rem;
+  color: var(--clr-dark-grey);
+  font-size: var(--font-size-sm);
+  margin-top: 2rem;
+  padding-top: 2rem;
   padding: 1rem;
+  border-top: 1px solid var(--clr-dark-grey);
+  @media (max-width: 600px) {
+    text-align: center;
+    padding-bottom: 0rem;
+  }
 `;
 
 const Input = styled.input`
   padding: 0.5rem;
   margin-top: 1rem;
   background-color: transparent;
-  width: 14rem;
-  border: 1px solid black;
+  width: 20rem;
+  border: 1px solid var(--clr-black);
+  &::placeholder {
+    color: var(--clr-dark-grey);
+  }
   @media (max-width: 600px) {
     max-width: 14rem;
     width: 100%;
@@ -153,29 +174,24 @@ const Button = styled.button`
   border-left: transparent;
   background-color: transparent;
   border-radius: 0;
-  font-size: 0.8rem;
+  font-size: var(--font-size-sm);
   white-space: nowrap;
 `;
 
 const Text = styled.p`
-  color: #333;
-  font-size: 1rem;
-  @media (max-width: 900px) {
-    font-size: 0.8rem;
-  }
+  color: var(--clr-dark-grey);
+  font-size: var(--font-size-sm);
 `;
 
 const Link = styled.a`
-  color: #333;
-  font-size: 1rem;
+  color: var(--clr-dark-grey);
+  font-size: var(--font-size-sm);
   position: relative;
   cursor: pointer;
 
   &:hover {
-    color: black;
+    color: var(--clr-black);
     text-decoration: underline;
-  }
-  @media (max-width: 900px) {
-    font-size: 0.75rem;
+    cursor: pointer;
   }
 `;
