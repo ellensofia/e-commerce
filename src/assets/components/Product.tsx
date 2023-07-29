@@ -150,7 +150,8 @@ const Button = styled.button`
 `;
 
 const OuterBox = styled.div`
-  border: 1px solid #333;
+  border-bottom: 1px solid var(--clr-dark-grey);
+  border-right: 1px solid var(--clr-dark-grey);
   padding: 1rem;
   display: flex;
   align-items: center;
