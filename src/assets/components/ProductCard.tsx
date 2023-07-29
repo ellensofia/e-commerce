@@ -90,20 +90,17 @@ export default function productCard({
 const StyledCarouselItem = styled.div<{ index: number }>`
   position: absolute;
   height: 100%;
-  width: 65%;
+  width: 75%;
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding-left: 3%;
   display: flex;
-  padding-right: 3%;
-  margin-left: 8%;
   border-left: 1px solid #333;
   border-collapse: collapse;
   gap: 3rem;
 
   &:last-of-type {
-    border-right: 1px solid #333;
+    border-right: 1px solid var(--clr-dark-grey);
   }
 
   @media (max-width: 1090px) {
@@ -124,25 +121,18 @@ const ProductText = styled.div`
   gap: 1rem;
   justify-content: center;
   color: #505050;
+  font-size: var(--font-size-base);
   @media (max-width: 1090px) {
-    font-size: 0.8rem;
     gap: 0.6rem;
-  }
-
-  @media (max-width: 600px) {
-    gap: 0.4rem;
   }
 `;
 
 const Review = styled.span`
   margin: 0;
-  font-size: 0.8rem;
+  font-size: var(--font-size-sm);
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  @media (max-width: 900px) {
-    font-size: 0.7rem;
-  }
 `;
 
 const TotalReviews = styled.p`
@@ -159,7 +149,6 @@ const AmountBtn = styled.button<{ selected: boolean }>`
   border: none;
   border-bottom: ${({ selected }) => (selected ? "1px solid black" : "none")};
   &:first-child {
-    /* border-bottom: 1px solid black; */
     margin-right: 1rem;
   }
   @media (max-width: 900px) {
@@ -169,13 +158,7 @@ const AmountBtn = styled.button<{ selected: boolean }>`
 
 const Title = styled.h3`
   margin: 0;
-  font-size: 1.25rem;
-  @media (max-width: 1090px) {
-    font-size: 1rem;
-  }
-  @media (max-width: 900px) {
-    font-size: 0.75rem;
-  }
+  font-size: var(--font-size-md);
 `;
 
 const ProductDescription = styled.p<{ showFullDescription: boolean }>`
@@ -211,9 +194,8 @@ const Details = styled.div`
   display: flex;
   gap: 1rem;
   color: #626262;
-
-  span &:first-of-type {
-    text-decoration: underline;
+  @media (max-width: 600px) {
+    gap: 0rem;
   }
 `;
 
@@ -228,8 +210,20 @@ const StyledImage = styled.img`
   max-height: 25.25rem;
   object-fit: cover;
   position: relative;
+  padding-left: 3rem;
 
   @media (max-width: 1090px) {
-    width: 40%;
+    width: 300px;
+    padding-left: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    width: 140px;
+    padding-left: 1rem;
+  }
+
+  @media (max-width: 460px) {
+    width: 120px;
+    padding-left: 0.5rem;
   }
 `;

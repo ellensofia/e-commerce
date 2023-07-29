@@ -30,11 +30,15 @@ export default function ProductCarousel() {
   };
 
   const shouldShowSecondContainer = currentItemIndex >= products.length;
+  const shouldShowSecondContainerAsString =
+    shouldShowSecondContainer.toString();
+  const shouldHideSecondContainerAsString =
+    (!shouldShowSecondContainer).toString();
 
   return (
     <CarouselContainer>
       <OuterBox>
-        <InnerContainer visible={!shouldShowSecondContainer}>
+        <InnerContainer visible={shouldHideSecondContainerAsString}>
           {products.map((product, index) => (
             <ProductCard
               key={index}
@@ -44,7 +48,7 @@ export default function ProductCarousel() {
             />
           ))}
         </InnerContainer>
-        <InnerContainer visible={shouldShowSecondContainer}>
+        <InnerContainer visible={shouldShowSecondContainerAsString}>
           {products.map((product, index) => (
             <ProductCard
               key={index}
@@ -76,6 +80,7 @@ const OuterBox = styled.div`
   overflow: hidden;
   border-top: 1px solid #5e5e5e;
   border-bottom: 1px solid #5e5e5e;
+
   @media (max-width: 600px) {
     width: 100vw;
   }
@@ -87,13 +92,19 @@ const CarouselContainer = styled.div`
   overflow: hidden;
 `;
 
-const InnerContainer = styled.div<{ visible: boolean }>`
+const InnerContainer = styled.div<{ visible: string }>`
   height: 37.5rem;
   margin: 0 auto;
-  display: ${({ visible }) => (visible ? "block" : "none")};
+  padding: 0 4rem;
+  display: ${({ visible }) => (visible === "true" ? "block" : "none")};
 
   @media (max-width: 600px) {
     height: 25.5rem;
+    padding: 0 3rem;
+  }
+
+  @media (max-width: 460px) {
+    padding: 0 2rem;
   }
 `;
 
@@ -101,21 +112,41 @@ const NavigationsLeft = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 1rem;
-  z-index: 1;
+  left: 0rem;
+  height: calc(100% - 2px);
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  padding-left: 1rem;
+
   @media (max-width: 600px) {
     left: 0rem;
+    padding-left: 0.4rem;
+  }
+
+  @media (max-width: 460px) {
+    padding-left: 0rem;
   }
 `;
 
 const NavigationsRight = styled.div`
+  display: flex;
+  align-items: center;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 1rem;
-  z-index: 1;
+  right: 0rem;
+  height: calc(100% - 2px);
+  background-color: #fff;
+  padding-right: 1rem;
+
   @media (max-width: 600px) {
     right: 0rem;
+    padding-right: 0.4rem;
+  }
+
+  @media (max-width: 460px) {
+    padding-right: 0rem;
   }
 `;
 
