@@ -94,7 +94,7 @@ const List = styled.ul`
 `;
 
 const Title = styled.h4`
-  color: var(--clr-dark-grey);
+  color: var(--text-clr-dark);
   font-size: var(--font-size-base);
 `;
 
@@ -128,6 +128,7 @@ const NewsletterTitle = styled.h3`
   font-weight: 400;
   padding-bottom: 0.6rem;
   font-size: var(--font-size-md);
+  color: var(--text-clr-dark);
 `;
 
 const Logo = styled.div`

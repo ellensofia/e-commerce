@@ -12,12 +12,50 @@
   -webkit-text-size-adjust: 100%;
   --font-primary: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-secondary: "Lao Mn";
-  --clr-light-grey: "#f8f8f7";
-  --clr-medium-grey: "#dfdfdf";
-  --clr-dark-grey: "#333";
-  --clr-black: "#000";
-  --clr-white: "#fff";
-  --clr-accent: "#D8E0BB";
+  --clr-light-grey: #f8f8f7;
+  --clr-medium-grey: #dfdfdf;
+  --clr-dark-grey: #333;
+  --clr-black: #000;
+  --clr-white: #fff;
+  --clr-accent: #d8e0bb;
+  --text-clr-dark: #213547;
+  --text-clr-light: #2c3237;
+}
+
+/* Fluid font size variables, for browsers that support clamp */
+@supports (font-size: clamp(1rem, 1vw, 1rem)) {
+  :root {
+    --font-size-sm: clamp(0.7rem, 0.09vw + 0.68rem, 0.75rem);
+    --font-size-base: clamp(0.88rem, 0.23vw + 0.82rem, 1rem);
+    --font-size-md: clamp(1.09rem, 0.43vw + 0.99rem, 1.33rem);
+    --font-size-lg: clamp(1.37rem, 0.74vw + 1.18rem, 1.78rem);
+    --font-size-xl: clamp(1.71rem, 1.2vw + 1.41rem, 2.37rem);
+    --font-size-xxl: clamp(2.14rem, 1.85vw + 1.67rem, 3.16rem);
+    --font-size-xxxl: clamp(2.67rem, 2.79vw + 1.97rem, 4.21rem);
+  }
+}
+/* Fallback variables for browsers that don't support clamp */
+@supports not (font-size: clamp(1rem, 1vw, 1rem)) {
+  :root {
+    --font-size-sm: 0.7rem;
+    --font-size-base: 0.88rem;
+    --font-size-md: 1.09rem;
+    --font-size-lg: 1.37rem;
+    --font-size-xl: 1.71rem;
+    --font-size-xxl: 2.14rem;
+    --font-size-xxxl: 2.67rem;
+  }
+  @media screen and (min-width: 1281px) {
+    :root {
+      --font-size-sm: 0.75rem;
+      --font-size-base: 1rem;
+      --font-size-md: 1.33rem;
+      --font-size-lg: 1.78rem;
+      --font-size-xl: 2.37rem;
+      --font-size-xxl: 3.16rem;
+      --font-size-xxxl: 4.21rem;
+    }
+  }
 }
 
 * {
@@ -32,9 +70,6 @@ a {
   font-weight: 500;
   text-decoration: inherit;
   cursor: pointer;
-}
-a:hover {
-  /* color: #535bf2; */
 }
 
 body {
@@ -58,7 +93,8 @@ h6 {
 
 a,
 span,
-p {
+p,
+button {
   font-family: var(--font-primary);
 }
 
@@ -68,15 +104,13 @@ button {
   padding: 0.8rem 1.8rem;
   font-size: 1rem;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0.3, "wght" 100, "GRAD" 50, "opsz" 34;
-  color: rgb(0, 0, 0);
+  color: var(--clr-black);
   font-size: 2rem;
 }
 
@@ -100,9 +134,7 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
+
   button {
     background-color: #f9f9f9;
   }

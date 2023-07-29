@@ -10,22 +10,23 @@ export default function CustomerPick() {
           <CustomerTitle>Loved by Skincare Enthusiasts</CustomerTitle>
           <ul>
             <li>
-              <p>1</p>
+              <h3>01</h3>
               <p>Ingredients Pure essential oils</p>
             </li>
             <li>
-              <p>2</p>
+              <h3>02</h3>
               <p>Aroma Floral, spicy or sweet</p>
             </li>
             <li>
-              <p>3</p>
+              <h3>03</h3>
               <p>Simple No unnecessary additives</p>
             </li>
             <li>
-              <p>4</p>
+              <h3>04</h3>
               <p>Production Packaging and production located in Australia </p>
             </li>
           </ul>
+          <StyledButton>Read more</StyledButton>
         </TextBox>
       </InnerBox>
     </OuterBox>
@@ -68,26 +69,22 @@ const TextBox = styled.div`
   flex-direction: column;
   justify-content: center;
   min-width: 200px;
+  padding: 1rem;
+  font-size: var(--font-size-base);
 
-  p:first-of-type {
+  h3 {
     padding-right: 1rem;
     height: 100%;
     width: 2rem;
-    font-size: 1.8rem;
+    font-size: var(--font-size-md);
+    color: var(--clr-dark-grey);
     @media (max-width: 900px) {
-      font-size: 1rem;
       padding-right: 0.5rem;
     }
   }
 
-  p {
-    @media (max-width: 900px) {
-      font-size: 0.8rem;
-    }
-  }
   ul {
     padding: 1rem 0 0 0;
-    padding: 1rem;
     list-style: none;
   }
 
@@ -102,7 +99,7 @@ const TextBox = styled.div`
       content: "";
       height: 1px;
       width: 100%;
-      background-color: #afafaf;
+      background-color: var(--clr-medium-grey);
       left: 0;
       margin-bottom: 1rem;
       bottom: 0;
@@ -111,11 +108,17 @@ const TextBox = styled.div`
 `;
 
 const CustomerTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: var(--font-size-lg);
   padding-bottom: 2rem;
-  border-bottom: 1px solid #afafaf;
+  border-bottom: 1px solid var(--clr-medium-grey);
   @media (max-width: 900px) {
     padding-bottom: 1rem;
-    font-size: 1.25rem;
   }
+`;
+
+const StyledButton = styled.button`
+  border: 1px solid #333;
+  width: fit-content;
+  border-radius: 2rem;
+  background-color: #fff;
 `;

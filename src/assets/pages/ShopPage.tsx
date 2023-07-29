@@ -27,7 +27,8 @@ const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin-top: 2rem;
-  gap: 1.6rem;
+  border-top: 1px solid var(--clr-dark-grey);
+  border-left: 1px solid var(--clr-dark-grey);
 `;
 
 const ShopTitle = styled.h1`

@@ -26,7 +26,7 @@ const Burger = styled.div<{ menuopen: string }>`
   position: relative;
   top: 50%;
   background-color: ${({ menuopen }) =>
-    menuopen === "true" ? "#fff" : "#333"};
+    menuopen === "true" ? "var(--clr-white)" : "var(--clr-dark-grey)"};
 
   &::after,
   &::before {

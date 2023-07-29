@@ -1,53 +1,49 @@
-import { Container } from "@mui/material";
 import styled from "styled-components";
+import arrow from "../images/arrow.svg";
 import img1 from "../images/category-img1.jpg";
 import img2 from "../images/category-img2.jpg";
-import img3 from "../images/category-img3.jpg";
 import img4 from "../images/category-img4.jpg";
 import img5 from "../images/category-img5.jpg";
 import img6 from "../images/category-img6.jpg";
 
 export default function Categories() {
   return (
-    <Container>
-      <OuterBox>
-        <div>
-          <Title>Categories</Title>
-          <InnerBox>
-            <ImageContainer>
-              <img src={img1} alt="Best sellers" />
-              <Text>Best sellers</Text>
-              <Overlay></Overlay>
-            </ImageContainer>
-            <ImageContainer>
-              <img src={img2} alt="Sensitive skin" />
-              <Text>Sensitive skin</Text>
-              <Overlay></Overlay>
-            </ImageContainer>
-            <ImageContainer>
-              <img src={img3} alt="Best sellers" />
-              <Text>Anti-aging</Text>
-              <Overlay></Overlay>
-            </ImageContainer>
-            <ImageContainer>
-              <img src={img4} alt="Eye care" />
-              <Text>Eye care</Text>
-              <Overlay></Overlay>
-            </ImageContainer>
-            <ImageContainer>
-              <img src={img6} alt="Eye care" />
-              <Text>Body care</Text>
-              <Overlay></Overlay>
-            </ImageContainer>
-            <ImageContainer>
-              <img src={img5} alt="Eye care" />
-              <Text>Sunscreens</Text>
-              <Overlay></Overlay>
-            </ImageContainer>
-          </InnerBox>
-        </div>
-      </OuterBox>
-    </Container>
+    <OuterBox>
+      <div>
+        <Title>Shop by category</Title>
+        <InnerBox>
+          <ImageContainer>
+            <img src={img1} alt="Best sellers" />
+            <Text>Best sellers</Text>
+            <Overlay></Overlay>
+          </ImageContainer>
+          <ImageContainer>
+            <img src={img2} alt="Sensitive skin" />
+            <Text>Sensitive skin</Text>
+            <Overlay></Overlay>
+          </ImageContainer>
+          <ImageContainer>
+            <img src={img4} alt="Eye care" />
+            <Text>Eye care</Text>
+            <Overlay></Overlay>
+          </ImageContainer>
+          <ImageContainer>
+            <img src={img6} alt="Eye care" />
+            <Text>Body care</Text>
+            <Overlay></Overlay>
+          </ImageContainer>
+          <ImageContainer>
+            <img src={img5} alt="Eye care" />
+            <Text>Sunscreen</Text>
+            <Overlay></Overlay>
+          </ImageContainer>
+          <Link>
+            <span>Load all categories</span>
+            <img src={arrow} alt="arrow icon" />
+          </Link>
+        </InnerBox>
+      </div>
+    </OuterBox>
   );
 }
 
@@ -63,24 +59,18 @@ const OuterBox = styled.div`
 const InnerBox = styled.div`
   align-items: center;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr auto;
   margin: 0 auto;
   gap: 1rem;
 
   @media (max-width: 900px) {
-    grid-template-columns: 1fr 1fr 1fr;
     gap: 0.6rem;
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  img {
-    flex: 1;
-    width: 100%;
-    height: auto;
-
-    &:hover {
-      background-color: #18181845;
-      cursor: pointer;
-    }
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -111,30 +101,48 @@ const Overlay = styled.div`
 
 const Text = styled.p`
   color: white;
-  font-size: 1rem;
+  font-size: var(--font-size-base);
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 10;
   transform: translate(-50%, -50%);
   text-transform: uppercase;
-  white-space: nowrap;
+  text-align: center;
   cursor: pointer;
-
   @media (max-width: 700px) {
-    font-size: 0.8rem;
-  }
-  @media (max-width: 400px) {
-    font-size: 0.675rem;
+    font-size: var(--font-size-sm);
   }
 `;
 
 const Title = styled.h3`
   color: #1b1b1b;
-  font-size: 2rem;
+  font-size: var(--font-size-lg);
   margin-bottom: 1rem;
+`;
 
-  @media (max-width: 600px) {
-    font-size: 1.2rem;
+const Link = styled.a`
+  color: #1b1b1b;
+  font-size: var(--font-size-base);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  display: flex;
+  gap: 1.5rem;
+  @media (max-width: 700px) {
+    gap: 0.5rem;
+    font-size: var(--font-size-sm);
+  }
+
+  & img {
+    width: 1.5rem;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--clr-black);
+    & img {
+      transition: 0.2s ease;
+      transform: translateX(0.5rem);
+    }
   }
 `;

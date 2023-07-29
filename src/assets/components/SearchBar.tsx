@@ -1,4 +1,3 @@
-import SearchIcon from "@mui/icons-material/Search";
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
@@ -15,7 +14,6 @@ export default function SearchBar({
   isExpanded,
   setIsexpanded,
 }: Props) {
-  //   const [isexpanded, setIsexpanded] = useState(false);
   const searchFieldRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,7 +37,10 @@ export default function SearchBar({
   };
 
   return (
-    <SearchField isexpanded={isExpanded.toString()} ref={searchFieldRef}>
+    <SearchField
+      isexpanded={isExpanded ? "true" : "false"}
+      ref={searchFieldRef}
+    >
       <SearchFieldInner>
         {isExpanded && (
           <StyledInput
@@ -54,7 +55,7 @@ export default function SearchBar({
           onClick={handleSearchFocus}
           isexpanded={isExpanded.toString()}
         >
-          <SearchIcon />
+          <span className="material-symbols-outlined">search</span>
         </SearchIconBtn>
       </SearchFieldInner>
     </SearchField>
@@ -63,7 +64,7 @@ export default function SearchBar({
 
 const SearchField = styled.div<{ isexpanded?: string }>`
   position: relative;
-  transition: width 0.3s ease;
+  transition: width 0.2s ease;
   display: flex;
   align-items: center;
 
@@ -71,20 +72,20 @@ const SearchField = styled.div<{ isexpanded?: string }>`
     ${({ isexpanded }) =>
       isexpanded === "true"
         ? `
-      top: 3.4rem;
+      top: 3.8rem;
       position: fixed;
       background-color: white;
       left: 0;
       width: 100%;
       z-index: 999;
-      padding: 1.6rem 1rem;
+      padding: 2rem 1rem 2.6rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     `
         : ""}
     > div:first-of-type {
       position: absolute;
       input {
-        /* width: 15rem; */
+        width: 14rem;
       }
     }
   }
@@ -120,8 +121,9 @@ const SearchIconBtn = styled.button<{ isexpanded: string }>`
     isexpanded === "true"
       ? `
         right: .4rem;
-        top: .1rem; `
+        top: -.1rem;
+        `
       : `
         right: 0rem;
-        top: -.8rem;`}
+        top: -1rem;`};
 `;
