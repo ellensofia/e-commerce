@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
+import arrow from "../images/arrow.svg";
 import LogoImg from "./../../assets/images/oasis-logo.png";
 import BurgerMenu from "./BurgerMenu";
 import SearchBar from "./SearchBar";
@@ -22,17 +23,29 @@ export default function Header() {
       </NavLink>
       <nav>
         <StyledMiddle menuOpen={menuOpen}>
-          <StyledListItem>
-            <NavLink to={"/shop"}>Shop</NavLink>
+          <StyledListItem menuOpen={menuOpen}>
+            <NavLink to={"/shop"}>
+              Shop
+              <img src={arrow} alt="" />
+            </NavLink>
           </StyledListItem>
-          <StyledListItem>
-            <NavLink to={"/about"}>About</NavLink>
+          <StyledListItem menuOpen={menuOpen}>
+            <NavLink to={"/about"}>
+              About
+              <img src={arrow} alt="" />
+            </NavLink>
           </StyledListItem>
-          <StyledListItem>
-            <a href="">Contact</a>
+          <StyledListItem menuOpen={menuOpen}>
+            <a href="">
+              Contact
+              <img src={arrow} alt="" />
+            </a>
           </StyledListItem>
-          <StyledListItem>
-            <a href="">Find us</a>
+          <StyledListItem menuOpen={menuOpen}>
+            <a href="">
+              Find us
+              <img src={arrow} alt="" />
+            </a>
           </StyledListItem>
         </StyledMiddle>
       </nav>
@@ -78,10 +91,26 @@ const StyledHeader = styled.header`
   }
 `;
 
-const StyledListItem = styled.li`
+const StyledListItem = styled.li<{ menuOpen: string }>`
   list-style: none;
+
   a {
     color: #000;
+    display: flex;
+    gap: 1rem;
+
+    img {
+      display: ${({ menuOpen }) => (menuOpen === "true" ? "block" : "none")};
+      width: 1.4rem;
+    }
+    &:hover {
+      text-decoration: underline;
+      color: var(--clr-black);
+      & img {
+        transition: 0.2s ease;
+        transform: translateX(0.5rem);
+      }
+    }
   }
 `;
 
@@ -92,7 +121,7 @@ const StyledMiddle = styled.ul<{ menuOpen: string }>`
   top: 57px;
   text-transform: uppercase;
   left: 0;
-  font-size: 0.85rem;
+  font-size: var(--font-size-base);
   transition: 0.3s 0.8s ease;
   @media (max-width: 900px) {
     gap: 1rem;
@@ -114,10 +143,6 @@ const StyledMiddle = styled.ul<{ menuOpen: string }>`
     padding: ${({ menuOpen }) => (menuOpen === "true" ? "3rem 2rem" : "0")};
     overflow: hidden;
     transition: max-height 0.3s ease;
-  }
-
-  @media (max-width: 400px) {
-    display: none;
   }
 `;
 
