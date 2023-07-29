@@ -14,15 +14,17 @@ export default function TextSection() {
 const Text = styled.h2`
   font-size: 3rem;
   line-height: 1.4;
-  padding: 8rem 4rem 4rem 4rem;
+  text-align: center;
+  max-width: 55rem;
+  margin: 4rem auto;
 
   @media (max-width: 900px) {
     font-size: 2rem;
-    padding: 4rem 4rem 2rem 4rem;
+    padding: 4rem;
   }
 
   @media (max-width: 600px) {
     font-size: 1.8rem;
-    padding: 4rem 2rem 2rem 2rem;
+    padding: 2rem;
   }
 `;
