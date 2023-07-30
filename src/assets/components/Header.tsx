@@ -1,18 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
-import arrow from "../images/arrow.svg";
 import LogoImg from "./../../assets/images/oasis-logo.png";
 import BurgerMenu from "./BurgerMenu";
+import Menu from "./Menu";
 import SearchBar from "./SearchBar";
 
 export default function Header() {
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
-  const [menuOpen, setMenuopen] = useState("false");
+  const [menuOpen, setMenuOpen] = useState("false");
 
   const toggleMenuopen = () => {
-    setMenuopen((prevMenuopen) => (prevMenuopen === "true" ? "false" : "true"));
+    setMenuOpen((prevMenuopen) => (prevMenuopen === "true" ? "false" : "true"));
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 900) {
+        setMenuOpen("false");
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <StyledHeader>
@@ -24,30 +36,25 @@ export default function Header() {
       <nav>
         <StyledMiddle menuOpen={menuOpen}>
           <StyledListItem menuOpen={menuOpen}>
-            <NavLink to={"/shop"}>
-              Shop
-              <img src={arrow} alt="" />
-            </NavLink>
+            <NavLink to={"/shop"}>Shop</NavLink>
           </StyledListItem>
           <StyledListItem menuOpen={menuOpen}>
-            <NavLink to={"/about"}>
-              About
-              <img src={arrow} alt="" />
-            </NavLink>
+            <a href="">Categories</a>
           </StyledListItem>
           <StyledListItem menuOpen={menuOpen}>
-            <a href="">
-              Contact
-              <img src={arrow} alt="" />
-            </a>
+            <a href="">Special Offers</a>
           </StyledListItem>
           <StyledListItem menuOpen={menuOpen}>
-            <a href="">
-              Find us
-              <img src={arrow} alt="" />
-            </a>
+            <NavLink to={"/about"}>Sale</NavLink>
+          </StyledListItem>
+          <StyledListItem menuOpen={menuOpen}>
+            <a href=""> Consultation</a>
+          </StyledListItem>
+          <StyledListItem menuOpen={menuOpen}>
+            <NavLink to={"/about"}>About us</NavLink>
           </StyledListItem>
         </StyledMiddle>
+        <Menu openMenu={menuOpen} />
       </nav>
       <StyledRight isExpanded={isSearchExpanded.toString()}>
         <a>
@@ -77,16 +84,16 @@ export default function Header() {
 const StyledHeader = styled.header`
   position: fixed;
   display: flex;
-  background-color: #fff;
+  background-color: var(--clr-white);
   width: calc(100% - 2rem);
   z-index: 1000;
   justify-content: space-between;
   top: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--clr-dark-grey);
   align-items: center;
   padding: 1rem 3.6rem 1rem 2rem;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     padding: 1rem 1rem;
   }
 `;
@@ -95,60 +102,37 @@ const StyledListItem = styled.li<{ menuOpen: string }>`
   list-style: none;
 
   a {
-    color: #000;
+    color: var(--clr-dark-grey);
     display: flex;
     gap: 1rem;
 
-    img {
-      display: ${({ menuOpen }) => (menuOpen === "true" ? "block" : "none")};
-      width: 1.4rem;
-    }
     &:hover {
       text-decoration: underline;
       color: var(--clr-black);
-      & img {
-        transition: 0.2s ease;
-        transform: translateX(0.5rem);
-      }
     }
   }
 `;
 
 const StyledMiddle = styled.ul<{ menuOpen: string }>`
-  display: flex;
+  display: ${({ menuOpen }) => (menuOpen === "false" ? "flex" : "none")};
   gap: 2.6rem;
   padding: 0;
   top: 57px;
   text-transform: uppercase;
   left: 0;
   font-size: var(--font-size-base);
-  transition: 0.3s 0.8s ease;
-  @media (max-width: 900px) {
-    gap: 1rem;
+  padding: 0 1rem;
+  @media (max-width: 1090px) {
+    gap: 1.6rem;
+    font-size: var(--font-size-sm);
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     display: none;
-    flex-direction: column;
-    text-decoration: ${({ menuOpen }) =>
-      menuOpen === "true" ? "underline" : "none"};
-    justify-content: center;
-    z-index: 100;
-    max-height: ${({ menuOpen }) => (menuOpen === "true" ? "800px" : "0")};
-    display: ${({ menuOpen }) => (menuOpen === "true" ? "flex" : "none")};
-    position: ${({ menuOpen }) => (menuOpen === "true" ? "absolute" : "unset")};
-    background-color: ${({ menuOpen }) =>
-      menuOpen === "true" ? "#fff" : "unset"};
-    width: ${({ menuOpen }) => (menuOpen === "true" ? "100%" : "unset")};
-    padding: ${({ menuOpen }) => (menuOpen === "true" ? "3rem 2rem" : "0")};
-    overflow: hidden;
-    transition: max-height 0.3s ease;
   }
 `;
 
 const Logotype = styled.p`
-  text-transform: uppercase;
-  color: #333;
   & img {
     width: 80px;
   }
@@ -160,9 +144,6 @@ const StyledRight = styled.div<{ isExpanded: string }>`
   gap: 1rem;
 
   & a {
-    color: #333;
-    white-space: nowrap;
-    align-items: center;
     display: flex;
   }
   .shopping_basket {

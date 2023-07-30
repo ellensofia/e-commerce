@@ -104,7 +104,6 @@ const StyledInput = styled.input<{ isexpanded: string }>`
   padding: 0.4rem 0.4rem;
   border-radius: 2rem;
   border: 0.075rem solid #333;
-  transition: width 0.3s ease;
   position: relative;
   width: 8rem;
 `;
@@ -115,15 +114,14 @@ const SearchIconBtn = styled.button<{ isexpanded: string }>`
   align-items: center;
   justify-content: center;
   position: absolute;
-  transition: width 0.3s ease;
   padding: 0;
   ${({ isexpanded }) =>
     isexpanded === "true"
       ? `
         right: .4rem;
-        top: -.1rem;
+        top: .1rem;
         `
       : `
         right: 0rem;
-        top: -1rem;`};
+        top: -.8rem;`};
 `;

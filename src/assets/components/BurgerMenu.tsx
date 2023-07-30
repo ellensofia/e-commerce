@@ -17,6 +17,7 @@ const StyledBurgerMenu = styled.div<{ menuopen: string }>`
   cursor: pointer;
   position: relative;
   height: 1.2rem;
+  z-index: 104;
 `;
 
 const Burger = styled.div<{ menuopen: string }>`
@@ -54,7 +55,7 @@ const Burger = styled.div<{ menuopen: string }>`
 
   display: none;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     display: block;
   }
 `;
