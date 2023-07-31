@@ -124,14 +124,10 @@ const Title = styled.h3`
 const Link = styled.a`
   color: #1b1b1b;
   font-size: var(--font-size-base);
-  margin-bottom: 1rem;
+  width: min-content;
   text-transform: uppercase;
   display: flex;
   gap: 1.5rem;
-  @media (max-width: 700px) {
-    gap: 0.5rem;
-    font-size: var(--font-size-sm);
-  }
 
   & img {
     width: 1.5rem;
@@ -144,5 +140,10 @@ const Link = styled.a`
       transition: 0.2s ease;
       transform: translateX(0.5rem);
     }
+  }
+
+  @media (max-width: 700px) {
+    gap: 0.5rem;
+    font-size: var(--font-size-sm);
   }
 `;
