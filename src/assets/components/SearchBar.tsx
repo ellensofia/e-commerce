@@ -118,10 +118,10 @@ const SearchIconBtn = styled.button<{ isexpanded: string }>`
   ${({ isexpanded }) =>
     isexpanded === "true"
       ? `
-        right: .4rem;
-        top: .1rem;
+        right: .1rem;
+        top: 0rem;
         `
       : `
         right: 0rem;
-        top: -.8rem;`};
+        top: -.9rem;`};
 `;

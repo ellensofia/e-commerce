@@ -21,8 +21,8 @@ const StyledBurgerMenu = styled.div<{ menuopen: string }>`
 `;
 
 const Burger = styled.div<{ menuopen: string }>`
-  width: 1.6rem;
-  height: 0.094rem;
+  width: 1.5rem;
+  height: 0.07rem;
   background-color: #333;
   position: relative;
   top: 50%;
@@ -33,9 +33,9 @@ const Burger = styled.div<{ menuopen: string }>`
   &::before {
     content: "";
     position: absolute;
-    background-color: #333;
-    width: 1.6rem;
-    height: 0.1rem;
+    background-color: var(--clr-dark-grey);
+    width: inherit;
+    height: inherit;
     top: 0;
     transition: 0.3s ease;
   }

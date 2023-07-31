@@ -84,6 +84,7 @@ export default function Header() {
 const StyledHeader = styled.header`
   position: fixed;
   display: flex;
+  height: var(--header-height);
   background-color: var(--clr-white);
   width: calc(100% - 2rem);
   z-index: 1000;
@@ -91,10 +92,10 @@ const StyledHeader = styled.header`
   top: 0;
   border-bottom: 1px solid var(--clr-dark-grey);
   align-items: center;
-  padding: 1rem 3.6rem 1rem 2rem;
+  padding: 0rem 3.6rem 0rem 2rem;
 
   @media (max-width: 900px) {
-    padding: 1rem 1rem;
+    padding: 0rem 1rem;
   }
 `;
 
