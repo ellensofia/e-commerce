@@ -1,18 +1,27 @@
 import { Container } from "@mui/material";
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { products } from "../../data";
-import Product from "../components/Product";
+import SingleProduct from "../components/SingleProduct";
 
 export default function SingleProductPage() {
+  const { id } = useParams<{ id: string }>();
+  const product = products.find((p) => p.id === id);
+
   return (
     <Container>
       <InnerContainer>
-        <ShopTitle>Shop</ShopTitle>
-        <ProductGrid>
-          {products.map((product, index) => (
-            <Product key={index} product={product} index={index} />
-          ))}
-        </ProductGrid>
+        <Top>
+          <ShopTitle>Shop</ShopTitle>
+          <Link to={`/shop/`}>Back</Link>
+        </Top>
+        {/* {product && (
+          <ProductGrid>
+            <span>{product.product_name}</span>
+            <Product key={product.id} product={product} />
+          </ProductGrid>
+        )} */}
+        <SingleProduct />
       </InnerContainer>
     </Container>
   );
@@ -33,4 +42,9 @@ const ShopTitle = styled.h1`
   display: flex;
   font-size: 2rem;
   grid-column: 1/3;
+`;
+
+const Top = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
