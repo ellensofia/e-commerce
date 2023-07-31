@@ -1,8 +1,8 @@
-import { Rating } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Product, products } from "../../data";
+import ReviewSection from "./ReviewSection";
 
 export interface Props {
   product: Product;
@@ -66,41 +66,7 @@ export default function SingleProduct() {
               <Button>Buy</Button>
             </ProductText>
           </ProductContainer>
-          <ReviewSection>
-            <Review>
-              <span>Reviews </span>
-              {/* <TotalReviews>({reviews.total_reviews})</TotalReviews> */}
-              <span>{product.reviews.average_rating}</span>
-              <Rating
-                name={`rating-${id}`}
-                value={parseFloat(product.reviews.average_rating.toFixed(1))}
-                precision={0.5}
-                readOnly
-                sx={{
-                  "& .MuiRating-iconFilled": {
-                    color: "#555555",
-                  },
-                  "& .MuiRating-iconHover": {
-                    color: "pink",
-                  },
-                  "& .MuiRating-icon SVG": {
-                    color: "#555",
-                    fontSize: "0.8rem",
-                  },
-                }}
-              />
-            </Review>
-
-            <Stars>
-              <span>Avrage ratings{product.reviews.average_rating}</span>
-              <span>Total reviews {product.reviews.total_reviews}</span>
-            </Stars>
-            <Testimonials>
-              {product.reviews.text_reviews.map((review, i) => (
-                <TestimonialsText key={i}>{review}</TestimonialsText>
-              ))}
-            </Testimonials>
-          </ReviewSection>
+          <ReviewSection product={product} />
         </InnerBox>
       </OuterBox>
     );
@@ -124,66 +90,17 @@ const ProductText = styled.div`
   }
 `;
 
-const Review = styled.span`
-  margin: 0;
-  font-size: var(--font-size-sm);
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
-`;
-
-const Stars = styled.span`
-  margin: 0;
-  font-size: var(--font-size-sm);
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
-`;
-
 const ProductContainer = styled.span`
-  padding: 2rem 0;
+  padding: 1rem 0;
   display: flex;
   gap: 3rem;
   align-items: center;
 `;
 
-const ReviewSection = styled.span`
+const Title = styled.h1`
   margin: 0;
-  font-size: var(--font-size-sm);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 3rem;
-  padding: 6rem 0;
-  border-top: 1px solid var(--clr-dark-grey);
-`;
-
-const Testimonials = styled.span`
-  margin: 0;
-  font-size: var(--font-size-sm);
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid var(--clr-dark-grey);
-  border-bottom: 1px solid var(--clr-dark-grey);
-`;
-const TestimonialsText = styled.span`
-  border-bottom: 1px solid var(--clr-dark-grey);
-  padding: 2rem 0;
-  &:last-child {
-    border-bottom: none;
-  }
-`;
-
-const TotalReviews = styled.p`
-  font-size: 0.6rem;
-  @media (max-width: 900px) {
-    font-size: 0.55rem;
-  }
-`;
-
-const Title = styled.h3`
-  margin: 0;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-lg);
+  padding-bottom: 1rem;
 `;
 
 const ShowMoreBtn = styled.button`
@@ -229,15 +146,13 @@ const Directions = styled.div`
   flex-direction: column;
   gap: 1rem;
   border-top: 1px solid var(--clr-dark-grey);
-  border-bottom: 1px solid var(--clr-dark-grey);
-  padding: 1rem 0;
+  padding: 1rem 0 0 0;
 `;
 
 const Details = styled.div`
   margin: 0;
   font-size: var(--font-size-sm);
   display: flex;
-  flex-direction: column;
   gap: 1rem;
   border-top: 1px solid var(--clr-dark-grey);
   border-bottom: 1px solid var(--clr-dark-grey);
@@ -259,8 +174,7 @@ const OuterBox = styled.div`
 `;
 
 const InnerBox = styled.div`
-  padding: 2rem 2rem 2rem 1rem;
-  gap: 2rem;
+  /* gap: 2rem; */
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -275,10 +189,3 @@ const StyledImage = styled.img`
     width: 120px;
   }
 `;
-
-// const TotalReviews = styled.p`
-//   font-size: 0.6rem;
-//   @media (max-width: 900px) {
-//     font-size: 0.55rem;
-//   }
-// `;
