@@ -78,8 +78,8 @@ const OuterBox = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-top: 1px solid #5e5e5e;
-  border-bottom: 1px solid #5e5e5e;
+  border-top: 1px solid var(--clr-dark-grey);
+  border-bottom: 1px solid var(--clr-dark-grey);
 
   @media (max-width: 600px) {
     width: 100vw;
@@ -95,7 +95,7 @@ const CarouselContainer = styled.div`
 const InnerContainer = styled.div<{ visible: string }>`
   height: 37.5rem;
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 4rem 0 5rem;
   display: ${({ visible }) => (visible === "true" ? "block" : "none")};
 
   @media (max-width: 600px) {
@@ -104,6 +104,10 @@ const InnerContainer = styled.div<{ visible: string }>`
   }
 
   @media (max-width: 460px) {
+    padding: 0 3rem;
+  }
+
+  @media (max-width: 430px) {
     padding: 0 2rem;
   }
 `;
@@ -115,7 +119,7 @@ const NavigationsLeft = styled.div`
   left: 0rem;
   height: calc(100% - 2px);
   display: flex;
-  background-color: #fff;
+  background-color: var(--clr-white);
   align-items: center;
   padding-left: 1rem;
 
@@ -125,7 +129,7 @@ const NavigationsLeft = styled.div`
   }
 
   @media (max-width: 460px) {
-    padding-left: 0rem;
+    padding-left: 0.1rem;
   }
 `;
 
@@ -137,7 +141,7 @@ const NavigationsRight = styled.div`
   transform: translateY(-50%);
   right: 0rem;
   height: calc(100% - 2px);
-  background-color: #fff;
+  background-color: var(--clr-white);
   padding-right: 1rem;
 
   @media (max-width: 600px) {
@@ -146,7 +150,7 @@ const NavigationsRight = styled.div`
   }
 
   @media (max-width: 460px) {
-    padding-right: 0rem;
+    padding-right: 0.1rem;
   }
 `;
 

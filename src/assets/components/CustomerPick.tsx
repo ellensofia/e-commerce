@@ -54,12 +54,15 @@ const InnerBox = styled.div`
   }
   @media (max-width: 900px) {
     gap: 1rem;
-  }
-  @media (max-width: 600px) {
+    flex-wrap: wrap;
     & img {
       width: 80%;
     }
-    flex-wrap: wrap;
+  }
+  @media (max-width: 600px) {
+    & img {
+      width: 100%;
+    }
     padding: 1rem;
   }
 `;

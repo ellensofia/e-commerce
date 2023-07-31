@@ -95,8 +95,7 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   display: flex;
   align-items: center;
   display: flex;
-  border-left: 1px solid #333;
-  border-collapse: collapse;
+  border-left: 1px solid var(--clr-dark-grey);
   gap: 3rem;
 
   &:last-of-type {
@@ -110,7 +109,12 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   }
   @media (max-width: 600px) {
     gap: 0rem;
-    width: 75%;
+    padding-right: 2rem;
+    width: calc(100% - 8rem);
+  }
+  @media (max-width: 460px) {
+    padding-right: 1rem;
+    width: calc(100% - 5rem);
   }
 `;
 
@@ -147,7 +151,8 @@ const AmountBtn = styled.button<{ selected: boolean }>`
   border-radius: 0;
   padding: 0;
   border: none;
-  border-bottom: ${({ selected }) => (selected ? "1px solid black" : "none")};
+  border-bottom: ${({ selected }) =>
+    selected ? "1px solid var(--clr-dark-grey)" : "none"};
   &:first-child {
     margin-right: 1rem;
   }
@@ -200,7 +205,7 @@ const Details = styled.div`
 `;
 
 const Button = styled.button`
-  border: 1px solid #333;
+  border: 1px solid var(--clr-dark-grey);
   width: fit-content;
   border-radius: 2rem;
   background-color: #fff;
@@ -223,7 +228,7 @@ const StyledImage = styled.img`
   }
 
   @media (max-width: 460px) {
-    width: 120px;
-    padding-left: 0.5rem;
+    width: 100px;
+    padding-left: 0rem;
   }
 `;
