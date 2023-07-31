@@ -40,7 +40,13 @@ export default function ReviewSection({ product }: Props) {
           <span>Total reviews {product.reviews.total_reviews}</span>
           <Testimonials>
             {product.reviews.text_reviews.map((review, i) => (
-              <TestimonialsText key={i}>{review}</TestimonialsText>
+              <TestimonialsText key={i}>
+                <UserInfo>
+                  <h6>{review.name}</h6>
+                  <span>{review.date}</span>
+                </UserInfo>
+                <p>{review.text}</p>
+              </TestimonialsText>
             ))}
           </Testimonials>
         </>
@@ -69,10 +75,28 @@ const Testimonials = styled.span`
   border-bottom: 1px solid var(--clr-dark-grey);
 `;
 const TestimonialsText = styled.span`
+  gap: 1rem;
   border-bottom: 1px solid var(--clr-dark-grey);
   padding: 2rem 0;
+  font-size: var(--font-size-base);
+
+  display: flex;
+  flex-direction: column;
   &:last-child {
     border-bottom: none;
+  }
+`;
+const UserInfo = styled.span`
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    font-size: var(--font-size-sm);
+  }
+
+  h6 {
+    font-size: var(--font-size-sm);
   }
 `;
 
