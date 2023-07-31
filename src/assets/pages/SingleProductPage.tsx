@@ -12,15 +12,9 @@ export default function SingleProductPage() {
     <Container>
       <InnerContainer>
         <Top>
-          <ShopTitle>Shop</ShopTitle>
+          <BreadCrumbs>...</BreadCrumbs>
           <Link to={`/shop/`}>Back</Link>
         </Top>
-        {/* {product && (
-          <ProductGrid>
-            <span>{product.product_name}</span>
-            <Product key={product.id} product={product} />
-          </ProductGrid>
-        )} */}
         <SingleProduct />
       </InnerContainer>
     </Container>
@@ -28,20 +22,12 @@ export default function SingleProductPage() {
 }
 
 const InnerContainer = styled.div`
-  margin-top: 9rem;
+  margin-top: 7rem;
 `;
 
-const ProductGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin-top: 3rem;
-  gap: 1.6rem;
-`;
-
-const ShopTitle = styled.h1`
+const BreadCrumbs = styled.h3`
   display: flex;
-  font-size: 2rem;
-  grid-column: 1/3;
+  font-size: var(--font-size-base);
 `;
 
 const Top = styled.div`
