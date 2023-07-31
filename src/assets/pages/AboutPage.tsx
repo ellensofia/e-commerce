@@ -20,16 +20,10 @@ export default function AboutPage() {
               with exceptional products that nurture your skin and unlock its
               true potential. We have carefully curated a collection of skincare
               essentials, each formulated with premium ingredients and
-              innovative techniques. Just as an oasis offers respite and
-              renewal, our products are designed to pamper your skin and deliver
-              visible results. Like the creation of an oasis, where the
-              convergence of natural elements gives birth to a lush and vibrant
-              ecosystem, we have harnessed the power of nature and science to
-              create skincare formulations that truly rejuvenate your skin. We
-              believe that the key to radiant skincare lies in harnessing the
-              nourishing properties of botanical extracts, the replenishing
-              effects of hydration, and the rejuvenating power of advanced
-              skincare technologies.
+              innovative techniques. We believe that the key to radiant skincare
+              lies in harnessing the nourishing properties of botanical
+              extracts, the replenishing effects of hydration, and the
+              rejuvenating power of advanced skincare technologies.
             </AboutText>
           </Copy>
           <AboutImg>
