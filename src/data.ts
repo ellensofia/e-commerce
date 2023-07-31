@@ -8,6 +8,7 @@ export interface Product {
   reviews: {
     average_rating: number;
     total_reviews: number;
+    text_reviews: string[];
   };
   image: string;
 }
@@ -30,6 +31,11 @@ export const products: Product[] = [
     reviews: {
       average_rating: 4.5,
       total_reviews: 24,
+      text_reviews: [
+        "Smooths skin texture.",
+        "This serum has transformed my skin! It's smoother and more radiant than ever before. Definitely a game-changer for my skincare routine.",
+        "Highly recommended.",
+      ],
     },
     image: image1,
   },
@@ -45,7 +51,13 @@ export const products: Product[] = [
     reviews: {
       average_rating: 3.2,
       total_reviews: 18,
+      text_reviews: [
+        "This cream is lightweight yet incredibly hydrating. My skin feels plump and moisturized throughout the day.",
+        "I've noticed a significant improvement in my skin's elasticity since using this cream. Definitely worth the price!",
+        "Great for sensitive skin. It doesn't cause any irritation or breakouts.",
+      ],
     },
+
     image: image2,
   },
   {
@@ -60,6 +72,11 @@ export const products: Product[] = [
     reviews: {
       average_rating: 4.7,
       total_reviews: 32,
+      text_reviews: [
+        "I've been using this cleansing gel for a while now, and it's become a staple in my skincare routine. My skin feels clean and refreshed after each use.",
+        "The tea tree oil in this gel has helped tremendously with my acne-prone skin. My breakouts have reduced significantly.",
+        "Leaves my skin feeling balanced and not overly dry like some other cleansers I've tried. Highly recommended!",
+      ],
     },
     image: image3,
   },
@@ -75,6 +92,11 @@ export const products: Product[] = [
     reviews: {
       average_rating: 4.8,
       total_reviews: 27,
+      text_reviews: [
+        "I carry this face mist with me everywhere! It's perfect for a quick hydration pick-me-up throughout the day.",
+        "This mist has a lovely rose scent and leaves my skin feeling dewy and refreshed.",
+        "Great for setting makeup and giving my skin a healthy glow. A must-have!",
+      ],
     },
     image: image4,
   },
@@ -90,6 +112,11 @@ export const products: Product[] = [
     reviews: {
       average_rating: 4.6,
       total_reviews: 36,
+      text_reviews: [
+        "This night cream has made a noticeable difference in the appearance of my fine lines. I wake up with plump and smooth skin.",
+        "The texture of this cream is luxurious and feels great on my skin. Definitely a treat to use every night.",
+        "I've been using this cream for a few months now, and my skin looks more youthful and radiant. I'm impressed!",
+      ],
     },
     image: image2,
   },
@@ -105,6 +132,10 @@ export const products: Product[] = [
     reviews: {
       average_rating: 4.4,
       total_reviews: 22,
+      text_reviews: [
+        "I've been using this serum for a while now, and my dark spots have visibly faded. It's amazing!",
+        "Great product",
+      ],
     },
     image: image3,
   },
@@ -120,6 +151,7 @@ export const products: Product[] = [
     reviews: {
       average_rating: 3.9,
       total_reviews: 42,
+      text_reviews: [],
     },
     image: image1,
   },
@@ -135,6 +167,7 @@ export const products: Product[] = [
     reviews: {
       average_rating: 4.3,
       total_reviews: 16,
+      text_reviews: ["Love it!"],
     },
     image: image3,
   },
