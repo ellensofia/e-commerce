@@ -15,7 +15,7 @@ interface StyledItemProps {
   isActive: boolean;
 }
 
-export default function Carousel() {
+export default function HeroCarousel() {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
   const [delay, setDelay] = useState(8000);
   let interval: ReturnType<typeof setInterval>;

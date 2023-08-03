@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import Carousel from "./Carousel";
+import HeroCarousel from "./HeroCarousel";
 
 export default function Hero() {
   return (
     <StyledLayout>
-      <Carousel />
+      <HeroCarousel />
     </StyledLayout>
   );
 }
