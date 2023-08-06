@@ -22,7 +22,7 @@ export default function SingleProductPage() {
 }
 
 const InnerContainer = styled.div`
-  margin-top: 7rem;
+  margin-top: 5rem;
 `;
 
 const BreadCrumbs = styled.h3`
