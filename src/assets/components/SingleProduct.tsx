@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Product, products } from "../../data";
+import arrow from "../images/arrow-down.svg";
 import ReviewSection from "./ReviewSection";
 
 export interface Props {
@@ -14,6 +15,7 @@ export default function SingleProduct() {
 
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [selectedAmountIndex, setSelectedAmountIndex] = useState(0);
+  const [showFullDirection, setShowFullDirection] = useState(false);
 
   useEffect(() => {
     setPrice(product?.prices[selectedAmountIndex]);
@@ -47,8 +49,14 @@ export default function SingleProduct() {
                   setShowFullDescription((prevState) => !prevState)
                 }
               ></ShowMoreBtn>
-              <Directions>
-                <h4>Directions</h4>
+              <Directions
+                showFullDirection={showFullDirection}
+                onClick={() => setShowFullDirection(!showFullDirection)}
+              >
+                <div>
+                  <h4>Directions</h4>
+                  <img src={arrow} alt="" />
+                </div>
                 <p>{product.directions}</p>
               </Directions>
               <Details>
@@ -62,7 +70,9 @@ export default function SingleProduct() {
                   </AmountBtn>
                 ))}
               </Details>
-              <span>{price}EUR</span>
+              <Price>
+                <span>{price}EUR</span>
+              </Price>
               <Button>Buy</Button>
             </ProductText>
           </ProductContainer>
@@ -79,28 +89,38 @@ const ProductText = styled.div`
   flex-direction: column;
   gap: 1rem;
   color: #505050;
-  font-size: var(--font-size-sm);
+  margin-top: 10%;
+  margin-bottom: 10%;
+  font-size: var(--font-size-base);
 
-  @media (max-width: 1090px) {
-    gap: 0.6rem;
+  @media (max-width: 900px) {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    max-width: none;
   }
 
   @media (max-width: 600px) {
-    gap: 0.4rem;
   }
 `;
 
 const ProductContainer = styled.span`
-  padding: 1rem 0;
   display: flex;
   gap: 3rem;
-  align-items: center;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 0;
+  }
 `;
 
 const Title = styled.h1`
   margin: 0;
   font-size: var(--font-size-lg);
   padding-bottom: 1rem;
+`;
+
+const Price = styled.div`
+  font-size: var(--font-size-base);
 `;
 
 const ShowMoreBtn = styled.button`
@@ -117,6 +137,7 @@ const ShowMoreBtn = styled.button`
   }
 `;
 const ProductDescription = styled.p<{ showFullDescription: boolean }>`
+  padding-bottom: 1rem;
   @media (max-width: 900px) {
     font-size: 0.75rem;
     display: -webkit-box;
@@ -139,14 +160,48 @@ const AmountBtn = styled.button<{ selected: boolean }>`
   border-bottom: ${({ selected }) => (selected ? "1px solid black" : "none")};
 `;
 
-const Directions = styled.div`
+const Directions = styled.div<{ showFullDirection: boolean }>`
   margin: 0;
   font-size: var(--font-size-sm);
   display: flex;
   flex-direction: column;
   gap: 1rem;
   border-top: 1px solid var(--clr-dark-grey);
+  border-bottom: 1px solid var(--clr-dark-grey);
   padding: 1rem 0 0 0;
+  overflow: hidden;
+  padding-right: 1rem;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  img {
+    width: 1.2rem;
+    transform-origin: center;
+    transition: transform 0.3s ease; /* Add a smooth transition to the arrow icon */
+    transform: ${({ showFullDirection }) =>
+      showFullDirection
+        ? "rotate(-180deg)"
+        : "rotate(0deg)"}; /* Rotate the arrow icon */
+  }
+
+  p {
+    max-height: ${({ showFullDirection }) =>
+      showFullDirection
+        ? "1000px"
+        : "0px"}; /* Set the maximum height to show/hide content */
+    transition: max-height 0.2s ease, padding 0.2s ease, opacity 0.2s ease;
+    padding: ${({ showFullDirection }) =>
+      showFullDirection
+        ? "0 0 1rem 0"
+        : "0"}; /* Add padding to push content down */
+    opacity: ${({ showFullDirection }) =>
+      showFullDirection ? 1 : 0}; /* Fade in/out the content */
+    overflow: hidden; /* Hide any overflowing content */
+  }
 `;
 
 const Details = styled.div`
@@ -154,9 +209,8 @@ const Details = styled.div`
   font-size: var(--font-size-sm);
   display: flex;
   gap: 1rem;
-  border-top: 1px solid var(--clr-dark-grey);
   border-bottom: 1px solid var(--clr-dark-grey);
-  padding: 1rem 0;
+  padding: 0 0 1rem 0;
 `;
 
 const Button = styled.button`
@@ -167,14 +221,13 @@ const Button = styled.button`
 `;
 
 const OuterBox = styled.div`
-  padding: 2rem 2rem 2rem 1rem;
+  padding: 1rem 2rem 2rem;
   gap: 1rem;
   display: flex;
-  align-items: center;
+  justify-content: center;
 `;
 
 const InnerBox = styled.div`
-  /* gap: 2rem; */
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -184,8 +237,14 @@ const StyledImage = styled.img`
   object-fit: contain;
   position: relative;
   max-width: 20vw;
+  display: flex;
+  align-self: flex-start;
+  padding-bottom: 1rem;
 
   @media (max-width: 900px) {
-    width: 120px;
+    width: 220px;
+    max-width: 70vw;
+    justify-self: center;
+    padding-bottom: 0;
   }
 `;
