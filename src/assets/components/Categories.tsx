@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import arrow from "../images/arrow.svg";
-import img1 from "../images/category-img1.jpg";
-import img2 from "../images/category-img2.jpg";
-import img4 from "../images/category-img4.jpg";
-import img5 from "../images/category-img5.jpg";
-import img6 from "../images/category-img6.jpg";
+import img1 from "../images/category-1.jpg";
+import img2 from "../images/category-2.jpg";
+import img3 from "../images/category-3.jpg";
+import img4 from "../images/category-4.jpg";
+import img5 from "../images/category-5.jpg";
 
 export default function Categories() {
   return (
@@ -14,27 +14,27 @@ export default function Categories() {
         <InnerBox>
           <ImageContainer>
             <img src={img1} alt="Best sellers" />
+            <Text>New in</Text>
+            <Overlay></Overlay>
+          </ImageContainer>
+          <ImageContainer>
+            <img src={img2} alt="Eye care" />
             <Text>Best sellers</Text>
             <Overlay></Overlay>
           </ImageContainer>
           <ImageContainer>
-            <img src={img2} alt="Sensitive skin" />
+            <img src={img3} alt="Eye care" />
             <Text>Sensitive skin</Text>
             <Overlay></Overlay>
           </ImageContainer>
           <ImageContainer>
-            <img src={img4} alt="Eye care" />
-            <Text>Eye care</Text>
-            <Overlay></Overlay>
-          </ImageContainer>
-          <ImageContainer>
-            <img src={img6} alt="Eye care" />
+            <img src={img4} alt="Sensitive skin" />
             <Text>Body care</Text>
             <Overlay></Overlay>
           </ImageContainer>
           <ImageContainer>
             <img src={img5} alt="Eye care" />
-            <Text>Sunscreen</Text>
+            <Text>Cleansers</Text>
             <Overlay></Overlay>
           </ImageContainer>
           <Link>
