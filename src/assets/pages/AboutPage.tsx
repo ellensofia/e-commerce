@@ -1,4 +1,3 @@
-import { Container } from "@mui/material";
 import { styled } from "styled-components";
 import image2 from "../images/image2.jpg";
 import image3 from "../images/image3.jpg";
@@ -9,21 +8,22 @@ export default function AboutPage() {
       <Container>
         <InnerContainer>
           <Copy>
-            <AboutTitle>About us</AboutTitle>
+            <AboutTitle>Our story</AboutTitle>
             <AboutText>
-              At Oasis, we draw inspiration from the natural wonder of oases -
-              lush and serene havens amidst the desert landscape. An oasis is a
-              sanctuary, a place where life thrives and flourishes even in the
-              harshest conditions. Similarly, we believe that your skincare
-              routine should be a sanctuary, a transformative experience that
-              brings out the radiance within you. Our mission is to provide you
-              with exceptional products that nurture your skin and unlock its
-              true potential. We have carefully curated a collection of skincare
-              essentials, each formulated with premium ingredients and
-              innovative techniques. We believe that the key to radiant skincare
-              lies in harnessing the nourishing properties of botanical
-              extracts, the replenishing effects of hydration, and the
-              rejuvenating power of advanced skincare technologies.
+              <p>
+                At Oasis, we draw inspiration from the natural wonder of oases -
+                lush and serene havens amidst the desert landscape. An oasis is
+                a sanctuary, a place where life thrives and flourishes even in
+                the harshest conditions. Similarly, we believe that your
+                skincare routine should be a sanctuary, a transformative
+                experience that brings out the radiance within you.
+              </p>
+              <p>
+                We believe that the key to radiant skincare lies in harnessing
+                the nourishing properties of botanical extracts, the
+                replenishing effects of hydration, and the rejuvenating power of
+                advanced skincare technologies.
+              </p>
             </AboutText>
           </Copy>
           <AboutImg>
@@ -36,13 +36,34 @@ export default function AboutPage() {
   );
 }
 
-const InnerContainer = styled.div`
+const Container = styled.div`
   display: flex;
-  margin: 7rem 0 2rem;
-  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
 
   @media (max-width: 1090px) {
     gap: 0.6rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 0 1rem;
+  }
+`;
+
+const InnerContainer = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-top: calc(var(--header-height) + var(--margin-xlarge));
+  margin-bottom: var(--margin-xlarge);
+  gap: 2rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: unset;
+    margin-top: calc(var(--header-height) + var(--margin-large));
+    margin-bottom: var(--margin-large);
   }
 
   @media (max-width: 600px) {
@@ -58,16 +79,22 @@ const Copy = styled.div`
 `;
 
 const AboutTitle = styled.h1`
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xxl);
 `;
 
 const AboutText = styled.p`
   color: var(--clr-dark-grey);
   font-size: var(--font-size-base);
+  p:first-of-type {
+    padding-bottom: var(--margin-small);
+  }
 `;
 
 const AboutImg = styled.div`
+  display: flex;
+  gap: var(--margin-small);
   & img {
     max-width: 400px;
+    object-fit: cover;
   }
 `;
