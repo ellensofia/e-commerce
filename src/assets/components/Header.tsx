@@ -64,7 +64,7 @@ export default function Header() {
         </a>
         <a>
           <span className="material-symbols-outlined shopping_basket">
-            shopping_basket
+            shopping_bag
           </span>
         </a>
         <SearchBar
