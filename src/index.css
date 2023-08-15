@@ -2,6 +2,7 @@
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   line-height: 1.5;
   font-weight: 400;
+  --baseline-grid: 1rem;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -11,9 +12,11 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   --header-height: 63.3px;
-  --font-primary: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --font-secondary: "Lao Mn";
+  --font-primary: Circular Std, Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  --font-secondary: "Roslindale Variable";
   --clr-light-grey: #f8f8f7;
+  --clr-light-grey: #ebeae7;
   --clr-medium-grey: #dfdfdf;
   --clr-dark-grey: #333;
   --clr-black: #000;
@@ -21,6 +24,19 @@
   --clr-accent: #d8e0bb;
   --text-clr-dark: #213547;
   --text-clr-light: #2c3237;
+  --baseline-grid: 1rem;
+  --scale-factor: 1.5;
+
+  /* Margins */
+  --margin-xxxsmall: 5.3333px;
+  --margin-xxsmall: calc(var(--margin-xxxsmall) * var(--scale-factor));
+  --margin-xsmall: calc(var(--margin-xxsmall) * var(--scale-factor));
+  --margin-small: calc(var(--margin-xsmall) * var(--scale-factor));
+  --margin-medium: calc(var(--margin-small) * var(--scale-factor));
+  --margin-large: calc(var(--margin-medium) * var(--scale-factor));
+  --margin-xlarge: calc(var(--margin-large) * var(--scale-factor));
+  --margin-xxlarge: calc(var(--margin-xlarge) * var(--scale-factor));
+  --margin-xxxlarge: calc(var(--margin-xxlarge) * var(--scale-factor));
 }
 
 /* Fluid font size variables, for browsers that support clamp */
@@ -61,6 +77,7 @@
 
 * {
   margin: 0;
+  padding: 0;
 }
 
 img {
@@ -74,13 +91,11 @@ a {
 }
 
 body {
-  margin: 0;
   min-height: 100vh;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: var(--font-size-xxl);
 }
 
 h1,
