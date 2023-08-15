@@ -54,6 +54,7 @@ const OuterBox = styled.div`
   margin: 2rem 1rem;
   gap: 1rem;
   align-items: center;
+  padding: 0 2rem;
 `;
 
 const InnerBox = styled.div`
@@ -64,7 +65,7 @@ const InnerBox = styled.div`
   margin: 0 auto;
   gap: 1rem;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1024px) {
     gap: 0.6rem;
     grid-template-columns: repeat(3, 1fr);
   }
