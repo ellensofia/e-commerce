@@ -7,10 +7,12 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import App from "./App.tsx";
+import { ProductContext } from "./assets/contexts/ProductContext.tsx";
 import AboutPage from "./assets/pages/AboutPage.tsx";
 import ShopPage from "./assets/pages/ShopPage.tsx";
 import SingleProductPage from "./assets/pages/SingleProductPage.tsx";
 import StartPage from "./assets/pages/StartPage.tsx";
+import { products } from "./data.ts";
 import "./index.css";
 
 const router = createBrowserRouter(
@@ -26,6 +28,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ProductContext.Provider value={products}>
+      <RouterProvider router={router} />
+    </ProductContext.Provider>
   </React.StrictMode>
 );
