@@ -1,16 +1,20 @@
 import styled from "styled-components";
 import { products } from "../../data";
 import Product from "../components/Product";
+import img from "../images/cream.jpg";
 
 export default function ShopPage() {
   return (
     <InnerContainer>
-      <ShopTitle>Shop</ShopTitle>
-      <AllCategories>Filter by category</AllCategories>
+      <div>
+        <ShopTitle>Shop</ShopTitle>
+        <AllCategories>Filter by category</AllCategories>
+      </div>
       <ProductGrid>
         {products.map((product) => (
           <Product key={product.id} product={product} />
         ))}
+        <img className="img" src={img} alt="" />
       </ProductGrid>
     </InnerContainer>
   );
@@ -18,14 +22,25 @@ export default function ShopPage() {
 
 const InnerContainer = styled.div`
   margin: 6rem 0 3rem;
+
+  div:first-child {
+    padding-left: 2rem;
+  }
 `;
 
 const ProductGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
   margin-top: 2rem;
   border-top: 1px solid var(--clr-dark-grey);
   border-left: 1px solid var(--clr-dark-grey);
+
+  .img {
+    min-width: calc(100% - 1px);
+    object-fit: cover;
+    border-bottom: 1px solid var(--clr-dark-grey);
+    border-right: 1px solid var(--clr-dark-grey);
+  }
 `;
 
 const ShopTitle = styled.h1`
