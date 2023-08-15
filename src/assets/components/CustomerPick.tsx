@@ -11,19 +11,31 @@ export default function CustomerPick() {
           <ul>
             <li>
               <h3>01</h3>
-              <p>Ingredients Pure essential oils</p>
+              <div>
+                <p>Ingredients</p>
+                <p>Pure essential oils</p>
+              </div>
             </li>
             <li>
               <h3>02</h3>
-              <p>Aroma Floral, spicy or sweet</p>
+              <div>
+                <p>Aroma </p>
+                <p>Floral, spicy or sweet</p>
+              </div>
             </li>
             <li>
               <h3>03</h3>
-              <p>Simple No unnecessary additives</p>
+              <div>
+                <p>Simple</p>
+                <p> No unnecessary additives</p>
+              </div>
             </li>
             <li>
               <h3>04</h3>
-              <p>Production Packaging and production located in Australia </p>
+              <div>
+                <p>Production</p>
+                <p> Packaging and production located in Australia </p>
+              </div>
             </li>
           </ul>
           <StyledButton>Read more</StyledButton>
@@ -81,13 +93,14 @@ const TextBox = styled.div`
     width: 2rem;
     font-size: var(--font-size-md);
     color: var(--clr-dark-grey);
+
     @media (max-width: 900px) {
       padding-right: 0.5rem;
     }
   }
 
   ul {
-    padding: 1rem 0 0 0;
+    padding: 1rem 0;
     list-style: none;
   }
 
@@ -96,6 +109,10 @@ const TextBox = styled.div`
     align-items: center;
     position: relative;
     display: flex;
+
+    p:first-of-type {
+      font-weight: bold;
+    }
 
     &::after {
       position: absolute;
@@ -120,8 +137,13 @@ const CustomerTitle = styled.h2`
 `;
 
 const StyledButton = styled.button`
-  border: 1px solid #333;
   width: fit-content;
   border-radius: 2rem;
-  background-color: #fff;
+  background-color: transparent;
+  border: 1px solid var(--clr-dark-grey);
+  color: var(--clr-dark-grey);
+  &:hover {
+    border: 1px solid #707070;
+    color: #707070;
+  }
 `;
