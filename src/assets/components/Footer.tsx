@@ -95,6 +95,7 @@ const List = styled.ul`
 
 const Title = styled.h4`
   color: var(--text-clr-dark);
+  font-weight: bold;
   font-size: var(--font-size-base);
 `;
 
@@ -186,7 +187,9 @@ const Text = styled.p`
 
 const Link = styled.a`
   color: var(--clr-dark-grey);
-  font-size: var(--font-size-sm);
+  font-weight: 400;
+  font-size: var(--font-size-base);
+
   position: relative;
   cursor: pointer;
 
