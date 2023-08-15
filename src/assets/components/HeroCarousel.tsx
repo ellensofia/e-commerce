@@ -1,3 +1,4 @@
+// import { Title } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import image1 from "../images/image1.jpg";
@@ -61,8 +62,8 @@ export default function HeroCarousel() {
             >
               <StyledImage src={image} alt={image} key={index} />
               <TextBox>
-                <h3>Special offer</h3>
-                <p>50% off</p>
+                {/* <Title>Special offer</Title> */}
+                {/* <p>50% off</p> */}
               </TextBox>
             </StyledCarouselItem>
           ))}
@@ -157,6 +158,10 @@ const Navigations = styled.div`
   align-items: flex-end;
   gap: 1rem;
   padding: 1rem 0;
+`;
+
+const Title = styled.h1`
+  /* font-size: var(--font-size-xxl); */
 `;
 
 const StyledButton = styled.button<StyledButtonProps>`
