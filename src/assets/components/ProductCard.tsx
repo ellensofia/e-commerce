@@ -38,7 +38,6 @@ export default function productCard({
         <Title>{product_name}</Title>
         <Review>
           <span>Reviews </span>
-          {/* <TotalReviews>({reviews.total_reviews})</TotalReviews> */}
           <span>{reviews.average_rating}</span>
           <Rating
             name={`rating-${index}`}
@@ -54,8 +53,8 @@ export default function productCard({
                 color: "pink",
               },
               "& .MuiRating-icon SVG": {
-                color: "#555",
-                fontSize: "0.8rem",
+                color: "var(--clr-dark-grey)",
+                fontSize: "0.9rem",
               },
             }}
           />
@@ -80,7 +79,7 @@ export default function productCard({
             </AmountBtn>
           ))}
         </Details>
-        <span>{price}EUR</span>
+        <span>{price} EUR</span>
         <Button>Buy</Button>
       </ProductText>
     </StyledCarouselItem>
@@ -122,7 +121,7 @@ const ProductText = styled.div`
   display: flex;
   max-width: 31rem;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem;
   justify-content: center;
   color: #505050;
   font-size: var(--font-size-base);
@@ -139,22 +138,27 @@ const Review = styled.span`
   gap: 0.4rem;
 `;
 
-const TotalReviews = styled.p`
-  font-size: 0.6rem;
-  @media (max-width: 900px) {
-    font-size: 0.55rem;
-  }
-`;
-
 const AmountBtn = styled.button<{ selected: boolean }>`
   background-color: transparent;
   border-radius: 0;
   padding: 0;
   border: none;
-  border-bottom: ${({ selected }) =>
-    selected ? "1px solid var(--clr-dark-grey)" : "none"};
+  position: relative;
+  padding-bottom: 0.3rem;
+
   &:first-child {
     margin-right: 1rem;
+  }
+
+  &::after {
+    content: "";
+    background-color: var(--clr-dark-grey);
+    height: 1px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    display: ${({ selected }) => (selected ? "block" : "none")};
+    position: absolute;
   }
   @media (max-width: 900px) {
     font-size: 0.55rem;
