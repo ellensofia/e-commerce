@@ -1,3 +1,4 @@
+import { Rating } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -25,30 +26,34 @@ export default function Product({ product }: Props) {
           <StyledImage src={image} alt={product_name} key={id} />
           <ProductText>
             <Title>{product_name}</Title>
-            {/* <Review> */}
-            {/* <span>Reviews </span>
-          <TotalReviews>({reviews.total_reviews})</TotalReviews>
-          <span>{reviews.average_rating}</span>
-          <Rating
-            name={`rating-${id}`}
-            value={parseFloat(reviews.average_rating.toFixed(1))}
-            precision={0.5}
-            readOnly
-            sx={{
-              "& .MuiRating-iconFilled": {
-                color: "#555555",
-              },
-              "& .MuiRating-iconHover": {
-                color: "pink",
-              },
-              "& .MuiRating-icon SVG": {
-                color: "#555",
-                fontSize: "0.8rem",
-              },
-            }}
-          />
-        </Review> */}
-            View details
+            <Bottom>
+              <Price>{price}EUR</Price>
+              <Review>
+                {/* <span>Reviews </span> */}
+                {/* <TotalReviews>({reviews.total_reviews})</TotalReviews> */}
+                <span>{reviews.average_rating}</span>
+                <Rating
+                  name={`rating-${id}`}
+                  value={parseFloat(reviews.average_rating.toFixed(1))}
+                  precision={0.5}
+                  readOnly
+                  sx={{
+                    "& .MuiRating-iconFilled": {
+                      color: "#555555",
+                    },
+                    "& .MuiRating-iconHover": {
+                      color: "pink",
+                    },
+                    "& .MuiRating-icon SVG": {
+                      color: "#555",
+                      fontSize: "0.8rem",
+                    },
+                  }}
+                />
+              </Review>
+            </Bottom>
+
+            {/* View details */}
             {/* <ShowMoreBtn
           onClick={() => setShowFullDescription((prevState) => !prevState)}
         ></ShowMoreBtn> */}
@@ -63,8 +68,7 @@ export default function Product({ product }: Props) {
             </AmountBtn>
           ))}
         </Details> */}
-            <span>{price}EUR</span>
-            <Button>Buy</Button>
+            {/* <Button>Buy</Button> */}
           </ProductText>
         </OuterBox>
       </StyledLink>
@@ -78,6 +82,7 @@ const ProductText = styled.div`
   flex-direction: column;
   gap: 1rem;
   color: #505050;
+  width: 100%;
   font-size: var(--font-size-sm);
 
   @media (max-width: 1090px) {
@@ -95,6 +100,17 @@ const Review = styled.span`
   display: flex;
   align-items: center;
   gap: 0.2rem;
+`;
+
+const Bottom = styled.div`
+  font-size: var(--font-size-m);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+const Price = styled.p`
+  font-size: var(--font-size-md);
 `;
 
 // const TotalReviews = styled.p`
@@ -144,24 +160,24 @@ const Button = styled.button`
 `;
 
 const OuterBox = styled.div`
-  /* border-bottom: 1px solid var(--clr-dark-grey);
-  border-right: 1px solid var(--clr-dark-grey);
-  padding: 2rem 2rem 2rem 1rem;
-  gap: 1rem;
-  height: 100%;
-  align-items: center; */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 1rem 2rem;
+  flex-direction: column;
+  gap: 1rem;
+
+  width: 90%;
 `;
 
 const StyledLink = styled(Link)`
   border-bottom: 1px solid var(--clr-dark-grey);
   border-right: 1px solid var(--clr-dark-grey);
-  padding: 2rem 2rem 2rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &:hover {
+    background: var(--clr-light-grey);
+  }
 `;
 
 const StyledImage = styled.img`
@@ -169,6 +185,8 @@ const StyledImage = styled.img`
   position: relative;
   max-width: 160px;
   min-width: 200px;
+  max-height: 400px;
+  margin: 0 auto;
 
   @media (max-width: 900px) {
     width: 120px;

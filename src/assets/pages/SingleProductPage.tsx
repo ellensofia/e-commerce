@@ -1,5 +1,5 @@
-import { Container } from "@mui/material";
-import { Link, useParams } from "react-router-dom";
+import { Breadcrumbs, Container, Typography } from "@mui/material";
+import { Link, NavLink, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { products } from "../../data";
 import SingleProduct from "../components/SingleProduct";
@@ -12,7 +12,13 @@ export default function SingleProductPage() {
     <Container>
       <InnerContainer>
         <Top>
-          <BreadCrumbs>...</BreadCrumbs>
+          <Breadcrumbs separator="/" aria-label="breadcrumb">
+            <NavLink to="./" color="#333">
+              MUI
+            </NavLink>
+            <NavLink to="./">Categories</NavLink>
+            <Typography>Moisturizer</Typography>{" "}
+          </Breadcrumbs>
           <Link to={`/shop/`}>Back</Link>
         </Top>
         <SingleProduct />
@@ -25,12 +31,11 @@ const InnerContainer = styled.div`
   margin-top: 5rem;
 `;
 
-const BreadCrumbs = styled.h3`
-  display: flex;
-  font-size: var(--font-size-base);
-`;
-
 const Top = styled.div`
   display: flex;
   justify-content: space-between;
+
+  a {
+    color: #333;
+  }
 `;
