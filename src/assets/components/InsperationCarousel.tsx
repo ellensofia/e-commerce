@@ -42,13 +42,9 @@ export default function InsperationCarousel() {
           <Text>
             <h3>Get inspired</h3>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam
-              eligendi numquam corporis consectetur mollitia perspiciatis libero
-              sapiente ex dolorem nobis nulla officia, quia ipsum debitis quas
-              explicabo eum officiis natus. Quis aperiam reiciendis inventore
-              nulla alias qui repudiandae cupiditate quibusdam, dolorem corporis
-              voluptatibus, quam beatae veniam laborum porro, quos delectus esse
-              enim quaerat rem labore ut! Accusantium similique corrupti vero!
+              Our experts provide personalized advice and answers, prioritizing
+              your skin’s well-being. We’re dedicated to equipping you with the
+              knowledge and tools for healthy, vibrant skin.
             </p>
           </Text>
           <Posts>
@@ -64,13 +60,12 @@ export default function InsperationCarousel() {
         </InnerContainer>
         <InnerContainer visible={shouldShowSecondContainerAsString}>
           <Text>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam
-            eligendi numquam corporis consectetur mollitia perspiciatis libero
-            sapiente ex dolorem nobis nulla officia, quia ipsum debitis quas
-            explicabo eum officiis natus. Quis aperiam reiciendis inventore
-            nulla alias qui repudiandae cupiditate quibusdam, dolorem corporis
-            voluptatibus, quam beatae veniam laborum porro, quos delectus esse
-            enim quaerat rem labore ut! Accusantium similique corrupti vero!
+            <h3>Get inspired</h3>
+            <p>
+              Our experts provide personalized advice and answers, prioritizing
+              your skin’s well-being. We’re dedicated to equipping you with the
+              knowledge and tools for healthy, vibrant skin.
+            </p>
           </Text>
           <Posts>
             {products.map((product, index) => (
@@ -208,6 +203,7 @@ const Text = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   display: flex;
   background-color: var(--clr-white);
   z-index: 8;
@@ -232,7 +228,6 @@ const Text = styled.div`
 
   @media (max-width: 1090px) {
     height: calc(100% - 3rem);
-    gap: 1rem;
     padding: 1.5rem;
   }
 

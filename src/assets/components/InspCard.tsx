@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { Product } from "../../data";
-import img1 from "../images/insp-img-1.jpg";
+import img1 from "../images/cream.jpg";
+import img3 from "../images/cream2.jpg";
 import img2 from "../images/insp-img-2.jpg";
-import img3 from "../images/insp-img-3.jpg";
+import img4 from "../images/mask.jpg";
 
 export interface Props {
   product: Product;
@@ -12,15 +13,13 @@ export interface Props {
 
 export default function InspCard({ product, currentItemIndex, index }: Props) {
   const { image, product_name } = product;
-  const images = [img1, img2, img3];
+  const images = [img1, img2, img3, img4];
 
   return (
     <StyledCarouselItem
       index={index}
       style={{
-        transform: `translateX(calc(${
-          (index - currentItemIndex) * 104
-        }% - 2rem))`,
+        transform: `translateX(calc(${(index - currentItemIndex) * 108}%)`,
         transition: "transform 1.6s ease-in-out",
       }}
     >
@@ -33,22 +32,21 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   position: absolute;
   height: 100%;
   width: 21%;
-  left: 10pc;
+  left: 8%;
   overflow: hidden;
   background-color: var(--clr-light-grey);
   display: flex;
   align-items: center;
-  /* margin-right: 2rem; */
 
   &:last-of-type {
     border-right: 1px solid var(--clr-dark-grey);
   }
 
-  /* @media (max-width: 1090px) {
-    width: 25%;
+  @media (max-width: 1090px) {
+    width: 21%;
     gap: 1rem;
     padding-right: 6%;
-  }
+  } /*
   @media (max-width: 600px) {
     gap: 0rem;
     padding-right: 2rem;

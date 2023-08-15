@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Categories from "../components/Categories";
 import CustomerPick from "../components/CustomerPick";
 import Hero from "../components/Hero";
+import InsperationCarousel from "../components/InsperationCarousel";
 import ProductCarousel from "../components/ProductCarousel";
 import TextSection from "../components/TextSection";
 
@@ -61,6 +62,7 @@ export default function StartPage() {
       <Categories />
       <CustomerPick />
       <TextSection />
+      <InsperationCarousel />
     </>
   );
 }
