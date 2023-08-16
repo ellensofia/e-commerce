@@ -48,7 +48,9 @@ export default function SingleProduct() {
                 onClick={() =>
                   setShowFullDescription((prevState) => !prevState)
                 }
-              ></ShowMoreBtn>
+              >
+                Show more
+              </ShowMoreBtn>
               <Directions
                 showFullDirection={showFullDirection}
                 onClick={() => setShowFullDirection(!showFullDirection)}
@@ -90,22 +92,19 @@ const ProductText = styled.div`
   gap: 1rem;
   color: #505050;
   margin-top: 10%;
-  margin-bottom: 10%;
+  margin-bottom: 15%;
   font-size: var(--font-size-base);
 
   @media (max-width: 900px) {
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin-top: var(--margin-md);
+    margin-bottom: var(--margin-xlg);
     max-width: none;
-  }
-
-  @media (max-width: 600px) {
   }
 `;
 
 const ProductContainer = styled.span`
   display: flex;
-  gap: 3rem;
+  gap: var(--margin-lg);
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -116,7 +115,7 @@ const ProductContainer = styled.span`
 const Title = styled.h1`
   margin: 0;
   font-size: var(--font-size-lg);
-  padding-bottom: 1rem;
+  padding-bottom: var(--margin-sm);
 `;
 
 const Price = styled.div`
@@ -137,9 +136,8 @@ const ShowMoreBtn = styled.button`
   }
 `;
 const ProductDescription = styled.p<{ showFullDescription: boolean }>`
-  padding-bottom: 1rem;
+  font-size: var(--font-size-base);
   @media (max-width: 900px) {
-    font-size: 0.75rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: ${({ showFullDescription }) =>
@@ -162,15 +160,15 @@ const AmountBtn = styled.button<{ selected: boolean }>`
 
 const Directions = styled.div<{ showFullDirection: boolean }>`
   margin: 0;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-base);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--margin-sm);
   border-top: 1px solid var(--clr-dark-grey);
   border-bottom: 1px solid var(--clr-dark-grey);
-  padding: 1rem 0 0 0;
+  padding: var(--margin-sm) 0 0 0;
   overflow: hidden;
-  padding-right: 1rem;
+  padding-right: var(--margin-sm);
 
   div {
     display: flex;
@@ -208,9 +206,9 @@ const Details = styled.div`
   margin: 0;
   font-size: var(--font-size-sm);
   display: flex;
-  gap: 1rem;
+  gap: var(--margin-sm);
   border-bottom: 1px solid var(--clr-dark-grey);
-  padding: 0 0 1rem 0;
+  padding: 0.4rem 0 1.5rem 0;
 `;
 
 const Button = styled.button`
@@ -221,8 +219,8 @@ const Button = styled.button`
 `;
 
 const OuterBox = styled.div`
-  padding: 1rem 2rem 2rem;
-  gap: 1rem;
+  padding: var(--margin-sm) var(--margin-md) var(--margin-md);
+  gap: var(--margin-sm);
   display: flex;
   justify-content: center;
 `;
@@ -239,7 +237,7 @@ const StyledImage = styled.img`
   max-width: 20vw;
   display: flex;
   align-self: flex-start;
-  padding-bottom: 1rem;
+  padding-bottom: var(--margin-sm);
 
   @media (max-width: 900px) {
     width: 220px;

@@ -46,16 +46,18 @@ export default function CustomerPick() {
 }
 
 const OuterBox = styled.div`
-  margin: 2rem 0 0 0;
   width: 100%;
-  padding: 2rem 0;
+  padding: var(--margin-lg) 0;
   background-color: #f8f8f7;
 `;
 
 const InnerBox = styled.div`
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: var(--margin-xlg);
+  @media (max-width: 640px) {
+    padding: 0 var(--margin-md);
+  }
 
   & img {
     width: 40%;
@@ -65,17 +67,18 @@ const InnerBox = styled.div`
     }
   }
   @media (max-width: 900px) {
-    gap: 1rem;
     flex-wrap: wrap;
+    gap: var(--margin-md);
+
     & img {
-      width: 80%;
+      width: 70%;
     }
   }
-  @media (max-width: 600px) {
+
+  @media (max-width: 640px) {
     & img {
       width: 100%;
     }
-    padding: 1rem;
   }
 `;
 
@@ -84,18 +87,17 @@ const TextBox = styled.div`
   flex-direction: column;
   justify-content: center;
   min-width: 200px;
-  padding: 1rem;
   font-size: var(--font-size-base);
 
   h3 {
-    padding-right: 1rem;
+    padding-right: var(--margin-sm);
     height: 100%;
     width: 2rem;
     font-size: var(--font-size-md);
     color: var(--clr-dark-grey);
 
     @media (max-width: 900px) {
-      padding-right: 0.5rem;
+      padding-right: var(--margin-sm);
     }
   }
 
@@ -105,10 +107,11 @@ const TextBox = styled.div`
   }
 
   li {
-    padding-bottom: 2rem;
+    padding-bottom: var(--margin-lg);
     align-items: center;
     position: relative;
     display: flex;
+    gap: var(--margin-sm);
 
     p:first-of-type {
       font-weight: bold;
@@ -121,7 +124,7 @@ const TextBox = styled.div`
       width: 100%;
       background-color: var(--clr-medium-grey);
       left: 0;
-      margin-bottom: 1rem;
+      margin-bottom: var(--margin-sm);
       bottom: 0;
     }
   }

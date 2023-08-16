@@ -30,13 +30,13 @@ export default function ReviewSection({ product }: Props) {
                 },
                 "& .MuiRating-icon SVG": {
                   color: "#555",
-                  fontSize: "0.8rem",
+                  fontSize: "var(--font-size-base)",
                 },
               }}
             />
           </Review>
 
-          <span>Avrage ratings{product.reviews.average_rating}</span>
+          <span>Avrage ratings {product.reviews.average_rating}</span>
           <span>Total reviews {product.reviews.total_reviews}</span>
           <Testimonials>
             {product.reviews.text_reviews.map((review, i) => (
@@ -60,9 +60,9 @@ const OuterContainer = styled.span`
   font-size: var(--font-size-sm);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--margin-sm);
   width: 100%;
-  padding: 2rem 0;
+  padding: var(--margin-md) 0;
   border-top: 1px solid var(--clr-dark-grey);
 `;
 
@@ -75,9 +75,9 @@ const Testimonials = styled.span`
   border-bottom: 1px solid var(--clr-dark-grey);
 `;
 const TestimonialsText = styled.span`
-  gap: 1rem;
+  gap: var(--margin-sm);
   border-bottom: 1px solid var(--clr-dark-grey);
-  padding: 2rem 0;
+  padding: var(--margin-md) 0;
   font-size: var(--font-size-base);
 
   display: flex;
@@ -87,7 +87,7 @@ const TestimonialsText = styled.span`
   }
 `;
 const UserInfo = styled.span`
-  gap: 1rem;
+  gap: var(--margin-sm);
   display: flex;
   flex-direction: column;
 
@@ -110,9 +110,6 @@ const TotalReviews = styled.p`
 const Title = styled.h3`
   font-size: var(--font-size-md);
   color: var(--text-clr-light);
-  @media (max-width: 900px) {
-    font-size: 0.55rem;
-  }
 `;
 
 const Review = styled.span`
@@ -120,7 +117,7 @@ const Review = styled.span`
   font-size: var(--font-size-sm);
   display: flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0 var(--margin-xsm);
 `;
 
 // const Stars = styled.sta`
@@ -128,5 +125,5 @@ const Review = styled.span`
 //   font-size: var(--font-size-sm);
 //   display: flex;
 //   align-items: center;
-//   gap: 0.2rem;
+//   gap: 0.var(--margin-md);
 // `;

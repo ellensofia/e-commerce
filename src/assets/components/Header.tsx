@@ -86,16 +86,16 @@ const StyledHeader = styled.header`
   display: flex;
   height: var(--header-height);
   background-color: var(--clr-white);
-  width: calc(100% - 2rem);
+  width: 100%;
   z-index: 1000;
   justify-content: space-between;
   top: 0;
   border-bottom: 1px solid var(--clr-dark-grey);
   align-items: center;
-  padding: 0rem 3.6rem 0rem 2rem;
+  padding: 0rem calc(var(--margin-md) - 1.25rem) 0rem var(--margin-md);
 
   @media (max-width: 900px) {
-    padding: 0rem 1rem;
+    padding: 0rem var(--margin-sm);
   }
 `;
 
@@ -105,7 +105,7 @@ const StyledListItem = styled.li<{ menuOpen: string }>`
   a {
     color: var(--clr-dark-grey);
     display: flex;
-    gap: 1rem;
+    gap: var(--margin-sm);
 
     &:hover {
       text-decoration: underline;
@@ -116,15 +116,14 @@ const StyledListItem = styled.li<{ menuOpen: string }>`
 
 const StyledMiddle = styled.ul<{ menuOpen: string }>`
   display: ${({ menuOpen }) => (menuOpen === "false" ? "flex" : "none")};
-  gap: 2.6rem;
+  gap: var(--margin-lg);
   padding: 0;
-  top: 57px;
+  top: calc(var(--header-height) - 3px);
   text-transform: uppercase;
   left: 0;
   font-size: var(--font-size-base);
-  padding: 0 1rem;
-  @media (max-width: 1090px) {
-    gap: 1.6rem;
+  @media (max-width: 1190px) {
+    gap: var(--margin-sm);
     font-size: var(--font-size-sm);
   }
 
@@ -142,12 +141,13 @@ const Logotype = styled.p`
 const StyledRight = styled.div<{ isExpanded: string }>`
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--margin-sm);
 
   & a {
     display: flex;
   }
   .shopping_basket {
-    margin-right: ${({ isExpanded }) => (isExpanded === "true" ? "0" : "2rem")};
+    margin-right: ${({ isExpanded }) =>
+      isExpanded === "true" ? "0" : "var(--margin-md)"};
   }
 `;

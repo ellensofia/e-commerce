@@ -28,15 +28,15 @@
   --scale-factor: 1.5;
 
   /* Margins */
-  --margin-xxxsmall: 5.3333px;
-  --margin-xxsmall: calc(var(--margin-xxxsmall) * var(--scale-factor));
-  --margin-xsmall: calc(var(--margin-xxsmall) * var(--scale-factor));
-  --margin-small: calc(var(--margin-xsmall) * var(--scale-factor));
-  --margin-medium: calc(var(--margin-small) * var(--scale-factor));
-  --margin-large: calc(var(--margin-medium) * var(--scale-factor));
-  --margin-xlarge: calc(var(--margin-large) * var(--scale-factor));
-  --margin-xxlarge: calc(var(--margin-xlarge) * var(--scale-factor));
-  --margin-xxxlarge: calc(var(--margin-xxlarge) * var(--scale-factor));
+  --margin-xxxsm: 5.3333px;
+  --margin-xxsm: calc(var(--margin-xxxsm) * var(--scale-factor)); /*8px*/
+  --margin-xsm: calc(var(--margin-xxsm) * var(--scale-factor)); /*12px*/
+  --margin-sm: calc(var(--margin-xsm) * var(--scale-factor)); /*18px*/
+  --margin-md: calc(var(--margin-sm) * var(--scale-factor)); /*27px*/
+  --margin-lg: calc(var(--margin-md) * var(--scale-factor)); /*41px*/
+  --margin-xlg: calc(var(--margin-lg) * var(--scale-factor)); /*61*/
+  --margin-xxlg: calc(var(--margin-xlg) * var(--scale-factor)); /*91*/
+  --margin-xxxlg: calc(var(--margin-xxlg) * var(--scale-factor)); /*137*/
 }
 
 /* Fluid font size variables, for browsers that support clamp */
@@ -78,6 +78,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 img {

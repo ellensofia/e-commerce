@@ -56,15 +56,15 @@ export default function Footer() {
 
 const OuterContainer = styled.div`
   align-items: center;
-  padding: 2rem 4rem;
+  padding: var(--margin-lg) var(--margin-xlg) var(--margin-md);
   background-color: var(--clr-medium-grey);
 
   @media (max-width: 900px) {
-    padding: 2rem 1.5rem;
+    padding: var(--margin-lg) var(--margin-sm) var(--margin-md);
   }
 
   @media (max-width: 600px) {
-    padding: 1rem 0rem;
+    padding: var(--margin-lg) 0 var(--margin-md);
   }
 `;
 
@@ -82,14 +82,14 @@ const InnerContainer = styled.div`
 
 const LinkSection = styled.div`
   display: flex;
-  padding: 1rem;
+  padding: var(--margin-sm);
   justify-content: space-between;
 `;
 
 const List = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: var(--margin-xsm);
   padding: 0;
 `;
 
@@ -104,7 +104,7 @@ const Signup = styled.h4`
 `;
 
 const BottomSection = styled.div`
-  padding-top: 2rem;
+  padding-top: var(--margin-md);
   display: grid;
   align-items: end;
   grid-template-columns: 1fr 1fr 1fr;
@@ -117,17 +117,17 @@ const BottomSection = styled.div`
 `;
 
 const NewsletterSection = styled.div`
-  padding: 1rem;
+  padding: var(--margin-sm);
   grid-column: span 2;
   @media (max-width: 600px) {
-    padding-bottom: 2rem;
+    padding-bottom: var(--margin-md);
   }
 `;
 
 const NewsletterTitle = styled.h3`
   grid-column: span 2;
   font-weight: 400;
-  padding-bottom: 0.6rem;
+  padding-bottom: var(--margin-sm);
   font-size: var(--font-size-md);
   color: var(--text-clr-dark);
 `;
@@ -135,7 +135,7 @@ const NewsletterTitle = styled.h3`
 const Logo = styled.div`
   display: flex;
   align-items: flex-start;
-  padding: 1rem;
+  padding: var(--margin-sm);
 
   img {
     width: 100px;
@@ -145,9 +145,8 @@ const Logo = styled.div`
 const Copy = styled.div`
   color: var(--clr-dark-grey);
   font-size: var(--font-size-sm);
-  margin-top: 2rem;
-  padding-top: 2rem;
-  padding: 1rem;
+  margin-top: var(--margin-md);
+  padding-top: var(--margin-md);
   border-top: 1px solid var(--clr-dark-grey);
   @media (max-width: 600px) {
     text-align: center;
@@ -156,8 +155,8 @@ const Copy = styled.div`
 `;
 
 const Input = styled.input`
-  padding: 0.5rem;
-  margin-top: 1rem;
+  padding: var(--margin-xsm);
+  margin-top: var(--margin-sm);
   background-color: transparent;
   width: 20rem;
   border: 1px solid var(--clr-black);
@@ -171,7 +170,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  margin-top: 1rem;
+  margin-top: var(--margin-sm);
   border: 1px solid black;
   border-left: transparent;
   background-color: transparent;

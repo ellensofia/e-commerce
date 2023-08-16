@@ -100,7 +100,7 @@ const OuterBox = styled.div`
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  gap: 1rem;
+  gap: var(--margin-sm);
   /* border-top: 1px solid var(--clr-dark-grey);
   border-bottom: 1px solid var(--clr-dark-grey); */
 
@@ -112,7 +112,7 @@ const OuterBox = styled.div`
 const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
-  margin-bottom: calc(100px + 4rem);
+  margin-bottom: calc(100px + var(--margin-xlg));
 `;
 
 const Posts = styled.div`
@@ -126,14 +126,8 @@ const Posts = styled.div`
 const InnerContainer = styled.div<{ visible: string }>`
   height: 25.5rem;
   margin: 0 auto;
-  gap: 1rem;
+  gap: var(--margin-sm);
   display: ${({ visible }) => (visible === "true" ? "flex" : "none")};
-
-  @media (max-width: 460px) {
-  }
-
-  @media (max-width: 430px) {
-  }
 `;
 
 const NavigationsLeft = styled.div`
@@ -143,16 +137,16 @@ const NavigationsLeft = styled.div`
   display: flex;
   background-color: var(--clr-light-grey);
   align-items: center;
-  padding-left: 1rem;
+  padding-left: var(--margin-sm);
   z-index: 10;
 
   @media (max-width: 600px) {
     left: 0rem;
-    padding-left: 0.4rem;
+    padding-left: var(--margin-xsm);
   }
 
   @media (max-width: 460px) {
-    padding-left: 0.1rem;
+    padding-left: var(--margin-xxsm);
   }
 `;
 
@@ -175,15 +169,15 @@ const NavigationsRight = styled.div`
   right: 0rem;
   height: 100px;
   background-color: var(--clr-light-grey);
-  padding-right: 1rem;
+  padding-right: var(--margin-sm);
 
   @media (max-width: 600px) {
     right: 0rem;
-    padding-right: 0.4rem;
+    padding-right: var(--margin-xsm);
   }
 
   @media (max-width: 460px) {
-    padding-right: 0.1rem;
+    padding-right: 0 var(--margin-xxsm);
   }
 `;
 
@@ -198,16 +192,25 @@ const StyledButton = styled.button`
 
 const Text = styled.div`
   position: absolute;
-  height: calc(100% - 6rem);
-  width: 31%;
+  height: 100%;
+  width: 39%;
+  max-width: 600px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  display: flex;
   background-color: var(--clr-white);
   z-index: 8;
-  padding: 3rem;
+  padding: var(--margin-lg);
+
+  @media (max-width: 1024px) {
+    padding: var(--margin-md);
+  }
+
+  @media (max-width: 640px) {
+    padding: var(--margin-sm);
+    width: 45%;
+  }
 
   & h3 {
     position: relative;
@@ -219,22 +222,10 @@ const Text = styled.div`
     content: "";
     position: absolute;
     height: 1px;
-    background-color: var(--clr-dark-grey);
+    background-color: var(--clr-medium-grey);
     width: 100%;
     left: 0;
     bottom: 0;
-    margin-bottom: 1rem;
-  }
-
-  @media (max-width: 1090px) {
-    height: calc(100% - 3rem);
-    padding: 1.5rem;
-  }
-
-  @media (max-width: 600px) {
-    gap: 0rem;
-    padding: 0.5rem;
-    width: 45%;
-    height: calc(100% - 1rem);
+    margin-bottom: var(--margin-sm);
   }
 `;

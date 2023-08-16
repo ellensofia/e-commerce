@@ -51,10 +51,14 @@ const OuterBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2rem 1rem;
-  gap: 1rem;
+  margin: var(--margin-md) var(--margin-sm);
+  gap: var(--margin-sm);
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 var(--margin-md);
+  @media (max-width: 900px) {
+    padding: 0;
+    margin: var(--margin-lg) var(--margin-sm);
+  }
 `;
 
 const InnerBox = styled.div`
@@ -63,15 +67,16 @@ const InnerBox = styled.div`
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr auto;
   margin: 0 auto;
-  gap: 1rem;
+  gap: var(--margin-sm);
 
   @media (max-width: 1024px) {
-    gap: 0.6rem;
     grid-template-columns: repeat(3, 1fr);
+    gap: var(--margin-xsm);
   }
 
   @media (max-width: 400px) {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--margin-xxsm);
   }
 `;
 
@@ -119,7 +124,7 @@ const Text = styled.p`
 const Title = styled.h3`
   color: #1b1b1b;
   font-size: var(--font-size-lg);
-  margin-bottom: 1rem;
+  margin-bottom: var(--margin-sm);
 `;
 
 const Link = styled.a`
@@ -128,7 +133,7 @@ const Link = styled.a`
   width: min-content;
   text-transform: uppercase;
   display: flex;
-  gap: 1.5rem;
+  gap: var(--margin-md);
 
   & img {
     width: 1.5rem;
@@ -144,7 +149,7 @@ const Link = styled.a`
   }
 
   @media (max-width: 700px) {
-    gap: 0.5rem;
+    gap: var(--margin-xxsm);
     font-size: var(--font-size-sm);
   }
 `;

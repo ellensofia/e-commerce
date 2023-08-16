@@ -29,8 +29,6 @@ export default function Product({ product }: Props) {
             <Bottom>
               <Price>{price}EUR</Price>
               <Review>
-                {/* <span>Reviews </span> */}
-                {/* <TotalReviews>({reviews.total_reviews})</TotalReviews> */}
                 <span>{reviews.average_rating}</span>
                 <Rating
                   name={`rating-${id}`}
@@ -46,7 +44,7 @@ export default function Product({ product }: Props) {
                     },
                     "& .MuiRating-icon SVG": {
                       color: "#555",
-                      fontSize: "0.8rem",
+                      fontSize: "var(--font-size-base)",
                     },
                   }}
                 />
@@ -80,17 +78,13 @@ const ProductText = styled.div`
   display: flex;
   max-width: 36rem;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--margin-sm);
   color: #505050;
   width: 100%;
   font-size: var(--font-size-sm);
 
-  @media (max-width: 1090px) {
-    gap: 0.6rem;
-  }
-
   @media (max-width: 600px) {
-    gap: 0.4rem;
+    gap: var(--margin-xsm);
   }
 `;
 
@@ -99,7 +93,7 @@ const Review = styled.span`
   font-size: var(--font-size-sm);
   display: flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: var(--margin-xxsm);
 `;
 
 const Bottom = styled.div`
@@ -107,6 +101,7 @@ const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  padding-bottom: var(--margin-xsm);
 `;
 
 const Price = styled.p`
@@ -148,7 +143,7 @@ const Details = styled.div`
   margin: 0;
   font-size: var(--font-size-sm);
   display: flex;
-  gap: 1rem;
+  gap: var(--margin-sm);
   color: #626262;
 `;
 
@@ -161,10 +156,9 @@ const Button = styled.button`
 
 const OuterBox = styled.div`
   display: flex;
-  padding: 1rem 2rem;
+  padding: var(--margin-sm) var(--margin-md) var(--margin-md);
   flex-direction: column;
-  gap: 1rem;
-
+  gap: var(--margin-sm);
   width: 90%;
 `;
 

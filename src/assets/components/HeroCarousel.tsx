@@ -156,8 +156,8 @@ const Navigations = styled.div`
   width: 100%;
   justify-content: center;
   align-items: flex-end;
-  gap: 1rem;
-  padding: 1rem 0;
+  gap: var(--margin-sm);
+  padding: var(--margin-sm) 0;
 `;
 
 const Title = styled.h1`

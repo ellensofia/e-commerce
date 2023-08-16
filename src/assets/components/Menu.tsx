@@ -66,12 +66,12 @@ const OuterContainer = styled.div<{ openMenu: string }>`
   background-color: var(--clr-white);
   border-top: 1px solid var(--clr-dark-grey);
   border-bottom: 1px solid var(--clr-dark-grey);
-  padding: 1rem;
-  gap: 2rem;
+  padding: var(--margin-sm);
+  gap: var(--margin-md);
   @media (max-width: 450px) {
     padding-right: 0;
-    padding: 0.5rem 0 0.5rem 0.5rem;
-    gap: 1rem;
+    padding: var(--margin-xsm) 0 var(--margin-xsm) var(--margin-xsm);
+    gap: var(--margin-xsm);
   }
 `;
 const MenuImg = styled.img`
@@ -87,12 +87,12 @@ const StyledList = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 2rem;
-  padding-left: 1rem;
+  gap: var(--margin-md);
+  padding-left: var(--margin-sm);
 
   @media (max-width: 450px) {
     padding-left: 0px;
-    gap: 1.2rem;
+    gap: var(--margin-sm);
   }
 `;
 
@@ -106,7 +106,6 @@ const StyledListItem = styled.li`
     display: flex;
     width: calc(50vw - 3rem);
     justify-content: space-between;
-    gap: 1rem;
 
     img {
       width: 1.4rem;
@@ -119,7 +118,6 @@ const StyledListItem = styled.li`
       }
     }
     @media (max-width: 450px) {
-      gap: 0.2rem;
       width: unset;
     }
   }

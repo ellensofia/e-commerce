@@ -21,36 +21,40 @@ export default function ShopPage() {
 }
 
 const InnerContainer = styled.div`
-  margin: 6rem 0 3rem;
+  margin: var(--margin-xxlg) 0 var(--margin-xlg);
 
   div:first-child {
-    padding-left: 2rem;
+    padding-left: var(--margin-md);
   }
 `;
 
 const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
-  margin-top: 2rem;
+  margin-top: var(--margin-md);
   border-top: 1px solid var(--clr-dark-grey);
   border-left: 1px solid var(--clr-dark-grey);
 
   .img {
-    min-width: calc(100% - 1px);
+    width: calc(100% - 1px);
     object-fit: cover;
     border-bottom: 1px solid var(--clr-dark-grey);
     border-right: 1px solid var(--clr-dark-grey);
+  }
+
+  @media screen and (max-width: 640px) {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
 `;
 
 const ShopTitle = styled.h1`
   display: flex;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--margin-sm);
 `;
 
 const AllCategories = styled.span`
-  font-size: 1.2rem;
+  font-size: var(--font-size-base);
   position: relative;
   color: var(--clr-dark-grey);
 
