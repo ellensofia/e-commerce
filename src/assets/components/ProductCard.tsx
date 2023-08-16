@@ -113,7 +113,7 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   }
   @media (max-width: 460px) {
     padding-right: 1rem;
-    width: calc(100% - 5rem);
+    width: calc(100% - 4rem);
   }
 `;
 
