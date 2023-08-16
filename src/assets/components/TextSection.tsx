@@ -3,28 +3,48 @@ import styled from "styled-components";
 export default function TextSection() {
   return (
     <>
-      <Text>
-        Oasis offers a holistic, gentle approach to personal wellbeing. It helps
-        you revitalise and harmonise body, spirit and soul.
-      </Text>
+      <OuterBox>
+        <Text>
+          Oasis offers a holistic, gentle approach to personal wellbeing. It
+          helps you revitalise and harmonise body, spirit and soul.
+        </Text>
+        <StyledButton>Our story</StyledButton>
+      </OuterBox>
     </>
   );
 }
 
 const Text = styled.h2`
-  font-size: 3rem;
+  font-size: var(--font-size-xxl);
   line-height: 1.4;
   text-align: center;
   max-width: 55rem;
-  margin: 4rem auto;
+  padding: 0 var(--margin-md) var(--margin-md);
 
-  @media (max-width: 900px) {
-    font-size: 2rem;
-    padding: 4rem;
+  @media (max-width: 1024px) {
+    font-size: var(--font-size-xl);
   }
 
-  @media (max-width: 600px) {
-    font-size: 1.8rem;
-    padding: 2rem;
+  @media (max-width: 640px) {
+    padding-bottom: var(--margin-sm);
   }
+`;
+
+const StyledButton = styled.button`
+  width: fit-content;
+  border-radius: 2rem;
+  background-color: transparent;
+  border: 1px solid var(--clr-dark-grey);
+  color: var(--clr-dark-grey);
+  &:hover {
+    border: 1px solid #707070;
+    color: #707070;
+  }
+`;
+
+const OuterBox = styled.div`
+  margin: var(--margin-xxlg) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
