@@ -36,16 +36,15 @@ export default function Menu({ openMenu }: Props) {
             </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <a href="">
-              Consultation
-              <img src={arrow} alt="" />
-            </a>
+            <NavLink to={"/contact"}>
+              Contact <img src={arrow} alt="" />
+            </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <a href="">
+            <NavLink to={"/about"}>
               About us
               <img src={arrow} alt="" />
-            </a>
+            </NavLink>
           </StyledListItem>
         </StyledList>
       </nav>

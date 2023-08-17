@@ -48,7 +48,7 @@ export default function Header() {
             <NavLink to={"/about"}>Sale</NavLink>
           </StyledListItem>
           <StyledListItem menuOpen={menuOpen}>
-            <a href=""> Consultation</a>
+            <NavLink to={"/contact"}>Contact</NavLink>
           </StyledListItem>
           <StyledListItem menuOpen={menuOpen}>
             <NavLink to={"/about"}>About us</NavLink>
