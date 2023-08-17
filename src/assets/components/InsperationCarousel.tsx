@@ -2,9 +2,33 @@ import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutl
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import { useState } from "react";
 import styled from "styled-components";
-import { products } from "../../data";
+import { ingredients, products } from "../../data";
 import InspCard from "./InspCard";
 
+// export const ingredients = [
+//    { theImage: img1, name: "Hyloronic acid", info: "info" },
+//    { theImage: img2, name: "Glycerin", info: "hej" },
+//    { theImage: img3, name: "Vitamin C", info: "hej" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//    { theImage: img4, name: "Alzeic acid", info: "ewfwfew" },
+//  ];
 export default function InsperationCarousel() {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -40,7 +64,7 @@ export default function InsperationCarousel() {
       <OuterBox>
         <InnerContainer visible={shouldHideSecondContainerAsString}>
           <Text>
-            <h3>Get inspired</h3>
+            <h3>Ingredients makes the differece</h3>
             <p>
               Our experts provide personalized advice and answers, prioritizing
               your skin’s well-being. We’re dedicated to equipping you with the
@@ -48,10 +72,10 @@ export default function InsperationCarousel() {
             </p>
           </Text>
           <Posts>
-            {products.map((product, index) => (
+            {ingredients.map((ingredient, index) => (
               <InspCard
                 key={index}
-                product={product}
+                ingredient={ingredient}
                 currentItemIndex={currentItemIndex}
                 index={index}
               />
@@ -60,7 +84,7 @@ export default function InsperationCarousel() {
         </InnerContainer>
         <InnerContainer visible={shouldShowSecondContainerAsString}>
           <Text>
-            <h3>Get inspired</h3>
+            <h3>Ingredients makes the differece</h3>
             <p>
               Our experts provide personalized advice and answers, prioritizing
               your skin’s well-being. We’re dedicated to equipping you with the
@@ -68,11 +92,11 @@ export default function InsperationCarousel() {
             </p>
           </Text>
           <Posts>
-            {products.map((product, index) => (
+            {ingredients.map((ingredient, index) => (
               <InspCard
                 key={index}
-                product={product}
-                currentItemIndex={currentItemIndex - products.length}
+                ingredient={ingredient}
+                currentItemIndex={currentItemIndex - ingredients.length}
                 index={index}
               />
             ))}
@@ -135,7 +159,6 @@ const NavigationsLeft = styled.div`
   left: 0rem;
   height: 100px;
   display: flex;
-  background-color: var(--clr-light-grey);
   align-items: center;
   padding-left: var(--margin-sm);
   z-index: 10;
@@ -158,7 +181,6 @@ const Navigations = styled.div`
   left: 0rem;
   height: 100px;
   display: flex;
-  background-color: var(--clr-light-grey);
   align-items: center;
 `;
 
@@ -168,7 +190,6 @@ const NavigationsRight = styled.div`
   position: absolute;
   right: 0rem;
   height: 100px;
-  background-color: var(--clr-light-grey);
   padding-right: var(--margin-sm);
 
   @media (max-width: 600px) {

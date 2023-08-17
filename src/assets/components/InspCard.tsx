@@ -1,29 +1,36 @@
 import styled from "styled-components";
-import { Product } from "../../data";
-import img1 from "../images/cream.jpg";
-import img3 from "../images/cream2.jpg";
-import img2 from "../images/insp-img-2.jpg";
-import img4 from "../images/mask.jpg";
+import { Ingredient } from "../../data";
 
 export interface Props {
-  product: Product;
+  ingredient: Ingredient;
   currentItemIndex: number;
   index: number;
 }
 
-export default function InspCard({ product, currentItemIndex, index }: Props) {
-  const { image, product_name } = product;
-  const images = [img1, img2, img3, img4];
+export default function InspCard({
+  ingredient,
+  currentItemIndex,
+  index,
+}: Props) {
+  const { image, name, info } = ingredient;
 
   return (
     <StyledCarouselItem
       index={index}
       style={{
         transform: `translateX(calc(${(index - currentItemIndex) * 108}%)`,
-        transition: "transform 1.6s ease-in-out",
+        transition: "transform 0.6s ease-in-out",
       }}
     >
-      <StyledImage src={images[index]} alt={product_name} key={index} />
+      <StyledImage src={image} alt={name} key={index} />
+      <Overlay key={index}>
+        <h2>{name}</h2>
+        <p>{info}</p>
+        <a href="">
+          read more
+          <ArrowSVG />
+        </a>
+      </Overlay>
     </StyledCarouselItem>
   );
 }
@@ -42,35 +49,121 @@ const StyledCarouselItem = styled.div<{ index: number }>`
     border-right: 1px solid var(--clr-dark-grey);
   }
 
-  @media (max-width: 1090px) {
-    width: 21%;
-    gap: 1rem;
-    padding-right: 6%;
-  } /*
-  @media (max-width: 600px) {
+  @media (max-width: 640px) {
     gap: 0rem;
     padding-right: 2rem;
     width: calc(100% - 8rem);
-  }*/
+  }
 `;
+
 const StyledImage = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
   position: relative;
   object-position: 50% 50%;
+`;
 
-  /* @media (max-width: 1090px) {
-    width: 300px;
-    padding-left: 2rem;
+const Overlay = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--margin-xsm);
+  height: 100%;
+  width: 100%;
+  transition: 0.6s ease;
+
+  p {
+    display: none;
   }
 
-  @media (max-width: 600px) {
-    width: 140px;
-    padding-left: 1rem;
-  }*/
+  a {
+    display: flex;
+    gap: var(--margin-xxsm);
+    transition: translate 0.2s ease;
 
-  @media (max-width: 460px) {
-    width: 300px;
+    svg {
+      width: 1.5rem;
+      stroke: var(--clr-dark-grey);
+    }
+
+    &:hover {
+      font-weight: 400;
+      text-decoration: underline;
+      svg {
+        transform: translateX(var(--margin-xxxsm));
+      }
+    }
+  }
+
+  &:hover {
+    background-color: #00000083;
+
+    h2,
+    p,
+    a,
+    svg {
+      display: flex;
+      color: var(--clr-white);
+    }
+    svg line {
+      stroke: var(--clr-white);
+    }
   }
 `;
+
+export const ArrowSVG = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="41.003"
+    height="23.756"
+    viewBox="0 0 41.003 23.756"
+  >
+    <g
+      id="Group_56"
+      data-name="Group 56"
+      transform="translate(-2644.125 -4086.622)"
+    >
+      <g
+        id="Group_55"
+        data-name="Group 55"
+        transform="translate(100.75 488.25)"
+      >
+        <line
+          id="Line_42"
+          data-name="Line 42"
+          x2="39.875"
+          transform="translate(2543.375 3610.25)"
+          fill="none"
+          stroke="var(--clr-dark-grey)"
+          stroke-width="1.6"
+        />
+        <line
+          id="Line_43"
+          data-name="Line 43"
+          x1="9.214"
+          y1="10.75"
+          transform="translate(2574.036 3599.5)"
+          fill="none"
+          stroke="var(--clr-dark-grey)"
+          stroke-linecap="square"
+          stroke-width="1.6"
+        />
+        <line
+          id="Line_44"
+          data-name="Line 44"
+          y1="10.75"
+          x2="9.214"
+          transform="translate(2574.036 3610.25)"
+          fill="none"
+          stroke="var(--clr-dark-grey)"
+          stroke-linecap="square"
+          stroke-width="1.6"
+        />
+      </g>
+    </g>
+  </svg>
+);

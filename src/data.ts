@@ -15,6 +15,18 @@ export interface Product {
 
 import image1 from "../src/assets/images/cleanser.png";
 import image3 from "../src/assets/images/cleanser2.png";
+import ingredient1 from "../src/assets/images/ingredient1.jpg";
+import ingredient10 from "../src/assets/images/ingredient10.jpg";
+import ingredient11 from "../src/assets/images/ingredient11.jpg";
+import ingredient12 from "../src/assets/images/ingredient12.jpg";
+import ingredient2 from "../src/assets/images/ingredient2.jpg";
+import ingredient3 from "../src/assets/images/ingredient3.jpg";
+import ingredient4 from "../src/assets/images/ingredient4.jpg";
+import ingredient5 from "../src/assets/images/ingredient5.jpg";
+import ingredient6 from "../src/assets/images/ingredient6.jpg";
+import ingredient7 from "../src/assets/images/ingredient7.jpg";
+import ingredient8 from "../src/assets/images/ingredient8.jpg";
+import ingredient9 from "../src/assets/images/ingredient9.jpg";
 import image2 from "../src/assets/images/oasis-try-serum.png";
 import image4 from "../src/assets/images/tube.png";
 
@@ -257,5 +269,74 @@ export const products: Product[] = [
       ],
     },
     image: image3,
+  },
+];
+
+export interface Ingredient {
+  image: string;
+  name: string;
+  info: string;
+}
+
+export const ingredients: Ingredient[] = [
+  {
+    image: ingredient1,
+    name: "Glycerin",
+    info: "A humectant that attracts moisture to the skin, keeping it soft and supple.",
+  },
+  {
+    image: ingredient2,
+    name: "Vitamin C",
+    info: "An antioxidant that brightens the skin and helps protect against environmental damage.",
+  },
+  {
+    image: ingredient3,
+    name: "Hyaluronic Acid",
+    info: "Moisturizes and hydrates the skin, reducing the appearance of fine lines.",
+  },
+  {
+    image: ingredient4,
+    name: "Salicylic Acid",
+    info: "Exfoliates the skin, unclogs pores, and helps treat acne and blemishes.",
+  },
+  {
+    image: ingredient5,
+    name: "Niacinamide",
+    info: "Minimizes pores, regulates oil production, and improves overall skin texture.",
+  },
+  {
+    image: ingredient6,
+    name: "Retinol",
+    info: "Stimulates collagen production, reduces wrinkles, and improves skin texture.",
+  },
+  {
+    image: ingredient7,
+    name: "Hyaluronic Acid",
+    info: "Locks in moisture, plumps the skin, and reduces the appearance of fine lines.",
+  },
+  {
+    image: ingredient8,
+    name: "Aloe Vera",
+    info: "Soothes and hydrates the skin, reducing redness and irritation.",
+  },
+  {
+    image: ingredient9,
+    name: "Vitamin E",
+    info: "An antioxidant that protects the skin from damage caused by free radicals.",
+  },
+  {
+    image: ingredient10,
+    name: "Peptides",
+    info: "Stimulate collagen production, promoting firmness and elasticity in the skin.",
+  },
+  {
+    image: ingredient11,
+    name: "Hyaluronic Acid",
+    info: "Retains moisture, plumps the skin, and reduces the appearance of wrinkles.",
+  },
+  {
+    image: ingredient12,
+    name: "Vitamin B5",
+    info: "Hydrates and nourishes the skin, helping to maintain a healthy barrier.",
   },
 ];
