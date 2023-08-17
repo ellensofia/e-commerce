@@ -80,7 +80,7 @@ export default function productCard({
           ))}
         </Details>
         <span>{price} EUR</span>
-        <Button>Buy</Button>
+        <Button id="button">Buy</Button>
       </ProductText>
     </StyledCarouselItem>
   );
@@ -89,7 +89,7 @@ export default function productCard({
 const StyledCarouselItem = styled.div<{ index: number }>`
   position: absolute;
   height: 100%;
-  width: 75%;
+  width: 70%;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -99,6 +99,10 @@ const StyledCarouselItem = styled.div<{ index: number }>`
 
   &:last-of-type {
     border-right: 1px solid var(--clr-dark-grey);
+  }
+
+  @media (min-width: 1450px) {
+    width: 870px;
   }
 
   @media (max-width: 1090px) {
