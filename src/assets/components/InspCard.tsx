@@ -18,11 +18,11 @@ export default function InspCard({
     <StyledCarouselItem
       index={index}
       style={{
-        transform: `translateX(calc(${(index - currentItemIndex) * 108}%)`,
+        transform: `translateX(calc(${(index - currentItemIndex) * 104}%)`,
         transition: "transform 0.6s ease-in-out",
       }}
     >
-      <StyledImage src={image} alt={name} key={index} />
+      <StyledImage src={image} alt={name} key={name} />
       <Overlay key={index}>
         <h2>{name}</h2>
         <p>{info}</p>
@@ -38,21 +38,20 @@ export default function InspCard({
 const StyledCarouselItem = styled.div<{ index: number }>`
   position: absolute;
   height: 100%;
-  width: 21%;
+  width: 20%;
   left: 8%;
   overflow: hidden;
   background-color: var(--clr-light-grey);
   display: flex;
   align-items: center;
 
-  &:last-of-type {
-    border-right: 1px solid var(--clr-dark-grey);
+  @media (max-width: 1024px) {
+    width: 30%;
   }
 
   @media (max-width: 640px) {
-    gap: 0rem;
-    padding-right: 2rem;
-    width: calc(100% - 8rem);
+    width: 50%;
+    left: 19%;
   }
 `;
 
