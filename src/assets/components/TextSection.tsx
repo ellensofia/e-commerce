@@ -36,10 +36,6 @@ const StyledButton = styled.button`
   background-color: transparent;
   border: 1px solid var(--clr-dark-grey);
   color: var(--clr-dark-grey);
-  &:hover {
-    border: 1px solid #707070;
-    color: #707070;
-  }
 `;
 
 const OuterBox = styled.div`
