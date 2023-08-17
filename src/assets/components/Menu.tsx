@@ -114,7 +114,7 @@ const StyledListItem = styled.li`
       text-decoration: underline;
       & img {
         transition: 0.2s ease;
-        transform: translateX(0.5rem);
+        transform: translateX(var(--margin-xxxsm));
       }
     }
     @media (max-width: 450px) {

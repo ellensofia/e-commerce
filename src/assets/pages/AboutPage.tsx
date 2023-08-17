@@ -41,6 +41,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 2rem;
+  margin: calc(var(--margin-xlg) + var(--header-height)) 0;
 
   @media (max-width: 1090px) {
     gap: 0.6rem;
