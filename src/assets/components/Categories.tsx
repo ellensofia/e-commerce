@@ -1,6 +1,6 @@
 import styled from "styled-components";
+import img1 from "../../../public/category-1.jpg";
 import arrow from "../images/arrow.svg";
-import img1 from "../images/category-1.jpg";
 import img2 from "../images/category-2.jpg";
 import img3 from "../images/category-3.jpg";
 import img4 from "../images/category-4.jpg";
@@ -96,7 +96,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #18181845;
+  background-color: #00000083;
   opacity: 0;
   transition: opacity 0.3s ease;
 
@@ -113,7 +113,7 @@ const Text = styled.p`
   left: 50%;
   z-index: 10;
   transform: translate(-50%, -50%);
-  text-transform: uppercase;
+  font-family: var(--font-secondary);
   text-align: center;
   cursor: pointer;
   @media (max-width: 700px) {
