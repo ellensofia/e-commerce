@@ -38,7 +38,7 @@ export default function CustomerPick() {
               </div>
             </li>
           </ul>
-          <StyledButton>Read more</StyledButton>
+          <StyledButton id="button">Read more</StyledButton>
         </TextBox>
       </InnerBox>
     </OuterBox>

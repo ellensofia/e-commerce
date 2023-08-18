@@ -105,7 +105,8 @@ const Bottom = styled.div`
 `;
 
 const Price = styled.p`
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-base);
+  font-weight: 300;
 `;
 
 // const TotalReviews = styled.p`

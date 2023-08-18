@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import arrow from "../../assets/images/arrow-down.svg";
 import { Product, products } from "../../data";
-import arrow from "../images/arrow-down.svg";
 import ReviewSection from "./ReviewSection";
 
 export interface Props {

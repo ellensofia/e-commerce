@@ -27,7 +27,8 @@ import ingredient6 from "../src/assets/images/ingredient6.jpg";
 import ingredient7 from "../src/assets/images/ingredient7.jpg";
 import ingredient8 from "../src/assets/images/ingredient8.jpg";
 import ingredient9 from "../src/assets/images/ingredient9.jpg";
-import image2 from "../src/assets/images/oasis-try-serum.png";
+import image6 from "../src/assets/images/night-cream.png";
+import image2 from "../src/assets/images/serum.png";
 import image4 from "../src/assets/images/tube.png";
 
 function getRandomDate() {
@@ -74,7 +75,7 @@ export const products: Product[] = [
         },
       ],
     },
-    image: image1,
+    image: image2,
   },
   {
     id: "2",
@@ -107,7 +108,7 @@ export const products: Product[] = [
       ],
     },
 
-    image: image2,
+    image: image4,
   },
   {
     id: "3",
@@ -139,7 +140,7 @@ export const products: Product[] = [
         },
       ],
     },
-    image: image3,
+    image: image1,
   },
   {
     id: "4",
@@ -203,7 +204,7 @@ export const products: Product[] = [
         },
       ],
     },
-    image: image2,
+    image: image6,
   },
   {
     id: "6",
@@ -296,8 +297,8 @@ export const ingredients: Ingredient[] = [
   },
   {
     image: ingredient4,
-    name: "Salicylic Acid",
-    info: "Exfoliates the skin, unclogs pores, and helps treat acne and blemishes.",
+    name: "Centella asiatica",
+    info: "Calming and soothing for the skin, reducing redness and irritation.",
   },
   {
     image: ingredient5,
@@ -311,13 +312,13 @@ export const ingredients: Ingredient[] = [
   },
   {
     image: ingredient7,
-    name: "Hyaluronic Acid",
-    info: "Locks in moisture, plumps the skin, and reduces the appearance of fine lines.",
+    name: "Aloe Vera",
+    info: "Soothes and hydrates the skin, reducing redness and irritation.",
   },
   {
     image: ingredient8,
-    name: "Aloe Vera",
-    info: "Soothes and hydrates the skin, reducing redness and irritation.",
+    name: "Salicylic Acid",
+    info: "Exfoliates the skin, unclogs pores, and helps treat acne and blemishes.",
   },
   {
     image: ingredient9,
@@ -331,8 +332,8 @@ export const ingredients: Ingredient[] = [
   },
   {
     image: ingredient11,
-    name: "Hyaluronic Acid",
-    info: "Retains moisture, plumps the skin, and reduces the appearance of wrinkles.",
+    name: "Azelaic Acid",
+    info: "A natural ingredient with anti-inflammatory properties that helps reduce uneven skin tone.",
   },
   {
     image: ingredient12,

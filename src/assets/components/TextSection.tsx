@@ -8,7 +8,7 @@ export default function TextSection() {
           Oasis offers a holistic, gentle approach to personal wellbeing. It
           helps you revitalise and harmonise body, spirit and soul.
         </Text>
-        <StyledButton>Our story</StyledButton>
+        <StyledButton id="button">Our story</StyledButton>
       </OuterBox>
     </>
   );
@@ -30,7 +30,7 @@ const Text = styled.h2`
   }
 `;
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   width: fit-content;
   border-radius: 2rem;
   background-color: transparent;
