@@ -5,12 +5,6 @@ import InsperationCarousel from "../components/InsperationCarousel";
 import ProductCarousel from "../components/ProductCarousel";
 import TextSection from "../components/TextSection";
 
-interface Story {
-  points: number;
-  title: string;
-  author: string;
-}
-
 export default function StartPage() {
   return (
     <>
