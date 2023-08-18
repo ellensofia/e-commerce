@@ -179,26 +179,19 @@ const Directions = styled.div<{ showFullDirection: boolean }>`
   img {
     width: 1.2rem;
     transform-origin: center;
-    transition: transform 0.3s ease; /* Add a smooth transition to the arrow icon */
+    transition: transform 0.3s ease;
     transform: ${({ showFullDirection }) =>
-      showFullDirection
-        ? "rotate(-180deg)"
-        : "rotate(0deg)"}; /* Rotate the arrow icon */
+      showFullDirection ? "rotate(-180deg)" : "rotate(0deg)"};
   }
 
   p {
     max-height: ${({ showFullDirection }) =>
-      showFullDirection
-        ? "1000px"
-        : "0px"}; /* Set the maximum height to show/hide content */
+      showFullDirection ? "1000px" : "0px"};
     transition: max-height 0.2s ease, padding 0.2s ease, opacity 0.2s ease;
     padding: ${({ showFullDirection }) =>
-      showFullDirection
-        ? "0 0 1rem 0"
-        : "0"}; /* Add padding to push content down */
-    opacity: ${({ showFullDirection }) =>
-      showFullDirection ? 1 : 0}; /* Fade in/out the content */
-    overflow: hidden; /* Hide any overflowing content */
+      showFullDirection ? "0 0 1rem 0" : "0"};
+    opacity: ${({ showFullDirection }) => (showFullDirection ? 1 : 0)};
+    overflow: hidden;
   }
 `;
 

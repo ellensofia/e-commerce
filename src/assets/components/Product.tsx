@@ -8,7 +8,7 @@ export interface Props {
 }
 
 export default function Product({ product }: Props) {
-  const { image, id, product_name, prices, reviews, amount } = product;
+  const { image, id, product_name, prices, reviews } = product;
 
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [selectedAmountIndex, setSelectedAmountIndex] = useState(0);
@@ -50,23 +50,6 @@ export default function Product({ product }: Props) {
                 />
               </Review>
             </Bottom>
-
-            {/* View details */}
-            {/* <ShowMoreBtn
-          onClick={() => setShowFullDescription((prevState) => !prevState)}
-        ></ShowMoreBtn> */}
-            {/* <Details>
-          {amount.map((size, i) => (
-            <AmountBtn
-              key={i}
-              onClick={() => setSelectedAmountIndex(i)}
-              selected={i === selectedAmountIndex}
-            >
-              <span key={i}>{size}</span>
-            </AmountBtn>
-          ))}
-        </Details> */}
-            {/* <Button>Buy</Button> */}
           </ProductText>
         </OuterBox>
       </StyledLink>
@@ -109,50 +92,9 @@ const Price = styled.p`
   font-weight: 300;
 `;
 
-// const TotalReviews = styled.p`
-//   font-size: 0.6rem;
-//   @media (max-width: 900px) {
-//     font-size: 0.55rem;
-//   }
-// `;
-
 const Title = styled.h3`
   margin: 0;
   font-size: var(--font-size-base);
-`;
-
-// const ShowMoreBtn = styled.button`
-//   width: fit-content;
-//   font-size: var(--font-size-sm);
-//   background-color: transparent;
-//   padding: 0;
-//   cursor: pointer;
-//   text-decoration: underline;
-// `;
-
-const AmountBtn = styled.button<{ selected: boolean }>`
-  width: fit-content;
-  font-size: var(--font-size-sm);
-  background-color: transparent;
-  padding: 0;
-  border-radius: 0;
-  cursor: pointer;
-  border-bottom: ${({ selected }) => (selected ? "1px solid black" : "none")};
-`;
-
-const Details = styled.div`
-  margin: 0;
-  font-size: var(--font-size-sm);
-  display: flex;
-  gap: var(--margin-sm);
-  color: #626262;
-`;
-
-const Button = styled.button`
-  border: 1px solid #333;
-  width: fit-content;
-  border-radius: 2rem;
-  background-color: #fff;
 `;
 
 const OuterBox = styled.div`

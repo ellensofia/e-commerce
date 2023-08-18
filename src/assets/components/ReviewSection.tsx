@@ -100,13 +100,6 @@ const UserInfo = styled.span`
   }
 `;
 
-const TotalReviews = styled.p`
-  font-size: 0.6rem;
-  @media (max-width: 900px) {
-    font-size: 0.55rem;
-  }
-`;
-
 const Title = styled.h3`
   font-size: var(--font-size-md);
   color: var(--text-clr-light);
@@ -119,11 +112,3 @@ const Review = styled.span`
   align-items: center;
   gap: 0 var(--margin-xsm);
 `;
-
-// const Stars = styled.sta`
-//   margin: 0;
-//   font-size: var(--font-size-sm);
-//   display: flex;
-//   align-items: center;
-//   gap: 0.var(--margin-md);
-// `;

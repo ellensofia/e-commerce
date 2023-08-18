@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import img1 from "../../../public/category-1.jpg";
 import arrow from "../images/arrow.svg";
+import img1 from "../images/category-1.jpg";
 import img2 from "../images/category-2.jpg";
 import img3 from "../images/category-3.jpg";
 import img4 from "../images/category-4.jpg";

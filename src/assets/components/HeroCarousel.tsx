@@ -160,10 +160,6 @@ const Navigations = styled.div`
   padding: var(--margin-sm) 0;
 `;
 
-const Title = styled.h1`
-  /* font-size: var(--font-size-xxl); */
-`;
-
 const StyledButton = styled.button<StyledButtonProps>`
   width: 2.4rem;
   height: 0.8rem;
