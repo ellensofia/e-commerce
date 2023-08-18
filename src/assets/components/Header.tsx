@@ -68,12 +68,8 @@ export default function Header() {
           </span>
         </a>
         <SearchBar
-          keyword={"keyword"}
           isExpanded={isSearchExpanded}
           setIsexpanded={setIsSearchExpanded}
-          onChange={function (keyword: string): void {
-            throw new Error("Function not implemented.");
-          }}
         ></SearchBar>
         <BurgerMenu onClick={toggleMenuopen} menuopen={menuOpen} />
       </StyledRight>

@@ -2,18 +2,11 @@ import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 interface Props {
-  keyword: string;
-  onChange: (keyword: string) => void;
   isExpanded: boolean;
   setIsexpanded: (isExpanded: boolean) => void;
 }
 
-export default function SearchBar({
-  keyword,
-  onChange,
-  isExpanded,
-  setIsexpanded,
-}: Props) {
+export default function SearchBar({ isExpanded, setIsexpanded }: Props) {
   const searchFieldRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,7 +41,6 @@ export default function SearchBar({
             placeholder="Search…"
             aria-label="search"
             key="search-bar"
-            onChange={(e) => onChange(e.target.value)}
           />
         )}
         <SearchIconBtn

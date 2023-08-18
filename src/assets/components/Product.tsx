@@ -10,8 +10,7 @@ export interface Props {
 export default function Product({ product }: Props) {
   const { image, id, product_name, prices, reviews } = product;
 
-  const [showFullDescription, setShowFullDescription] = useState(false);
-  const [selectedAmountIndex, setSelectedAmountIndex] = useState(0);
+  const [selectedAmountIndex] = useState(0);
 
   useEffect(() => {
     setPrice(prices[selectedAmountIndex]);

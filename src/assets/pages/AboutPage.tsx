@@ -135,15 +135,3 @@ const AboutImgs = styled.div`
     gap: var(--margin-xsm);
   }
 `;
-
-const Img = styled.div`
-  & img {
-    width: 50vw;
-    max-width: 100%;
-    object-fit: cover;
-  }
-
-  @media screen and (max-width: 640px) {
-    gap: var(--margin-xsm);
-  }
-`;
