@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import arrow from "../images/arrow.svg";
@@ -10,11 +10,27 @@ interface Props {
 }
 
 export default function Menu({ menuOpen, toggleMenu }: Props) {
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuOpen === "true") {
+        if (
+          menuRef.current &&
+          !(menuRef.current as HTMLElement).contains(event.target as Node)
+        ) {
+          toggleMenu();
+        }
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen, toggleMenu]);
   const menuRef = useRef(null);
   const handleLinkClick = () => {
-    console.log("hej" + menuOpen);
     toggleMenu();
   };
+
   return (
     <OuterContainer menuOpen={menuOpen}>
       <nav ref={menuRef}>
