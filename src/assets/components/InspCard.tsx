@@ -139,7 +139,7 @@ export const ArrowSVG = () => (
           transform="translate(2543.375 3610.25)"
           fill="none"
           stroke="var(--clr-dark-grey)"
-          stroke-width="1.6"
+          strokeWidth="1.6"
         />
         <line
           id="Line_43"
@@ -149,8 +149,8 @@ export const ArrowSVG = () => (
           transform="translate(2574.036 3599.5)"
           fill="none"
           stroke="var(--clr-dark-grey)"
-          stroke-linecap="square"
-          stroke-width="1.6"
+          strokeLinecap="square"
+          strokeWidth="1.6"
         />
         <line
           id="Line_44"
@@ -160,8 +160,8 @@ export const ArrowSVG = () => (
           transform="translate(2574.036 3610.25)"
           fill="none"
           stroke="var(--clr-dark-grey)"
-          stroke-linecap="square"
-          stroke-width="1.6"
+          strokeLinecap="square"
+          strokeWidth="1.6"
         />
       </g>
     </g>

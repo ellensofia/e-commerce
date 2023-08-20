@@ -23,10 +23,11 @@ const Text = styled.h2`
 
   @media (max-width: 1024px) {
     font-size: var(--font-size-xl);
+    padding: 0 var(--margin-sm) var(--margin-sm);
   }
 
   @media (max-width: 640px) {
-    padding-bottom: var(--margin-sm);
+    /* font-size: var(--font-size-xl); */
   }
 `;
 
@@ -43,4 +44,8 @@ const OuterBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 1024px) {
+    margin: var(--margin-xlg) 0;
+  }
 `;

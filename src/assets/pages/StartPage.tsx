@@ -3,6 +3,7 @@ import CustomerPick from "../components/CustomerPick";
 import Hero from "../components/Hero";
 import InsperationCarousel from "../components/InsperationCarousel";
 import ProductCarousel from "../components/ProductCarousel";
+import Socials from "../components/Socials";
 import TextSection from "../components/TextSection";
 
 export default function StartPage() {
@@ -12,8 +13,9 @@ export default function StartPage() {
       <ProductCarousel />
       <Categories />
       <CustomerPick />
-      <TextSection />
       <InsperationCarousel />
+      <TextSection />
+      <Socials />
     </>
   );
 }

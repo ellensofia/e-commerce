@@ -1,101 +1,72 @@
+import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 import image1 from "../images/about.jpg";
-import image2 from "../images/cream.jpg";
-import image3 from "../images/ingredient2.jpg";
+import image2 from "../images/arrow.svg";
 
 export default function AboutPage() {
   return (
     <>
       <Container>
-        <InnerContainer>
-          <Top>
-            <Copy>
-              <AboutTitle>Our story</AboutTitle>
-              <AboutText>
-                <p>
-                  At Oasis, we draw inspiration from the natural wonder of oases
-                  - lush and serene havens amidst the desert landscape. An oasis
-                  is a sanctuary, a place where life thrives and flourishes even
-                  in the harshest conditions. Similarly, we believe that your
-                  skincare routine should be a sanctuary, a transformative
-                  experience that brings out the radiance within you.
-                </p>
-                <p>
-                  We believe that the key to radiant skincare lies in harnessing
-                  the nourishing properties of botanical extracts, the
-                  replenishing effects of hydration, and the rejuvenating power
-                  of advanced skincare technologies.
-                </p>
-              </AboutText>
-            </Copy>
-            <img src={image1} alt="" />
-          </Top>
-          <Bottom>
-            <AboutImgs>
-              <img src={image2} alt="" />
-
-              <img src={image3} alt="" />
-            </AboutImgs>
+        <Copy>
+          <AboutTitle>Our story</AboutTitle>
+          <AboutText>
+            <p>
+              At Oasis, we draw inspiration from the natural wonder of oases -
+              lush and serene havens amidst the desert landscape. An oasis is a
+              sanctuary, a place where life thrives and flourishes even in the
+              harshest conditions. Similarly, we believe that your skincare
+              routine should be a sanctuary, a transformative experience that
+              brings out the radiance within you.
+            </p>
             <p>
               We believe that the key to radiant skincare lies in harnessing the
               nourishing properties of botanical extracts, the replenishing
               effects of hydration, and the rejuvenating power of advanced
               skincare technologies.
             </p>
-          </Bottom>
-        </InnerContainer>
+            <StyledLink>
+              <NavLink to="/contact">
+                Get in contact with us{" "}
+                <img className="arrow" src={image2} alt="arrow" />
+              </NavLink>
+            </StyledLink>
+          </AboutText>
+        </Copy>
+        <img className="img" src={image1} alt="" />
       </Container>
     </>
   );
 }
 
 const Container = styled.div`
+  margin-top: calc(var(--header-height) + var(--margin-xlg));
+  margin-bottom: var(--margin-xlg);
+  padding: 0 var(--margin-xlg);
   display: flex;
-  justify-content: center;
+  gap: var(--margin-lg);
+  justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
-  margin: calc(var(--margin-xlg) + var(--header-height)) 0;
 
-  @media (max-width: 1090px) {
-    gap: 0.6rem;
-  }
-
-  @media (max-width: 600px) {
-    padding: 0 1rem;
-  }
-`;
-
-const InnerContainer = styled.div`
-  @media (max-width: 1024px) {
-    flex-direction: column-reverse;
-    align-items: unset;
-  }
-
-  @media (max-width: 600px) {
-    gap: 0.4rem;
-  }
-`;
-
-const Top = styled.div`
-  display: flex;
-  gap: var(--margin-sm);
-  padding-bottom: var(--margin-xlg);
-
-  & img {
-    width: 50vw;
-    max-width: 100%;
+  &.img {
+    height: 66vh;
     object-fit: cover;
+    width: auto;
   }
-`;
 
-const Bottom = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: var(--margin-sm);
+  @media (max-width: 1040px) {
+    & img {
+      height: auto;
+      width: 50%;
+    }
+  }
 
-  & p {
-    font-size: var(--font-size-sm);
-    max-width: 621px;
+  @media (max-width: 700px) {
+    flex-direction: column;
+    padding: 0 var(--margin-md);
+
+    & img {
+      width: 100%;
+    }
   }
 `;
 
@@ -104,34 +75,45 @@ const Copy = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: var(--margin-sm);
-  width: 50vw;
+  width: 50%;
   max-width: 36rem;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 const AboutTitle = styled.h1`
   font-size: var(--font-size-xxl);
 `;
 
-const AboutText = styled.p`
+const AboutText = styled.div`
   color: var(--clr-dark-grey);
   font-size: var(--font-size-base);
-  p:first-of-type {
+  p {
     padding-bottom: var(--margin-sm);
   }
 `;
 
-const AboutImgs = styled.div`
-  display: flex;
-  gap: var(--margin-sm);
-  justify-self: flex-end;
+const StyledLink = styled.span`
+  list-style: none;
+  text-transform: uppercase;
+  font-size: var(--font-size-base);
 
-  & img {
-    width: 300px;
-    max-width: 100%;
-    object-fit: cover;
-  }
-
-  @media screen and (max-width: 640px) {
-    gap: var(--margin-xsm);
+  a {
+    color: var(--clr-dark-grey);
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--margin-sm);
+    margin-top: var(--margin-sm);
+    img {
+      width: 1.4rem;
+    }
+    &:hover {
+      text-decoration: underline;
+      & img {
+        transition: 0.2s ease;
+        transform: translateX(var(--margin-xxxsm));
+      }
+    }
   }
 `;
