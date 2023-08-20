@@ -153,6 +153,7 @@ const AmountBtn = styled.button<{ selected: boolean }>`
   border: none;
   position: relative;
   padding-bottom: 0.3rem;
+  color: var(--clr-dark-grey);
 
   &:first-child {
     margin-right: 1rem;
@@ -202,6 +203,7 @@ const ShowMoreBtn = styled.button`
   cursor: pointer;
   text-decoration: underline;
   display: none;
+  color: var(--clr-dark-grey);
 
   @media (max-width: 900px) {
     display: block;

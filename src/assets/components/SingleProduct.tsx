@@ -130,6 +130,7 @@ const ShowMoreBtn = styled.button`
   cursor: pointer;
   text-decoration: underline;
   display: none;
+  color: var(--clr-dark-grey);
 
   @media (max-width: 900px) {
     display: block;
@@ -153,6 +154,7 @@ const AmountBtn = styled.button<{ selected: boolean }>`
   font-size: var(--font-size-sm);
   background-color: transparent;
   padding: 0;
+  color: var(--clr-dark-grey);
   border-radius: 0;
   cursor: pointer;
   border-bottom: ${({ selected }) => (selected ? "1px solid black" : "none")};
@@ -209,6 +211,7 @@ const Button = styled.button`
   width: fit-content;
   border-radius: 2rem;
   background-color: #fff;
+  color: var(--clr-dark-grey);
 `;
 
 const OuterBox = styled.div`
