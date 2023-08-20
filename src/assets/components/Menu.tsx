@@ -1,47 +1,54 @@
+import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import arrow from "../images/arrow.svg";
-import img from "./../../assets/images/category-img6.jpg";
+import img from "./../../assets/images/ingredient2.jpg";
 
 interface Props {
-  openMenu: string;
+  menuOpen: string;
+  toggleMenu: () => void;
 }
 
-export default function Menu({ openMenu }: Props) {
+export default function Menu({ menuOpen, toggleMenu }: Props) {
+  const menuRef = useRef(null);
+  const handleLinkClick = () => {
+    console.log("hej" + menuOpen);
+    toggleMenu();
+  };
   return (
-    <OuterContainer openMenu={openMenu}>
-      <nav>
+    <OuterContainer menuOpen={menuOpen}>
+      <nav ref={menuRef}>
         <StyledList>
           <StyledListItem>
-            <NavLink to={"/shop"}>
+            <NavLink to={"/shop"} onClick={handleLinkClick}>
               Shop
               <img src={arrow} alt="" />
             </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <NavLink to={"/shop"}>
+            <NavLink to={"/shop"} onClick={handleLinkClick}>
               View all categories
               <img src={arrow} alt="" />
             </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <NavLink to={"/about"}>
+            <NavLink to={"/about"} onClick={handleLinkClick}>
               Special Offers <img src={arrow} alt="" />
             </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <NavLink to={"/about"}>
+            <NavLink to={"/about"} onClick={handleLinkClick}>
               Sale
               <img src={arrow} alt="" />
             </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <NavLink to={"/contact"}>
+            <NavLink to={"/contact"} onClick={handleLinkClick}>
               Contact <img src={arrow} alt="" />
             </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <NavLink to={"/about"}>
+            <NavLink to={"/about"} onClick={handleLinkClick}>
               About us
               <img src={arrow} alt="" />
             </NavLink>
@@ -53,8 +60,8 @@ export default function Menu({ openMenu }: Props) {
   );
 }
 
-const OuterContainer = styled.div<{ openMenu: string }>`
-  display: ${({ openMenu }) => (openMenu === "true" ? "flex" : "none")};
+const OuterContainer = styled.div<{ menuOpen: string }>`
+  display: ${({ menuOpen }) => (menuOpen === "true" ? "flex" : "none")};
   justify-content: space-between;
   align-items: center;
   position: absolute;

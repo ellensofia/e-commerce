@@ -10,7 +10,7 @@ export default function Header() {
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const [menuOpen, setMenuOpen] = useState("false");
 
-  const toggleMenuopen = () => {
+  const toggleMenuOpen = () => {
     setMenuOpen((prevMenuopen) => (prevMenuopen === "true" ? "false" : "true"));
   };
 
@@ -20,6 +20,7 @@ export default function Header() {
         setMenuOpen("false");
       }
     };
+
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -54,7 +55,7 @@ export default function Header() {
             <NavLink to={"/about"}>About us</NavLink>
           </StyledListItem>
         </StyledMiddle>
-        <Menu openMenu={menuOpen} />
+        <Menu toggleMenu={toggleMenuOpen} menuOpen={menuOpen} />
       </nav>
       <StyledRight isExpanded={isSearchExpanded.toString()}>
         <a>
@@ -71,7 +72,7 @@ export default function Header() {
           isExpanded={isSearchExpanded}
           setIsexpanded={setIsSearchExpanded}
         ></SearchBar>
-        <BurgerMenu onClick={toggleMenuopen} menuopen={menuOpen} />
+        <BurgerMenu onClick={toggleMenuOpen} menuopen={menuOpen} />
       </StyledRight>
     </StyledHeader>
   );
