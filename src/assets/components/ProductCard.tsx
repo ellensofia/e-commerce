@@ -224,6 +224,7 @@ const Button = styled.button`
   width: fit-content;
   border-radius: 2rem;
   background-color: #fff;
+  color: var(--clr-dark-grey);
 `;
 
 const StyledImage = styled.img`
