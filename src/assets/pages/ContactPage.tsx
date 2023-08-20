@@ -65,7 +65,7 @@ const Copy = styled.div`
   max-width: 30rem;
 
   @media screen and (max-width: 1024px) {
-    max-width: 20rem;
+    max-width: 400px;
   }
 `;
 
@@ -110,19 +110,5 @@ const ContactImg = styled.div`
     width: 400px;
     max-width: 100%;
     object-fit: cover;
-    /* @media screen and (max-width: 1024px) {
-      min-width: 50%;
-    } */
   }
 `;
-
-// const StyledButton = styled.button`
-//   width: fit-content;
-//   border-radius: 0;
-//   background-color: transparent;
-//   border: 1px solid var(--clr-dark-grey);
-//   color: var(--clr-dark-grey);
-//   position: absolute;
-//   bottom: 0;
-//   right: 0;
-// `;

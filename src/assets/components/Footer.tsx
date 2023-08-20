@@ -57,7 +57,7 @@ export default function Footer() {
 const OuterContainer = styled.div`
   align-items: center;
   padding: var(--margin-lg) var(--margin-xlg) var(--margin-md);
-  background-color: var(--clr-medium-grey);
+  background-color: var(--clr-light-grey);
 
   @media (max-width: 900px) {
     padding: var(--margin-lg) var(--margin-sm) var(--margin-md);
