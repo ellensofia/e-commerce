@@ -128,6 +128,7 @@ const StyledListItem = styled.li`
     display: flex;
     width: calc(50vw - 3rem);
     justify-content: space-between;
+    gap: var(--margin-xxxsm);
 
     img {
       width: 1.4rem;
