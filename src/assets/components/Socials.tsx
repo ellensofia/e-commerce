@@ -3,7 +3,6 @@ import img1 from "../images/inst.jpg";
 import img2 from "../images/inst1.jpg";
 import img3 from "../images/inst3.jpg";
 import img4 from "../images/inst4.jpg";
-import img5 from "../images/logo.png";
 
 export default function Socials() {
   return (
@@ -12,8 +11,10 @@ export default function Socials() {
         <Top>
           <Title>Follow us</Title>
           <Icons>
-            {" "}
-            <img src={img5} alt="" />
+            <img
+              src="https://www.clipartmax.com/png/small/169-1696957_instagram-icon-instagram-icon-svg-white.png"
+              alt="Instagram Icon - Instagram Icon Svg White @clipartmax.com"
+            />
           </Icons>
         </Top>
         <Imgs>
@@ -91,6 +92,7 @@ const Top = styled.div`
 const Icons = styled.div`
   display: flex;
   gap: var(--margin-sm);
+  cursor: pointer;
   & img {
     width: 20px;
     height: 20px;

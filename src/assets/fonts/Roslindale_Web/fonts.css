@@ -324,3 +324,18 @@
   font-style: italic;
   font-weight: normal;
 }
+
+@font-face {
+  font-family: "CircularAir-Light";
+  src: url("https://db.onlinewebfonts.com/t/809eb889c78777517a6d252fd1f76eac.eot");
+  src: url("https://db.onlinewebfonts.com/t/809eb889c78777517a6d252fd1f76eac.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/809eb889c78777517a6d252fd1f76eac.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/809eb889c78777517a6d252fd1f76eac.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/809eb889c78777517a6d252fd1f76eac.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/809eb889c78777517a6d252fd1f76eac.svg#CircularAir-Light")
+      format("svg");
+}
