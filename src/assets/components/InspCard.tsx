@@ -19,7 +19,7 @@ export default function InspCard({
       index={index}
       style={{
         transform: `translateX(calc(${(index - currentItemIndex) * 104}%)`,
-        transition: "transform 0.6s ease-in-out",
+        transition: "transform 0.3s ease-in-out",
       }}
     >
       <StyledImage src={image} alt={name} key={name} />
@@ -61,6 +61,7 @@ const StyledImage = styled.img`
   object-fit: cover;
   position: relative;
   object-position: 50% 50%;
+  opacity: 0.9;
 `;
 
 const Overlay = styled.div`

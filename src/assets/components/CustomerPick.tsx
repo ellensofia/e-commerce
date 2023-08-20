@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import image1 from "../../assets/images/product3.jpg";
+import image1 from "../../assets/images/products-test.png";
 
 export default function CustomerPick() {
   return (
@@ -47,7 +47,7 @@ export default function CustomerPick() {
 
 const OuterBox = styled.div`
   width: 100%;
-  padding: var(--margin-lg) 0;
+  padding: var(--margin-xlg) 0;
   background-color: #f8f8f7;
 `;
 
@@ -55,9 +55,6 @@ const InnerBox = styled.div`
   display: flex;
   justify-content: center;
   gap: var(--margin-xlg);
-  @media (max-width: 640px) {
-    padding: 0 var(--margin-md);
-  }
 
   & img {
     width: 40%;
@@ -67,11 +64,15 @@ const InnerBox = styled.div`
     }
   }
   @media (max-width: 900px) {
-    flex-wrap: wrap;
+    display: grid;
+    padding: 0 var(--margin-xxlg);
     gap: var(--margin-md);
 
     & img {
-      width: 70%;
+      width: 100%;
+    }
+    @media (max-width: 640px) {
+      padding: 0 var(--margin-md);
     }
   }
 

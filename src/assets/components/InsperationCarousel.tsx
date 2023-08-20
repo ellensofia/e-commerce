@@ -40,11 +40,11 @@ export default function InsperationCarousel() {
       <OuterBox>
         <InnerContainer>
           <Text>
-            <h3>Ingredients makes the differece</h3>
+            <h3>Unique Skin, Tailored Care</h3>
             <p>
-              Our experts provide personalized advice and answers, prioritizing
-              your skin’s well-being. We’re dedicated to equipping you with the
-              knowledge and tools for healthy, vibrant skin.
+              Your skin is one of a kind, and so are its needs. Seeking
+              hydration, anti-aging, or blemish control? Our ingredient-driven
+              approach caters to diverse skincare goals.
             </p>
           </Text>
           <Posts>
@@ -91,12 +91,14 @@ const OuterBox = styled.div`
 const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
-  margin-bottom: calc(100px + var(--margin-xlg));
+  margin-top: var(--margin-xlg);
+  margin-bottom: var(--margin-xlg);
   max-width: 1500px;
   @media (min-width: 1500px) {
     margin: 0 auto;
     max-width: 1499px;
-    margin-bottom: calc(100px + var(--margin-xlg));
+    margin-bottom: 100px;
+    margin-top: var(--margin-xxlg);
   }
 `;
 
@@ -139,11 +141,16 @@ const Navigations = styled.div`
   position: absolute;
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  left: 0rem;
+  width: 61%;
+  left: 39%;
   height: 100px;
   display: flex;
   align-items: center;
+
+  @media (max-width: 640px) {
+    width: 100%;
+    left: 0;
+  }
 `;
 
 const NavigationsRight = styled.div`
@@ -160,7 +167,7 @@ const NavigationsRight = styled.div`
   }
 
   @media (max-width: 460px) {
-    padding-right: 0 var(--margin-xxsm);
+    padding-right: var(--margin-xxsm);
   }
 `;
 
@@ -183,6 +190,8 @@ const Text = styled.div`
   flex-direction: column;
   justify-content: center;
   background-color: var(--clr-white);
+  border-top: 1px solid var(--clr-medium-grey);
+  border-bottom: 1px solid var(--clr-medium-grey);
   z-index: 8;
   padding: var(--margin-lg);
 
@@ -193,6 +202,10 @@ const Text = styled.div`
   @media (max-width: 640px) {
     padding: var(--margin-sm);
     width: 50%;
+  }
+
+  & p {
+    font-size: var(--font-size-base);
   }
 
   & h3 {
