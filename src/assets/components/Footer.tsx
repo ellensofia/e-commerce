@@ -177,6 +177,7 @@ const Button = styled.button`
   border-radius: 0;
   font-size: var(--font-size-sm);
   white-space: nowrap;
+  color: var(--clr-dark-grey);
 `;
 
 const Text = styled.p`
