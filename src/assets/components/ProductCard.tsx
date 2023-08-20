@@ -30,7 +30,7 @@ export default function productCard({
       index={index}
       style={{
         transform: `translateX(${(index - currentItemIndex) * 100}%)`,
-        transition: "transform 1.6s ease-in-out",
+        transition: "transform 1s ease-in-out",
       }}
     >
       <StyledImage src={image} alt={product_name} key={index} />
@@ -106,17 +106,18 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   }
 
   @media (max-width: 1090px) {
-    width: 70%;
+    width: 78%;
     gap: 1rem;
     padding-right: 6%;
   }
   @media (max-width: 600px) {
-    gap: 0rem;
-    padding-right: 2rem;
-    width: calc(100% - 8rem);
+    width: calc(100% - 6rem);
   }
+
   @media (max-width: 460px) {
     padding-right: 1rem;
+    padding-right: 3%;
+
     width: calc(100% - 4rem);
   }
 `;
@@ -131,6 +132,9 @@ const ProductText = styled.div`
   font-size: var(--font-size-base);
   @media (max-width: 1090px) {
     gap: 0.6rem;
+    @media (max-width: 640px) {
+      gap: 0.4rem;
+    }
   }
 `;
 
@@ -172,6 +176,9 @@ const AmountBtn = styled.button<{ selected: boolean }>`
 const Title = styled.h3`
   margin: 0;
   font-size: var(--font-size-md);
+  @media (max-width: 640px) {
+    font-size: var(--font-size-base);
+  }
 `;
 
 const ProductDescription = styled.p<{ showFullDescription: boolean }>`
@@ -226,7 +233,7 @@ const StyledImage = styled.img`
   padding-left: 3rem;
 
   @media (max-width: 1090px) {
-    width: 300px;
+    width: 200px;
     padding-left: 2rem;
   }
 

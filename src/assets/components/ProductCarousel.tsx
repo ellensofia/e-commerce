@@ -90,6 +90,8 @@ const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
   overflow: hidden;
+  max-width: 1800px;
+  margin: 0 auto;
 `;
 
 const InnerContainer = styled.div<{ visible: string }>`
