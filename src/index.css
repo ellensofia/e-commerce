@@ -19,7 +19,7 @@
   --clr-light-grey: #ebeae7;
   --clr-medium-grey: #dfdfdf;
   --clr-dark-grey: #333;
-  --clr-black: #000;
+  --clr-black: #241f20;
   --clr-white: #fff;
   --clr-accent: #d8e0bb;
   --text-clr-dark: #213547;
@@ -139,10 +139,11 @@ button {
 input,
 textarea {
   outline: transparent;
+  border-radius: 0;
 }
 
 .material-symbols-outlined {
-  font-variation-settings: "FILL" 0.3, "wght" 100, "GRAD" 50, "opsz" 34;
+  font-variation-settings: "FILL" 0.3, "wght" 500, "GRAD" 50, "opsz" 34;
   color: var(--clr-black);
   font-size: 1.7rem;
 }

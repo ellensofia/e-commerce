@@ -13,8 +13,9 @@ export interface Product {
   image: string;
 }
 
+import image7 from "../src/assets/images/aloe-vera.png";
 import image1 from "../src/assets/images/cleanser.png";
-import image3 from "../src/assets/images/cleanser2.png";
+import image3 from "../src/assets/images/eye-cream.png";
 import ingredient1 from "../src/assets/images/ingredient1.jpg";
 import ingredient10 from "../src/assets/images/ingredient10.jpg";
 import ingredient11 from "../src/assets/images/ingredient11.jpg";
@@ -27,6 +28,7 @@ import ingredient6 from "../src/assets/images/ingredient6.jpg";
 import ingredient7 from "../src/assets/images/ingredient7.jpg";
 import ingredient8 from "../src/assets/images/ingredient8.jpg";
 import ingredient9 from "../src/assets/images/ingredient9.jpg";
+import image5 from "../src/assets/images/mist.png";
 import image6 from "../src/assets/images/night-cream.png";
 import image2 from "../src/assets/images/serum.png";
 import image4 from "../src/assets/images/tube.png";
@@ -48,10 +50,10 @@ export const products: Product[] = [
   {
     id: "1",
     product_name: "Exfoliating Serum 10% Glycolic Acid",
-    amount: ["15ml"],
+    amount: ["5ml", "15ml"],
     product_description:
       "A powerful serum containing 10% glycolic acid for gentle exfoliation and skin renewal. Helps to improve skin texture, reduce hyperpigmentation, and minimize the appearance of fine lines and wrinkles.",
-    prices: [29.99],
+    prices: [29.99, 44.99],
     directions:
       "Apply a small amount of serum to cleansed skin, avoiding the eye area. Gently massage in circular motions until fully absorbed. Use once or twice a week, depending on your skin's tolerance. Always follow with a moisturizer and sunscreen.",
     reviews: {
@@ -79,6 +81,29 @@ export const products: Product[] = [
   },
   {
     id: "2",
+    product_name: "Revitalizing Eye Cream",
+    amount: ["5ml", "15ml"],
+    product_description:
+      "A revitalizing eye cream that targets puffiness, dark circles, and fine lines around the delicate eye area. Formulated with peptides and botanical extracts to improve elasticity and brighten the skin.",
+    prices: [19.99, 27.99],
+    directions:
+      "Apply a small amount of cream around the eye area using your ring finger. Gently pat it into the skin until fully absorbed. Use morning and evening for best results.",
+    reviews: {
+      average_rating: 4.3,
+      total_reviews: 16,
+      text_reviews: [
+        {
+          text: "Love it!",
+          name: "Emily",
+          date: getRandomDate().toString(),
+        },
+      ],
+    },
+    image: image3,
+  },
+
+  {
+    id: "3",
     product_name: "Moisturizing Cream with Hyaluronic Acid",
     amount: ["15ml", "30ml"],
     product_description:
@@ -111,38 +136,6 @@ export const products: Product[] = [
     image: image4,
   },
   {
-    id: "3",
-    product_name: "Cleansing Gel with Tea Tree Oil",
-    amount: ["15ml", "100ml"],
-    product_description:
-      "A refreshing cleansing gel that effectively removes impurities, excess oil, and makeup without stripping the skin's natural moisture. Enriched with tea tree oil for its antibacterial properties. Leaves the skin feeling clean, balanced, and refreshed.",
-    prices: [9.99, 23.5],
-    directions:
-      "Apply a small amount of gel to damp skin and massage gently in circular motions. Rinse thoroughly with water. Use morning and evening as part of your skincare routine.",
-    reviews: {
-      average_rating: 4.7,
-      total_reviews: 32,
-      text_reviews: [
-        {
-          text: "I've been using this cleansing gel for a while now, and it's become a staple in my skincare routine. My skin feels clean and refreshed after each use.",
-          name: "Oliver",
-          date: getRandomDate().toString(),
-        },
-        {
-          text: "The tea tree oil in this gel has helped tremendously with my acne-prone skin. My breakouts have reduced significantly.",
-          name: "Sophie",
-          date: getRandomDate().toString(),
-        },
-        {
-          text: "Leaves my skin feeling balanced and not overly dry like some other cleansers I've tried. Highly recommended!",
-          name: "Johanna",
-          date: getRandomDate().toString(),
-        },
-      ],
-    },
-    image: image1,
-  },
-  {
     id: "4",
     product_name: "Hydrating Face Mist with Rosewater",
     amount: ["30ml", "100ml"],
@@ -172,7 +165,7 @@ export const products: Product[] = [
         },
       ],
     },
-    image: image4,
+    image: image5,
   },
   {
     id: "5",
@@ -231,7 +224,7 @@ export const products: Product[] = [
         },
       ],
     },
-    image: image3,
+    image: image2,
   },
   {
     id: "7",
@@ -247,29 +240,39 @@ export const products: Product[] = [
       total_reviews: 42,
       text_reviews: [],
     },
-    image: image1,
+    image: image7,
   },
   {
     id: "8",
-    product_name: "Revitalizing Eye Cream",
-    amount: ["5ml", "15ml"],
+    product_name: "Cleansing Gel with Tea Tree Oil",
+    amount: ["15ml", "100ml"],
     product_description:
-      "A revitalizing eye cream that targets puffiness, dark circles, and fine lines around the delicate eye area. Formulated with peptides and botanical extracts to improve elasticity and brighten the skin.",
-    prices: [19.99, 27.99],
+      "A refreshing cleansing gel that effectively removes impurities, excess oil, and makeup without stripping the skin's natural moisture. Enriched with tea tree oil for its antibacterial properties. Leaves the skin feeling clean, balanced, and refreshed.",
+    prices: [9.99, 23.5],
     directions:
-      "Apply a small amount of cream around the eye area using your ring finger. Gently pat it into the skin until fully absorbed. Use morning and evening for best results.",
+      "Apply a small amount of gel to damp skin and massage gently in circular motions. Rinse thoroughly with water. Use morning and evening as part of your skincare routine.",
     reviews: {
-      average_rating: 4.3,
-      total_reviews: 16,
+      average_rating: 4.7,
+      total_reviews: 32,
       text_reviews: [
         {
-          text: "Love it!",
-          name: "Emily",
+          text: "I've been using this cleansing gel for a while now, and it's become a staple in my skincare routine. My skin feels clean and refreshed after each use.",
+          name: "Sanna",
+          date: getRandomDate().toString(),
+        },
+        {
+          text: "The tea tree oil in this gel has helped tremendously with my acne-prone skin. My breakouts have reduced significantly.",
+          name: "Sophie",
+          date: getRandomDate().toString(),
+        },
+        {
+          text: "Leaves my skin feeling balanced and not overly dry like some other cleansers I've tried. Highly recommended!",
+          name: "Johanna",
           date: getRandomDate().toString(),
         },
       ],
     },
-    image: image3,
+    image: image1,
   },
 ];
 
