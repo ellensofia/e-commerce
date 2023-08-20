@@ -18,7 +18,7 @@ interface StyledItemProps {
 
 export default function HeroCarousel() {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
-  const [delay] = useState(8000);
+  const [delay] = useState(6000);
   let interval: ReturnType<typeof setInterval>;
 
   const navigate = (direction: string) => {
@@ -32,23 +32,19 @@ export default function HeroCarousel() {
     } else if (direction === "right") {
       setCurrentItemIndex(2);
     }
-    // Restart the interval after a short delay (e.g., 2 seconds)
-    setTimeout(() => {
-      interval = setInterval(() => {
-        setCurrentItemIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, delay);
-    }, 2000);
   };
 
   useEffect(() => {
+    // Set up the initial interval
     const interval = setInterval(() => {
       setCurrentItemIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, delay);
 
+    // Clean up the interval on unmount
     return () => {
       clearInterval(interval);
     };
-  }, [delay]);
+  }, []);
 
   return (
     <>
@@ -62,8 +58,8 @@ export default function HeroCarousel() {
             >
               <StyledImage src={image} alt={image} key={index} />
               <TextBox>
-                {/* <Title>Special offer</Title> */}
-                {/* <p>50% off</p> */}
+                <h2>Special offer</h2>
+                <p>50% off</p>
               </TextBox>
             </StyledCarouselItem>
           ))}
@@ -71,7 +67,9 @@ export default function HeroCarousel() {
         <Navigations>
           <StyledButton
             isActive={currentItemIndex === 0}
-            onClick={() => navigate("left")}
+            onClick={() => {
+              navigate("left");
+            }}
           ></StyledButton>
           <StyledButton
             isActive={currentItemIndex === 1}
@@ -124,7 +122,7 @@ const StyledCarouselItem = styled.div<StyledItemProps>`
   width: 100%;
   overflow: hidden;
   opacity: ${({ isActive }) => (isActive ? "1" : "0")};
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
   z-index: ${({ zIndex }) => zIndex};
 `;
 

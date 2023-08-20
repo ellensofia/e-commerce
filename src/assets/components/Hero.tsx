@@ -13,5 +13,5 @@ const StyledLayout = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 57px);
+  height: calc(100vh - var(--header-height));
 `;
