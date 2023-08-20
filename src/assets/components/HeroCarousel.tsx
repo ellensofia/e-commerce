@@ -59,7 +59,7 @@ export default function HeroCarousel() {
               <StyledImage src={image} alt={image} key={index} />
               <TextBox>
                 <h2>Special offer</h2>
-                <p>50% off</p>
+                <p>50% off selected items</p>
               </TextBox>
             </StyledCarouselItem>
           ))}

@@ -236,7 +236,7 @@ const StyledImage = styled.img`
   padding-left: 3rem;
 
   @media (max-width: 1090px) {
-    width: 200px;
+    width: 180px;
     padding-left: 2rem;
   }
 
