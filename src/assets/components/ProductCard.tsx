@@ -95,7 +95,8 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   align-items: center;
   display: flex;
   border-left: 1px solid var(--clr-dark-grey);
-  gap: 3rem;
+  gap: 6%;
+  padding: 0 6%;
 
   &:last-of-type {
     border-right: 1px solid var(--clr-dark-grey);
@@ -106,18 +107,16 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   }
 
   @media (max-width: 1090px) {
-    width: 78%;
-    gap: 1rem;
-    padding-right: 6%;
+    width: 65%;
   }
+
   @media (max-width: 600px) {
     width: calc(100% - 6rem);
+    padding: 0 3%;
+    gap: 3%;
   }
 
   @media (max-width: 460px) {
-    padding-right: 1rem;
-    padding-right: 3%;
-
     width: calc(100% - 4rem);
   }
 `;
@@ -143,7 +142,7 @@ const Review = styled.span`
   font-size: var(--font-size-sm);
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: var(--margin-xxxsm);
 `;
 
 const AmountBtn = styled.button<{ selected: boolean }>`
@@ -152,7 +151,7 @@ const AmountBtn = styled.button<{ selected: boolean }>`
   padding: 0;
   border: none;
   position: relative;
-  padding-bottom: 0.3rem;
+  padding-bottom: var(--margin-xxxs);
   color: var(--clr-dark-grey);
 
   &:first-child {
@@ -233,20 +232,16 @@ const StyledImage = styled.img`
   max-height: 25.25rem;
   object-fit: cover;
   position: relative;
-  padding-left: 3rem;
 
   @media (max-width: 1090px) {
     width: 180px;
-    padding-left: 2rem;
   }
 
   @media (max-width: 600px) {
     width: 140px;
-    padding-left: 1rem;
   }
 
   @media (max-width: 460px) {
     width: 100px;
-    padding-left: 0rem;
   }
 `;

@@ -51,6 +51,8 @@ const InnerBox = styled.div`
 `;
 
 const Title = styled.h2`
+  font-size: var(--font-size-md);
+
   @media (max-width: 640px) {
     font-size: var(--font-size-base);
   }
