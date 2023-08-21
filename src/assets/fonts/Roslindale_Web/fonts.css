@@ -7,6 +7,13 @@
   font-style: normal;
   font-weight: 200;
 }
+@font-face {
+  src: url("fonts/Roslindale-DeckNarrowBold-Testing.woff2") format("woff2"),
+    url("fonts/Roslindale-DeckNarrowBold-Testing.woff") format("woff");
+  font-family: "Roslindale";
+  font-style: normal;
+  font-weight: 600;
+}
 
 @font-face {
   src: url("fonts/Roslindale-DisplayCondensedExtraLightItalic-Testing.woff2")
