@@ -89,7 +89,7 @@ const ProductText = styled.div`
   display: flex;
   max-width: 36rem;
   flex-direction: column;
-  gap: 1rem;
+  gap: var(--margin-sm);
   color: #505050;
   margin-top: 10%;
   margin-bottom: 15%;
@@ -231,14 +231,16 @@ const StyledImage = styled.img`
   object-fit: contain;
   position: relative;
   max-width: 20vw;
+  max-height: 40vw;
+  width: 300px;
   display: flex;
   align-self: flex-start;
-  padding-bottom: var(--margin-sm);
+  padding-top: 6vh;
 
   @media (max-width: 900px) {
-    width: 220px;
-    max-width: 70vw;
-    justify-self: center;
-    padding-bottom: 0;
+    min-width: 160px;
+    max-height: unset;
+    margin: 0 auto;
+    padding-top: 0;
   }
 `;

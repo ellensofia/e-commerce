@@ -39,22 +39,23 @@ export default function AboutPage() {
 }
 
 const Container = styled.div`
-  margin-top: calc(var(--header-height) + var(--margin-xlg));
-  margin-bottom: var(--margin-xlg);
+  margin-top: calc(var(--header-height) + var(--margin-lg));
+  margin-bottom: var(--margin-lg);
   padding: 0 var(--margin-xlg);
   display: flex;
   gap: var(--margin-lg);
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-direction: row;
 
-  &.img {
-    height: 66vh;
+  & .img {
+    height: 60vh;
     object-fit: cover;
     width: auto;
   }
 
   @media (max-width: 1040px) {
-    & img {
+    & .img {
       height: auto;
       width: 50%;
     }
@@ -64,7 +65,7 @@ const Container = styled.div`
     flex-direction: column;
     padding: 0 var(--margin-md);
 
-    & img {
+    & .img {
       width: 100%;
     }
   }

@@ -10,7 +10,7 @@ export default function SingleProductPage() {
         <Top>
           <Breadcrumbs separator="/" aria-label="breadcrumb">
             <NavLink to="./" color="#333">
-              MUI
+              Startpage
             </NavLink>
             <NavLink to="./">Categories</NavLink>
             <Typography>Moisturizer</Typography>{" "}

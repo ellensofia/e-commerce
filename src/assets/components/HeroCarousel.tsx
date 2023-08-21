@@ -60,6 +60,7 @@ export default function HeroCarousel() {
               <TextBox>
                 <h2>Special offer</h2>
                 <p>50% off selected items</p>
+                <SaleButton>Go to sale</SaleButton>
               </TextBox>
             </StyledCarouselItem>
           ))}
@@ -106,6 +107,10 @@ const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  & p {
+    font-size: var(--font-size-md);
+  }
   @media (max-width: 600px) {
     width: 90vw;
   }
@@ -171,5 +176,19 @@ const StyledButton = styled.button<StyledButtonProps>`
 
   &:hover {
     background-color: ${({ isActive }) => (isActive ? "#2a2a2a" : "#ffffffbd")};
+  }
+`;
+
+const SaleButton = styled.button`
+  width: fit-content;
+  border-radius: 2rem;
+  background-color: transparent;
+  border: 1px solid var(--clr-white);
+  color: var(--clr-white);
+  margin-top: var(--margin-xsm);
+
+  &:hover {
+    background-color: var(--clr-white);
+    color: var(--clr-dark-grey);
   }
 `;

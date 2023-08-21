@@ -113,7 +113,9 @@ const Text = styled.p`
   left: 50%;
   z-index: 10;
   transform: translate(-50%, -50%);
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  font-weight: 500;
   text-align: center;
   cursor: pointer;
   @media (max-width: 700px) {

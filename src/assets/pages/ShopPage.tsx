@@ -37,6 +37,7 @@ const ProductGrid = styled.div`
 
   .img {
     width: calc(100% - 1px);
+    height: 100%;
     object-fit: cover;
     border-bottom: 1px solid var(--clr-dark-grey);
     border-right: 1px solid var(--clr-dark-grey);

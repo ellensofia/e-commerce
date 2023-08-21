@@ -80,7 +80,7 @@ export default function productCard({
           ))}
         </Details>
         <span>{price} EUR</span>
-        <Button id="button">Buy</Button>
+        <Button id="button">Add to cart</Button>
       </ProductText>
     </StyledCarouselItem>
   );
@@ -229,7 +229,7 @@ const Button = styled.button`
 `;
 
 const StyledImage = styled.img`
-  max-height: 25.25rem;
+  max-height: 22.25rem;
   object-fit: cover;
   position: relative;
 

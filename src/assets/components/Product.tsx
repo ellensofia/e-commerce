@@ -101,7 +101,9 @@ const OuterBox = styled.div`
   padding: var(--margin-sm) var(--margin-md) var(--margin-md);
   flex-direction: column;
   gap: var(--margin-sm);
-  width: 90%;
+  width: 100%;
+  height: 100%;
+  justify-content: space-evenly;
 `;
 
 const StyledLink = styled(Link)`
