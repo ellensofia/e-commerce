@@ -112,6 +112,7 @@ h4,
 h5,
 h6 {
   font-weight: 600;
+  font-style: normal;
   font-family: var(--font-secondary);
 }
 
@@ -141,6 +142,7 @@ input,
 textarea {
   outline: transparent;
   border-radius: 0;
+  background-color: var(--clr-white);
 }
 
 .material-symbols-outlined {

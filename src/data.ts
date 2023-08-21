@@ -14,7 +14,7 @@ export interface Product {
 }
 
 import image7 from "../src/assets/images/aloe-vera.png";
-import image1 from "../src/assets/images/cleanser.png";
+import image1 from "../src/assets/images/cleanser-new.png";
 import image3 from "../src/assets/images/eye-cream.png";
 import ingredient1 from "../src/assets/images/ingredient1.jpg";
 import ingredient10 from "../src/assets/images/ingredient10.jpg";
@@ -29,7 +29,7 @@ import ingredient7 from "../src/assets/images/ingredient7.jpg";
 import ingredient8 from "../src/assets/images/ingredient8.jpg";
 import ingredient9 from "../src/assets/images/ingredient9.jpg";
 import image5 from "../src/assets/images/mist.png";
-import image6 from "../src/assets/images/night-cream.png";
+import image6 from "../src/assets/images/night-cream-logo-on-lid.png";
 import image2 from "../src/assets/images/serum.png";
 import image4 from "../src/assets/images/tube.png";
 
@@ -245,7 +245,7 @@ export const products: Product[] = [
   {
     id: "8",
     product_name: "Cleansing Gel with Tea Tree Oil",
-    amount: ["15ml", "100ml"],
+    amount: ["50ml", "150ml"],
     product_description:
       "A refreshing cleansing gel that effectively removes impurities, excess oil, and makeup without stripping the skin's natural moisture. Enriched with tea tree oil for its antibacterial properties. Leaves the skin feeling clean, balanced, and refreshed.",
     prices: [9.99, 23.5],
