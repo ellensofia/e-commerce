@@ -59,25 +59,33 @@ const SearchField = styled.div<{ isexpanded?: string }>`
   transition: width 0.2s ease;
   display: flex;
   align-items: center;
+  transition: width 0.8s 0.8s ease-in-out;
 
-  @media (max-width: 400px) {
+  @media (max-width: 640px) {
+    input {
+      width: calc(100vw - 1.4rem);
+      width: 0px;
+      border: none;
+    }
+
+    /** background to search field */
     ${({ isexpanded }) =>
       isexpanded === "true"
         ? `
-      top: 3.8rem;
+      top: var(--header-height);
       position: fixed;
       background-color: white;
       left: 0;
       width: 100%;
       z-index: 999;
-      padding: 2rem 1rem 2.6rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: var(--margin-md) var(--margin-xsm);
+      border-bottom: 1px solid var(--clr-dark-grey);
     `
         : ""}
     > div:first-of-type {
       position: absolute;
       input {
-        width: 14rem;
+        width: calc(100vw - 1.4rem);
       }
     }
   }
@@ -97,12 +105,15 @@ const StyledInput = styled.input<{ isexpanded: string }>`
   border-radius: 2rem;
   border: 0.075rem solid #333;
   position: relative;
-  width: 8rem;
+  width: 1rem;
+  width: ${({ isexpanded }) => (isexpanded === "true" ? "250px" : "1.4rem")};
 `;
 
 const SearchIconBtn = styled.button<{ isexpanded: string }>`
   background: none;
   display: flex;
+  transition: none;
+  /* transition: 0.4s ; */
   align-items: center;
   justify-content: center;
   position: absolute;
