@@ -19,7 +19,7 @@ export default function InspCard({
       index={index}
       style={{
         transform: `translateX(calc(${(index - currentItemIndex) * 104}%)`,
-        transition: "transform 0.3s ease-in-out",
+        transition: "transform 0.2s ease-in-out",
       }}
     >
       <StyledImage src={image} alt={name} key={name} />

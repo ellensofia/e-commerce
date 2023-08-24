@@ -1,5 +1,6 @@
 // import { Title } from "@mui/icons-material";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import image1 from "../images/image1.jpg";
 import image2 from "../images/image2.jpg";
@@ -60,7 +61,7 @@ export default function HeroCarousel() {
               <TextBox>
                 <h2>Special offer</h2>
                 <p>50% off selected items</p>
-                <SaleButton>Go to sale</SaleButton>
+                <SaleButton to="/sale">Go to sale</SaleButton>
               </TextBox>
             </StyledCarouselItem>
           ))}
@@ -173,15 +174,19 @@ const StyledButton = styled.button<StyledButtonProps>`
   border: 1px solid #2a2a2a;
   cursor: pointer;
   z-index: 10;
+  transition: 0.3s ease-in-out;
 
   &:hover {
     background-color: ${({ isActive }) => (isActive ? "#2a2a2a" : "#ffffffbd")};
   }
 `;
 
-const SaleButton = styled.button`
+const SaleButton = styled(NavLink)`
   width: fit-content;
   border-radius: 2rem;
+  padding: 0.8rem 1.8rem;
+
+  font-size: var(--font-size-base);
   background-color: transparent;
   border: 1px solid var(--clr-white);
   color: var(--clr-white);

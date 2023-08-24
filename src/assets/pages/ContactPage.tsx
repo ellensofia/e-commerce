@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import { StyledButton } from "../components/TextSection";
 import image3 from "../images/ingredient6.jpg";
 
 export default function ContactPage() {
@@ -19,7 +18,7 @@ export default function ContactPage() {
             <input></input>
             <label>Message</label>
             <textarea></textarea>
-            <StyledButton id="button">send</StyledButton>
+            <button id="button">send</button>
           </Form>
         </Copy>
         <ContactImg>

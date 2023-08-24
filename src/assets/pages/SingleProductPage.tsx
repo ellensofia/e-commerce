@@ -9,10 +9,10 @@ export default function SingleProductPage() {
       <InnerContainer>
         <Top>
           <Breadcrumbs separator="/" aria-label="breadcrumb">
-            <NavLink to="./" color="#333">
+            <NavLink to="/" color="var(--clr-dark-grey)">
               Startpage
             </NavLink>
-            <NavLink to="./">Categories</NavLink>
+            <NavLink to="/shop">All products</NavLink>
             <Typography>Moisturizer</Typography>{" "}
           </Breadcrumbs>
           <Link to={`/shop/`}>Back</Link>

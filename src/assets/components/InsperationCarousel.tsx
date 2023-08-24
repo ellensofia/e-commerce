@@ -7,7 +7,6 @@ import InspCard from "./InspCard";
 
 export default function InsperationCarousel() {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const calculateNewIndex = (prevIndex: number) => {
     if (window.innerWidth <= 640) {
@@ -20,19 +19,11 @@ export default function InsperationCarousel() {
   };
 
   const navigate = (direction: string) => {
-    if (isTransitioning) return;
-
-    setIsTransitioning(true);
-
     if (direction === "left") {
       setCurrentItemIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
     } else if (direction === "right") {
       setCurrentItemIndex((prevIndex) => calculateNewIndex(prevIndex));
     }
-
-    setTimeout(() => {
-      setIsTransitioning(false);
-    }, 500);
   };
 
   return (
@@ -60,12 +51,12 @@ export default function InsperationCarousel() {
         </InnerContainer>
 
         <Navigations>
-          <NavigationsLeft>
+          <NavigationsLeft index={currentItemIndex}>
             <StyledButton onClick={() => navigate("left")}>
               <ArrowBackIosNewOutlinedIcon />
             </StyledButton>
           </NavigationsLeft>
-          <NavigationsRight>
+          <NavigationsRight index={currentItemIndex}>
             <StyledButton onClick={() => navigate("right")}>
               <ArrowForwardIosOutlinedIcon />
             </StyledButton>
@@ -118,25 +109,6 @@ const InnerContainer = styled.div`
   display: flex;
 `;
 
-const NavigationsLeft = styled.div`
-  position: absolute;
-  left: 0rem;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  padding-left: var(--margin-sm);
-  z-index: 10;
-
-  @media (max-width: 600px) {
-    left: 0rem;
-    padding-left: var(--margin-xsm);
-  }
-
-  @media (max-width: 460px) {
-    padding-left: var(--margin-xxsm);
-  }
-`;
-
 const Navigations = styled.div`
   position: absolute;
   display: flex;
@@ -150,34 +122,46 @@ const Navigations = styled.div`
   @media (max-width: 640px) {
     width: 100%;
     left: 0;
+    height: 80px;
   }
 `;
 
-const NavigationsRight = styled.div`
-  display: flex;
-  align-items: center;
+const NavigationsLeft = styled.div<{ index: number }>`
+  display: ${({ index }) => (index === 0 ? "none" : "flex")};
+`;
+
+const NavigationsRight = styled.div<{ index: number }>`
   position: absolute;
   right: 0rem;
-  height: 100px;
-  padding-right: var(--margin-sm);
+  display: ${({ index }) =>
+    index === ingredients.length - 3 ? "none" : "flex"};
 
-  @media (max-width: 600px) {
-    right: 0rem;
-    padding-right: var(--margin-xsm);
+  @media (max-width: 1024px) {
+    display: ${({ index }) =>
+      index === ingredients.length - 2 ? "none" : "flex"};
   }
 
-  @media (max-width: 460px) {
-    padding-right: var(--margin-xxsm);
+  @media (max-width: 640px) {
+    right: 0rem;
+    display: ${({ index }) =>
+      index === ingredients.length - 1 ? "none" : "flex"};
   }
 `;
 
 const StyledButton = styled.button`
-  padding: 0rem;
-  font-size: 2rem;
   cursor: pointer;
-  position: relative;
   color: var(--clr-dark-grey);
   background: transparent;
+  padding: 0 var(--margin-xsm);
+
+  @media (max-width: 640px) {
+    left: 0rem;
+    padding: 0 var(--margin-xsm);
+  }
+
+  @media (max-width: 460px) {
+    padding: 0 var(--margin-xxsm);
+  }
 `;
 
 const Text = styled.div`

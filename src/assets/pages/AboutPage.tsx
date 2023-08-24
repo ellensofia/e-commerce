@@ -26,7 +26,7 @@ export default function AboutPage() {
             </p>
             <StyledLink>
               <NavLink to="/contact">
-                Get in contact with us{" "}
+                Get in contact with us
                 <img className="arrow" src={image2} alt="arrow" />
               </NavLink>
             </StyledLink>

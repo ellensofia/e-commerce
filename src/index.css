@@ -23,6 +23,7 @@
   --clr-accent: #d8e0bb;
   --text-clr-dark: #213547;
   --text-clr-light: #2c3237;
+  --text-clr-grey: #515151;
   --baseline-grid: 1rem;
   --scale-factor: 1.5;
 
@@ -130,12 +131,25 @@ button {
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: 0.25s;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease-in-out;
 }
 
-#button:hover {
-  border: 1px solid #707070;
-  color: #707070;
+#button {
+  border: 1px solid var(--clr-dark-grey);
+  width: fit-content;
+  border-radius: 2rem;
+  background-color: #fff;
+  color: var(--clr-dark-grey);
+
+  &:hover {
+    color: #707070;
+    color: var(--clr-black);
+    background: #70707020;
+  }
 }
 
 input,
@@ -155,6 +169,12 @@ textarea {
   button {
     font-size: 0.75rem;
     padding: 0.6rem 1.2rem;
+  }
+}
+@media (max-width: 450px) {
+  button {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
   }
 }
 

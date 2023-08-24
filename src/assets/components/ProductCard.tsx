@@ -55,20 +55,33 @@ export default function productCard({
               "& .MuiRating-icon SVG": {
                 color: "var(--clr-dark-grey)",
                 fontSize: "0.9rem",
+                "@media (max-width: 640px)": {
+                  fontSize: "0.8rem",
+                },
               },
             }}
           />
         </Review>
-        <ProductDescription showFullDescription={showFullDescription}>
-          {product_description}
-        </ProductDescription>
-        <ShowMoreBtn
-          onClick={() => setShowFullDescription((prevState) => !prevState)}
-        >
-          {showFullDescription ? "Show Less" : "Show More"}
-        </ShowMoreBtn>
+        <DescriptionContainer>
+          <ProductDescription showFullDescription={showFullDescription}>
+            {product_description}
+          </ProductDescription>
+          <ShowMoreBtn
+            showFullDescription={showFullDescription}
+            onClick={() => setShowFullDescription((prevState) => !prevState)}
+          >
+            {showFullDescription ? (
+              <span>Show Less</span>
+            ) : (
+              <>
+                <Ellipse>...</Ellipse>
+                <span id="showMore">Show More</span>
+              </>
+            )}
+          </ShowMoreBtn>
+        </DescriptionContainer>
 
-        <Details>
+        <Amounts>
           {amount.map((size, i) => (
             <AmountBtn
               key={i}
@@ -78,7 +91,7 @@ export default function productCard({
               <span key={i}>{size}</span>
             </AmountBtn>
           ))}
-        </Details>
+        </Amounts>
         <span>{price} EUR</span>
         <Button id="button">Add to cart</Button>
       </ProductText>
@@ -111,13 +124,14 @@ const StyledCarouselItem = styled.div<{ index: number }>`
   }
 
   @media (max-width: 600px) {
-    width: calc(100% - 6rem);
-    padding: 0 3%;
-    gap: 3%;
+    width: calc(100% - 4rem);
+    padding: 0 6% 0 6%;
+    gap: 4%;
   }
 
-  @media (max-width: 460px) {
-    width: calc(100% - 4rem);
+  @media (max-width: 330px) {
+    padding: 0 4% 0 2%;
+    gap: 3%;
   }
 `;
 
@@ -130,10 +144,7 @@ const ProductText = styled.div`
   color: #505050;
   font-size: var(--font-size-base);
   @media (max-width: 1090px) {
-    gap: 0.6rem;
-    @media (max-width: 640px) {
-      gap: 0.4rem;
-    }
+    gap: 0.7rem;
   }
 `;
 
@@ -155,7 +166,7 @@ const AmountBtn = styled.button<{ selected: boolean }>`
   color: var(--clr-dark-grey);
 
   &:first-child {
-    margin-right: 1rem;
+    margin-right: var(--margin-xsm);
   }
 
   &::after {
@@ -167,9 +178,6 @@ const AmountBtn = styled.button<{ selected: boolean }>`
     bottom: 0;
     display: ${({ selected }) => (selected ? "block" : "none")};
     position: absolute;
-  }
-  @media (max-width: 900px) {
-    font-size: 0.55rem;
   }
 `;
 
@@ -193,39 +201,56 @@ const ProductDescription = styled.p<{ showFullDescription: boolean }>`
     text-overflow: ellipsis;
   }
 `;
+const DescriptionContainer = styled.div`
+  position: relative;
+`;
 
-const ShowMoreBtn = styled.button`
+const ShowMoreBtn = styled.button<{ showFullDescription: boolean }>`
   width: fit-content;
   font-size: 0.6rem;
   background-color: transparent;
   padding: 0;
-  cursor: pointer;
-  text-decoration: underline;
   display: none;
+  background-color: #fff;
+  right: 0;
+  bottom: 1px;
   color: var(--clr-dark-grey);
 
+  #showMore {
+    padding: 0 1.3rem 0 6px;
+  }
+  span {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  position: ${({ showFullDescription }) =>
+    showFullDescription ? "unset" : "absolute"};
+
   @media (max-width: 900px) {
-    display: block;
+    display: flex;
+    gap: 1px;
   }
 `;
 
-const Details = styled.div`
+const Ellipse = styled.p`
+  text-decoration: none;
+`;
+
+const Amounts = styled.div`
   margin: 0;
   font-size: 0.781rem;
   display: flex;
   gap: 1rem;
   color: #626262;
-  @media (max-width: 600px) {
+  @media (max-width: 1024px) {
     gap: 0rem;
   }
 `;
 
 const Button = styled.button`
-  border: 1px solid var(--clr-dark-grey);
-  width: fit-content;
-  border-radius: 2rem;
-  background-color: #fff;
-  color: var(--clr-dark-grey);
+  @media (max-width: 640px) {
+    padding: 0.3rem 0.6rem;
+  }
 `;
 
 const StyledImage = styled.img`
@@ -243,5 +268,9 @@ const StyledImage = styled.img`
 
   @media (max-width: 460px) {
     width: 100px;
+  }
+
+  @media (max-width: 360px) {
+    width: 20vw;
   }
 `;

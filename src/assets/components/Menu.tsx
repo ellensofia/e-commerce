@@ -25,7 +25,7 @@ export default function Menu({ menuOpen, toggleMenu }: Props) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [menuOpen, toggleMenu]);
+  }, [menuOpen]);
   const menuRef = useRef(null);
   const handleLinkClick = () => {
     toggleMenu();
@@ -42,18 +42,18 @@ export default function Menu({ menuOpen, toggleMenu }: Props) {
             </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <NavLink to={"/shop"} onClick={handleLinkClick}>
+            <NavLink to={"/404"} onClick={handleLinkClick}>
               View all categories
               <img src={arrow} alt="" />
             </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <NavLink to={"/about"} onClick={handleLinkClick}>
+            <NavLink to={"/404"} onClick={handleLinkClick}>
               Special Offers <img src={arrow} alt="" />
             </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <NavLink to={"/about"} onClick={handleLinkClick}>
+            <NavLink to={"/sale"} onClick={handleLinkClick}>
               Sale
               <img src={arrow} alt="" />
             </NavLink>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import image1 from "../../assets/images/products-test.png";
+import image1 from "../../assets/images/product-group.png";
 
 export default function CustomerPick() {
   return (
@@ -70,6 +70,7 @@ const InnerBox = styled.div`
 
     & img {
       width: 100%;
+      padding: var(--margin-sm);
     }
     @media (max-width: 640px) {
       padding: 0 var(--margin-md);

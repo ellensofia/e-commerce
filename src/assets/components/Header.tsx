@@ -40,13 +40,13 @@ export default function Header() {
             <NavLink to={"/shop"}>Shop</NavLink>
           </StyledListItem>
           <StyledListItem menuOpen={menuOpen}>
-            <a href="">Categories</a>
+            <a href="/404">Categories</a>
           </StyledListItem>
           <StyledListItem menuOpen={menuOpen}>
-            <a href="">Special Offers</a>
+            <a href="/404">Special Offers</a>
           </StyledListItem>
           <StyledListItem menuOpen={menuOpen}>
-            <NavLink to={"/about"}>Sale</NavLink>
+            <NavLink to={"/sale"}>Sale</NavLink>
           </StyledListItem>
           <StyledListItem menuOpen={menuOpen}>
             <NavLink to={"/contact"}>Contact</NavLink>
@@ -72,7 +72,7 @@ export default function Header() {
           isExpanded={isSearchExpanded}
           setIsexpanded={setIsSearchExpanded}
         ></SearchBar>
-        <BurgerMenu onClick={toggleMenuOpen} menuopen={menuOpen} />
+        <BurgerMenu toggleMenu={toggleMenuOpen} menuopen={menuOpen} />
       </StyledRight>
     </StyledHeader>
   );
