@@ -1,33 +1,47 @@
 import styled from "styled-components";
+import { useMenuContext } from "../context/MenuContest";
 
-interface BurgerMenuProps {
-  onClick: () => void;
-  menuopen: string;
-}
+export default function BurgerMenu() {
+  const { menuOpen, toggleMenuOpen, setMenuOpen, burgerRef } = useMenuContext();
 
-export default function BurgerMenu({ onClick, menuopen }: BurgerMenuProps) {
+  const handleBurgerClicked = () => {
+    console.log();
+    if (menuOpen === true) {
+      console.log("burger");
+      setMenuOpen(true);
+    } else {
+      setMenuOpen(true);
+    }
+  };
+
   return (
-    <StyledBurgerMenu onClick={onClick} menuopen={menuopen}>
-      <Burger menuopen={menuopen} />
-    </StyledBurgerMenu>
+    <nav ref={burgerRef}>
+      <StyledBurgerMenu
+        menuopen={menuOpen}
+        onClick={handleBurgerClicked}
+        //  ref={burgerRef}
+      >
+        <Burger menuopen={menuOpen} />
+      </StyledBurgerMenu>
+    </nav>
   );
 }
 
-const StyledBurgerMenu = styled.div<{ menuopen: string }>`
+const StyledBurgerMenu = styled.div<{ menuopen: boolean }>`
   cursor: pointer;
   position: relative;
   height: 1.2rem;
   z-index: 104;
 `;
 
-const Burger = styled.div<{ menuopen: string }>`
+const Burger = styled.div<{ menuopen: boolean }>`
   width: 1.5rem;
   height: 0.07rem;
   background-color: #333;
   position: relative;
   top: 50%;
   background-color: ${({ menuopen }) =>
-    menuopen === "true" ? "var(--clr-white)" : "var(--clr-dark-grey)"};
+    menuopen === true ? "var(--clr-white)" : "var(--clr-dark-grey)"};
 
   &::after,
   &::before {
@@ -41,16 +55,15 @@ const Burger = styled.div<{ menuopen: string }>`
   }
 
   &::after {
-    top: ${({ menuopen }) => (menuopen === "true" ? "0" : "-.6rem")};
-    transform: ${({ menuopen }) =>
-      menuopen === "true" ? "rotate(45deg)" : "0"};
+    top: ${({ menuopen }) => (menuopen === true ? "0" : "-.6rem")};
+    transform: ${({ menuopen }) => (menuopen === true ? "rotate(45deg)" : "0")};
   }
 
   &::before {
     transform: ${({ menuopen }) =>
-      menuopen === "true" ? "rotate(-45deg)" : "rotate(0)"};
+      menuopen === true ? "rotate(-45deg)" : "rotate(0)"};
     top: 0.6rem;
-    top: ${({ menuopen }) => (menuopen === "true" ? "0" : "0.6rem")};
+    top: ${({ menuopen }) => (menuopen === true ? "0" : "0.6rem")};
   }
 
   display: none;
