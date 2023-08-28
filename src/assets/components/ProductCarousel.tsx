@@ -26,7 +26,7 @@ export default function ProductCarousel() {
 
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 50);
+    }, 150);
   };
 
   const shouldShowSecondContainer = currentItemIndex >= products.length;
