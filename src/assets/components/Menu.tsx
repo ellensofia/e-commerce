@@ -1,35 +1,12 @@
-import { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { useMenuContext } from "../context/MenuContest";
 import arrow from "../images/arrow.svg";
 import img from "./../../assets/images/ingredient2.jpg";
 
-interface Props {
-  menuOpen: string;
-  toggleMenu: () => void;
-}
-
-export default function Menu({ menuOpen, toggleMenu }: Props) {
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuOpen === "true") {
-        if (
-          menuRef.current &&
-          !(menuRef.current as HTMLElement).contains(event.target as Node)
-        ) {
-          toggleMenu();
-        }
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [menuOpen]);
-  const menuRef = useRef(null);
-  const handleLinkClick = () => {
-    toggleMenu();
-  };
+export default function Menu() {
+  const { menuOpen, menuRef, handleLinkClick, toggleMenuOpen } =
+    useMenuContext();
 
   return (
     <OuterContainer menuOpen={menuOpen}>
@@ -76,8 +53,8 @@ export default function Menu({ menuOpen, toggleMenu }: Props) {
   );
 }
 
-const OuterContainer = styled.div<{ menuOpen: string }>`
-  display: ${({ menuOpen }) => (menuOpen === "true" ? "flex" : "none")};
+const OuterContainer = styled.div<{ menuOpen: boolean }>`
+  display: ${({ menuOpen }) => (menuOpen === true ? "flex" : "none")};
   justify-content: space-between;
   align-items: center;
   position: absolute;
@@ -86,7 +63,6 @@ const OuterContainer = styled.div<{ menuOpen: string }>`
   left: 0;
   right: 0;
   background-color: var(--clr-white);
-  border-top: 1px solid var(--clr-dark-grey);
   border-bottom: 1px solid var(--clr-dark-grey);
   padding: var(--margin-sm);
   gap: var(--margin-md);
@@ -124,7 +100,7 @@ const StyledListItem = styled.li`
   font-size: var(--font-size-base);
 
   a {
-    color: #000;
+    color: var(--clr-black);
     display: flex;
     width: calc(50vw - 3rem);
     justify-content: space-between;
