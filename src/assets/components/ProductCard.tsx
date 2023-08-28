@@ -46,12 +46,6 @@ export default function productCard({
             readOnly
             sx={{
               paddingLeft: ".6rem",
-              "& .MuiRating-iconFilled": {
-                color: "#555555",
-              },
-              "& .MuiRating-iconHover": {
-                color: "pink",
-              },
               "& .MuiRating-icon SVG": {
                 color: "var(--clr-dark-grey)",
                 fontSize: "0.9rem",
