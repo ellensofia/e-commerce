@@ -7,6 +7,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import App from "./App.tsx";
+import { MenuProvider } from "./assets/context/MenuContest.tsx";
 import AboutPage from "./assets/pages/AboutPage.tsx";
 import ContactPage from "./assets/pages/ContactPage.tsx";
 import NotFound from "./assets/pages/NotFound.tsx";
@@ -32,6 +33,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <MenuProvider>
+      <RouterProvider router={router} />
+    </MenuProvider>
   </React.StrictMode>
 );
