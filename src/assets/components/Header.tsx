@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
+import { useMenuContext } from "../context/MenuContest";
 import LogoImg from "./../../assets/images/oasis-logo.png";
 import BurgerMenu from "./BurgerMenu";
 import Menu from "./Menu";
@@ -8,24 +9,7 @@ import SearchBar from "./SearchBar";
 
 export default function Header() {
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
-  const [menuOpen, setMenuOpen] = useState("false");
-
-  const toggleMenuOpen = () => {
-    setMenuOpen((prevMenuopen) => (prevMenuopen === "true" ? "false" : "true"));
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 900) {
-        setMenuOpen("false");
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const { menuOpen, toggleMenuOpen } = useMenuContext();
 
   return (
     <StyledHeader>
@@ -55,7 +39,7 @@ export default function Header() {
             <NavLink to={"/about"}>About us</NavLink>
           </StyledListItem>
         </StyledMiddle>
-        <Menu toggleMenu={toggleMenuOpen} menuOpen={menuOpen} />
+        <Menu />
       </nav>
       <StyledRight isExpanded={isSearchExpanded.toString()}>
         <a>
@@ -72,7 +56,7 @@ export default function Header() {
           isExpanded={isSearchExpanded}
           setIsexpanded={setIsSearchExpanded}
         ></SearchBar>
-        <BurgerMenu toggleMenu={toggleMenuOpen} menuopen={menuOpen} />
+        <BurgerMenu />
       </StyledRight>
     </StyledHeader>
   );
@@ -96,7 +80,7 @@ const StyledHeader = styled.header`
   }
 `;
 
-const StyledListItem = styled.li<{ menuOpen: string }>`
+const StyledListItem = styled.li<{ menuOpen: boolean }>`
   list-style: none;
 
   a {
@@ -111,8 +95,8 @@ const StyledListItem = styled.li<{ menuOpen: string }>`
   }
 `;
 
-const StyledMiddle = styled.ul<{ menuOpen: string }>`
-  display: ${({ menuOpen }) => (menuOpen === "false" ? "flex" : "none")};
+const StyledMiddle = styled.ul<{ menuOpen: boolean }>`
+  display: ${({ menuOpen }) => (menuOpen === false ? "flex" : "none")};
   gap: var(--margin-lg);
   padding: 0;
   top: calc(var(--header-height) - 3px);
