@@ -5,38 +5,45 @@ export default function TextSection() {
     <>
       <OuterBox>
         <Text>
-          Oasis offers a holistic, gentle approach to personal wellbeing. It
-          helps you revitalise and harmonise body, spirit and soul.
+          Oasis offers a <span className="italic">holistic</span>, gentle
+          approach to personal wellbeing. It helps you revitalise{" "}
+          <span className="italic"> &</span>{" "}
+          <span className="thickitalic">harmonise</span> body,{" "}
+          <span className="italic">spirit</span>{" "}
+          <span className="italic"> &</span>{" "}
+          <span className="italic"> soul</span>.
         </Text>
-        <StyledButton id="button">Our story</StyledButton>
+        <button id="button">Our story</button>
       </OuterBox>
     </>
   );
 }
 
 const Text = styled.h2`
-  font-size: var(--font-size-xxl);
-  line-height: 1.4;
+  font-size: var(--font-size-xxxl);
+  line-height: 1.3;
   text-align: center;
-  max-width: 55rem;
+  max-width: 65rem;
   padding: 0 var(--margin-md) var(--margin-md);
 
+  span {
+    font-family: "Roslindale";
+    font-style: italic;
+    font-weight: 300;
+
+    span .thickitalic {
+      font-weight: 500;
+      text-decoration: underline;
+      color: pink;
+      border: 1px solid black;
+    }
+  }
   @media (max-width: 1024px) {
+    max-width: 55rem;
+
     font-size: var(--font-size-xl);
     padding: 0 var(--margin-sm) var(--margin-sm);
   }
-
-  @media (max-width: 640px) {
-    /* font-size: var(--font-size-xl); */
-  }
-`;
-
-export const StyledButton = styled.button`
-  width: fit-content;
-  border-radius: 2rem;
-  background-color: transparent;
-  border: 1px solid var(--clr-dark-grey);
-  color: var(--clr-dark-grey);
 `;
 
 const OuterBox = styled.div`
