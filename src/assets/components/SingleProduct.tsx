@@ -41,7 +41,7 @@ export default function SingleProduct() {
             <ProductText>
               <Title>{product.product_name}</Title>
 
-              <ProductDescription showFullDescription={showFullDescription}>
+              <ProductDescription $showFullDescription={showFullDescription}>
                 {product.product_description}
               </ProductDescription>
               <ShowMoreBtn
@@ -52,7 +52,7 @@ export default function SingleProduct() {
                 Show more
               </ShowMoreBtn>
               <Directions
-                showFullDirection={showFullDirection}
+                $showFullDirection={showFullDirection}
                 onClick={() => setShowFullDirection(!showFullDirection)}
               >
                 <div>
@@ -136,15 +136,15 @@ const ShowMoreBtn = styled.button`
     display: block;
   }
 `;
-const ProductDescription = styled.p<{ showFullDescription: boolean }>`
+const ProductDescription = styled.p<{ $showFullDescription: boolean }>`
   font-size: var(--font-size-base);
   @media (max-width: 900px) {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    overflow: ${({ showFullDescription }) =>
-      showFullDescription ? "visible" : "hidden"};
-    -webkit-line-clamp: ${({ showFullDescription }) =>
-      showFullDescription ? "" : "3"};
+    overflow: ${({ $showFullDescription }) =>
+      $showFullDescription ? "visible" : "hidden"};
+    -webkit-line-clamp: ${({ $showFullDescription }) =>
+      $showFullDescription ? "" : "3"};
     text-overflow: ellipsis;
   }
 `;
@@ -160,7 +160,7 @@ const AmountBtn = styled.button<{ selected: boolean }>`
   border-bottom: ${({ selected }) => (selected ? "1px solid black" : "none")};
 `;
 
-const Directions = styled.div<{ showFullDirection: boolean }>`
+const Directions = styled.div<{ $showFullDirection: boolean }>`
   margin: 0;
   font-size: var(--font-size-base);
   display: flex;
@@ -182,17 +182,17 @@ const Directions = styled.div<{ showFullDirection: boolean }>`
     width: 1.2rem;
     transform-origin: center;
     transition: transform 0.3s ease;
-    transform: ${({ showFullDirection }) =>
-      showFullDirection ? "rotate(-180deg)" : "rotate(0deg)"};
+    transform: ${({ $showFullDirection }) =>
+      $showFullDirection ? "rotate(-180deg)" : "rotate(0deg)"};
   }
 
   p {
-    max-height: ${({ showFullDirection }) =>
-      showFullDirection ? "1000px" : "0px"};
+    max-height: ${({ $showFullDirection }) =>
+      $showFullDirection ? "1000px" : "0px"};
     transition: max-height 0.2s ease, padding 0.2s ease, opacity 0.2s ease;
-    padding: ${({ showFullDirection }) =>
-      showFullDirection ? "0 0 1rem 0" : "0"};
-    opacity: ${({ showFullDirection }) => (showFullDirection ? 1 : 0)};
+    padding: ${({ $showFullDirection }) =>
+      $showFullDirection ? "0 0 1rem 0" : "0"};
+    opacity: ${({ $showFullDirection }) => ($showFullDirection ? 1 : 0)};
     overflow: hidden;
   }
 `;

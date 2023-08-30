@@ -9,12 +9,12 @@ import image3 from "../images/image3.jpg";
 const images = [image1, image2, image3];
 
 interface StyledButtonProps {
-  isActive: boolean;
+  $isActive: boolean;
 }
 
 interface StyledItemProps {
-  zIndex: number;
-  isActive: boolean;
+  zindex: string;
+  $isActive: boolean;
 }
 
 export default function HeroCarousel() {
@@ -54,8 +54,8 @@ export default function HeroCarousel() {
           {images.map((image, index) => (
             <StyledCarouselItem
               key={index}
-              zIndex={currentItemIndex === index ? 1 : 0}
-              isActive={currentItemIndex === index}
+              zindex={currentItemIndex === index ? "1" : "0"}
+              $isActive={currentItemIndex === index}
             >
               <StyledImage src={image} alt={image} key={index} />
               <TextBox>
@@ -68,17 +68,17 @@ export default function HeroCarousel() {
         </InnerContainer>
         <Navigations>
           <StyledButton
-            isActive={currentItemIndex === 0}
+            $isActive={currentItemIndex === 0}
             onClick={() => {
               navigate("left");
             }}
           ></StyledButton>
           <StyledButton
-            isActive={currentItemIndex === 1}
+            $isActive={currentItemIndex === 1}
             onClick={() => navigate("middle")}
           ></StyledButton>
           <StyledButton
-            isActive={currentItemIndex === 2}
+            $isActive={currentItemIndex === 2}
             onClick={() => navigate("right")}
           ></StyledButton>
         </Navigations>
@@ -127,9 +127,9 @@ const StyledCarouselItem = styled.div<StyledItemProps>`
   height: 100%;
   width: 100%;
   overflow: hidden;
-  opacity: ${({ isActive }) => (isActive ? "1" : "0")};
+  opacity: ${({ $isActive }) => ($isActive ? "1" : "0")};
   transition: opacity 0.6s ease-in-out;
-  z-index: ${({ zIndex }) => zIndex};
+  z-index: ${({ zindex }) => zindex};
 `;
 
 const StyledImage = styled.img`
@@ -169,7 +169,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   height: 0.8rem;
   padding: 0;
   background-color: #ffffffa4;
-  background-color: ${({ isActive }) => (isActive ? "#2a2a2a" : "#ffffffa4")};
+  background-color: ${({ $isActive }) => ($isActive ? "#2a2a2a" : "#ffffffa4")};
   border-radius: 0;
   border: 1px solid #2a2a2a;
   cursor: pointer;
@@ -177,7 +177,8 @@ const StyledButton = styled.button<StyledButtonProps>`
   transition: 0.3s ease-in-out;
 
   &:hover {
-    background-color: ${({ isActive }) => (isActive ? "#2a2a2a" : "#ffffffbd")};
+    background-color: ${({ $isActive }) =>
+      $isActive ? "#2a2a2a" : "#ffffffbd"};
   }
 `;
 

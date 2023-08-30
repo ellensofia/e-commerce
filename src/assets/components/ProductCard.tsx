@@ -57,11 +57,11 @@ export default function productCard({
           />
         </Review>
         <DescriptionContainer>
-          <ProductDescription showFullDescription={showFullDescription}>
+          <ProductDescription $showFullDescription={showFullDescription}>
             {product_description}
           </ProductDescription>
           <ShowMoreBtn
-            showFullDescription={showFullDescription}
+            $showFullDescription={showFullDescription}
             onClick={() => setShowFullDescription((prevState) => !prevState)}
           >
             {showFullDescription ? (
@@ -183,15 +183,15 @@ const Title = styled.h3`
   }
 `;
 
-const ProductDescription = styled.p<{ showFullDescription: boolean }>`
+const ProductDescription = styled.p<{ $showFullDescription: boolean }>`
   @media (max-width: 900px) {
     font-size: 0.75rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    overflow: ${({ showFullDescription }) =>
-      showFullDescription ? "visible" : "hidden"};
-    -webkit-line-clamp: ${({ showFullDescription }) =>
-      showFullDescription ? "" : "3"};
+    overflow: ${({ $showFullDescription }) =>
+      $showFullDescription ? "visible" : "hidden"};
+    -webkit-line-clamp: ${({ $showFullDescription }) =>
+      $showFullDescription ? "" : "3"};
     text-overflow: ellipsis;
   }
 `;
@@ -199,7 +199,7 @@ const DescriptionContainer = styled.div`
   position: relative;
 `;
 
-const ShowMoreBtn = styled.button<{ showFullDescription: boolean }>`
+const ShowMoreBtn = styled.button<{ $showFullDescription: boolean }>`
   width: fit-content;
   font-size: 0.6rem;
   background-color: transparent;
@@ -217,8 +217,8 @@ const ShowMoreBtn = styled.button<{ showFullDescription: boolean }>`
     text-decoration: underline;
     cursor: pointer;
   }
-  position: ${({ showFullDescription }) =>
-    showFullDescription ? "unset" : "absolute"};
+  position: ${({ $showFullDescription }) =>
+    $showFullDescription ? "unset" : "absolute"};
 
   @media (max-width: 900px) {
     display: flex;

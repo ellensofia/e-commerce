@@ -33,7 +33,7 @@ export default function Sale() {
               </li>
             </ul>
             <DescriptionContainer>
-              <ProductDescription showFullDescription={showFullDescription}>
+              <ProductDescription $showFullDescription={showFullDescription}>
                 <div className="product">
                   <h4>Brightening Vitamin C Serum 30ml</h4>
                   <p>
@@ -63,7 +63,7 @@ export default function Sale() {
                 </div>
               </ProductDescription>
               <ShowMoreBtn
-                showFullDescription={showFullDescription}
+                $showFullDescription={showFullDescription}
                 onClick={() =>
                   setShowFullDescription((prevState) => !prevState)
                 }
@@ -102,7 +102,7 @@ export default function Sale() {
               </li>
             </ul>
             <DescriptionContainer>
-              <ProductDescription showFullDescription={showFullDescription}>
+              <ProductDescription $showFullDescription={showFullDescription}>
                 <div className="product">
                   <h4>Brightening Vitamin C Serum 30ml</h4>
                   <p>
@@ -141,7 +141,7 @@ export default function Sale() {
                 </div>
               </ProductDescription>
               <ShowMoreBtn
-                showFullDescription={showFullDescription}
+                $showFullDescription={showFullDescription}
                 onClick={() =>
                   setShowFullDescription((prevState) => !prevState)
                 }
@@ -182,9 +182,9 @@ const Offer = styled.div`
   }
 `;
 
-const ProductDescription = styled.p<{ showFullDescription: boolean }>`
-  display: ${({ showFullDescription }) =>
-    showFullDescription ? "flex" : "none"};
+const ProductDescription = styled.div<{ $showFullDescription: boolean }>`
+  display: ${({ $showFullDescription }) =>
+    $showFullDescription ? "flex" : "none"};
   flex-direction: column;
 
   @media (max-width: 900px) {
@@ -227,7 +227,7 @@ const DescriptionContainer = styled.div`
   }
 `;
 
-const ShowMoreBtn = styled.button<{ showFullDescription: boolean }>`
+const ShowMoreBtn = styled.button<{ $showFullDescription: boolean }>`
   width: fit-content;
   font-size: 0.8rem;
   background-color: transparent;

@@ -5,11 +5,10 @@ import arrow from "../images/arrow.svg";
 import img from "./../../assets/images/ingredient2.jpg";
 
 export default function Menu() {
-  const { menuOpen, menuRef, handleLinkClick, toggleMenuOpen } =
-    useMenuContext();
+  const { menuOpen, menuRef, handleLinkClick } = useMenuContext();
 
   return (
-    <OuterContainer menuOpen={menuOpen}>
+    <OuterContainer $menuOpen={menuOpen}>
       <nav ref={menuRef}>
         <StyledList>
           <StyledListItem>
@@ -53,8 +52,8 @@ export default function Menu() {
   );
 }
 
-const OuterContainer = styled.div<{ menuOpen: boolean }>`
-  display: ${({ menuOpen }) => (menuOpen === true ? "flex" : "none")};
+const OuterContainer = styled.div<{ $menuOpen: boolean }>`
+  display: ${({ $menuOpen }) => ($menuOpen === true ? "flex" : "none")};
   justify-content: space-between;
   align-items: center;
   position: absolute;

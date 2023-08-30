@@ -19,29 +19,29 @@ export default function Header() {
         </Logotype>
       </NavLink>
       <nav>
-        <StyledMiddle menuOpen={menuOpen}>
-          <StyledListItem menuOpen={menuOpen}>
+        <StyledMiddle $menuOpen={menuOpen}>
+          <StyledListItem $menuOpen={menuOpen}>
             <NavLink to={"/shop"}>Shop</NavLink>
           </StyledListItem>
-          <StyledListItem menuOpen={menuOpen}>
+          <StyledListItem $menuOpen={menuOpen}>
             <a href="/404">Categories</a>
           </StyledListItem>
-          <StyledListItem menuOpen={menuOpen}>
+          <StyledListItem $menuOpen={menuOpen}>
             <a href="/404">Special Offers</a>
           </StyledListItem>
-          <StyledListItem menuOpen={menuOpen}>
+          <StyledListItem $menuOpen={menuOpen}>
             <NavLink to={"/sale"}>Sale</NavLink>
           </StyledListItem>
-          <StyledListItem menuOpen={menuOpen}>
+          <StyledListItem $menuOpen={menuOpen}>
             <NavLink to={"/contact"}>Contact</NavLink>
           </StyledListItem>
-          <StyledListItem menuOpen={menuOpen}>
+          <StyledListItem $menuOpen={menuOpen}>
             <NavLink to={"/about"}>About us</NavLink>
           </StyledListItem>
         </StyledMiddle>
         <Menu />
       </nav>
-      <StyledRight isExpanded={isSearchExpanded.toString()}>
+      <StyledRight $isExpanded={isSearchExpanded.toString()}>
         <a>
           <span className="material-symbols-outlined account_circle">
             account_circle
@@ -80,7 +80,7 @@ const StyledHeader = styled.header`
   }
 `;
 
-const StyledListItem = styled.li<{ menuOpen: boolean }>`
+const StyledListItem = styled.li<{ $menuOpen: boolean }>`
   list-style: none;
 
   a {
@@ -95,8 +95,8 @@ const StyledListItem = styled.li<{ menuOpen: boolean }>`
   }
 `;
 
-const StyledMiddle = styled.ul<{ menuOpen: boolean }>`
-  display: ${({ menuOpen }) => (menuOpen === false ? "flex" : "none")};
+const StyledMiddle = styled.ul<{ $menuOpen: boolean }>`
+  display: ${({ $menuOpen }) => ($menuOpen ? "none" : "flex")};
   gap: var(--margin-lg);
   padding: 0;
   top: calc(var(--header-height) - 3px);
@@ -119,7 +119,7 @@ const Logotype = styled.p`
   }
 `;
 
-const StyledRight = styled.div<{ isExpanded: string }>`
+const StyledRight = styled.div<{ $isExpanded: string }>`
   display: flex;
   align-items: center;
   gap: var(--margin-sm);
@@ -128,7 +128,7 @@ const StyledRight = styled.div<{ isExpanded: string }>`
     display: flex;
   }
   .shopping_basket {
-    margin-right: ${({ isExpanded }) =>
-      isExpanded === "true" ? "0" : "var(--margin-md)"};
+    margin-right: ${({ $isExpanded }) =>
+      $isExpanded === "true" ? "0" : "var(--margin-md)"};
   }
 `;

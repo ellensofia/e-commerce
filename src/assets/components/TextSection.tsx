@@ -7,8 +7,7 @@ export default function TextSection() {
         <Text>
           Oasis offers a <span className="italic">holistic</span>, gentle
           approach to personal wellbeing. It helps you revitalise{" "}
-          <span className="italic"> &</span>{" "}
-          <span className="thickitalic">harmonise</span> body,{" "}
+          <span className="italic"> &</span> harmonise body,{" "}
           <span className="italic">spirit</span>{" "}
           <span className="italic"> &</span>{" "}
           <span className="italic"> soul</span>.

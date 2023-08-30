@@ -7,7 +7,6 @@ export default function BurgerMenu() {
   const handleBurgerClicked = () => {
     console.log();
     if (menuOpen === true) {
-      console.log("burger");
       setMenuOpen(true);
     } else {
       setMenuOpen(true);
@@ -17,31 +16,31 @@ export default function BurgerMenu() {
   return (
     <nav ref={burgerRef}>
       <StyledBurgerMenu
-        menuopen={menuOpen}
+        $menuOpen={menuOpen}
         onClick={handleBurgerClicked}
         //  ref={burgerRef}
       >
-        <Burger menuopen={menuOpen} />
+        <Burger $menuOpen={menuOpen} />
       </StyledBurgerMenu>
     </nav>
   );
 }
 
-const StyledBurgerMenu = styled.div<{ menuopen: boolean }>`
+const StyledBurgerMenu = styled.div<{ $menuOpen: boolean }>`
   cursor: pointer;
   position: relative;
   height: 1.2rem;
   z-index: 104;
 `;
 
-const Burger = styled.div<{ menuopen: boolean }>`
+const Burger = styled.div<{ $menuOpen: boolean }>`
   width: 1.5rem;
   height: 0.07rem;
   background-color: #333;
   position: relative;
   top: 50%;
-  background-color: ${({ menuopen }) =>
-    menuopen === true ? "var(--clr-white)" : "var(--clr-dark-grey)"};
+  background-color: ${({ $menuOpen }) =>
+    $menuOpen ? "var(--clr-white)" : "var(--clr-dark-grey)"};
 
   &::after,
   &::before {
@@ -55,15 +54,15 @@ const Burger = styled.div<{ menuopen: boolean }>`
   }
 
   &::after {
-    top: ${({ menuopen }) => (menuopen === true ? "0" : "-.6rem")};
-    transform: ${({ menuopen }) => (menuopen === true ? "rotate(45deg)" : "0")};
+    top: ${({ $menuOpen }) => ($menuOpen ? "0" : "-.6rem")};
+    transform: ${({ $menuOpen }) => ($menuOpen ? "rotate(45deg)" : "0")};
   }
 
   &::before {
-    transform: ${({ menuopen }) =>
-      menuopen === true ? "rotate(-45deg)" : "rotate(0)"};
+    transform: ${({ $menuOpen }) =>
+      $menuOpen ? "rotate(-45deg)" : "rotate(0)"};
     top: 0.6rem;
-    top: ${({ menuopen }) => (menuopen === true ? "0" : "0.6rem")};
+    top: ${({ $menuOpen }) => ($menuOpen ? "0" : "0.6rem")};
   }
 
   display: none;

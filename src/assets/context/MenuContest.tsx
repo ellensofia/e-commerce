@@ -43,7 +43,6 @@ export const MenuProvider: React.FC<MenuProviderProps> = ({ children }) => {
   const burgerRef = useRef<null | HTMLElement>(null);
 
   const toggleMenuOpen = () => {
-    console.log("hej");
     setMenuOpen((prevMenuOpen) => (prevMenuOpen === true ? false : true));
   };
 
@@ -86,8 +85,8 @@ export const MenuProvider: React.FC<MenuProviderProps> = ({ children }) => {
         setMenuOpen(false);
       }
       //   toggleMenuOpen();
+      setBurgerMenuClicked(false); // reset burgerMenyClicked
     }
-    setBurgerMenuClicked(false); // reset burgerMenyClicked
   };
 
   useEffect(() => {
