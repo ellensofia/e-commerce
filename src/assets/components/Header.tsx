@@ -24,10 +24,10 @@ export default function Header() {
             <NavLink to={"/shop"}>Shop</NavLink>
           </StyledListItem>
           <StyledListItem $menuOpen={menuOpen}>
-            <a href="/404">Categories</a>
+            <a href="/error">Categories</a>
           </StyledListItem>
           <StyledListItem $menuOpen={menuOpen}>
-            <a href="/404">Special Offers</a>
+            <a href="/error">Special Offers</a>
           </StyledListItem>
           <StyledListItem $menuOpen={menuOpen}>
             <NavLink to={"/sale"}>Sale</NavLink>

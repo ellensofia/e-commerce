@@ -61,7 +61,7 @@ export const MenuProvider: React.FC<MenuProviderProps> = ({ children }) => {
   }, []);
 
   const handleLinkClick = () => {
-    toggleMenuOpen();
+    setMenuOpen(false);
   };
 
   // handle click outside
@@ -71,10 +71,7 @@ export const MenuProvider: React.FC<MenuProviderProps> = ({ children }) => {
         !burgerRef.current?.contains(event.target as Node) &&
         !menuRef.current?.contains(event.target as Node)
       ) {
-        console.log(event.target);
-        console.log(burgerRef);
-        console.log(menuRef);
-        toggleMenuOpen();
+        // toggleMenuOpen();
 
         console.log("first if statement true");
       } else if (

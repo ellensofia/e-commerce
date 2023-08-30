@@ -26,7 +26,7 @@ const router = createBrowserRouter(
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/sale" element={<SalePage />} />
       <Route path="/shop/:id" element={<SingleProductPage />} />
-      <Route path="/404" element={<NotFound />} />
+      <Route path="/error" element={<NotFound />} />
     </Route>
   )
 );

@@ -18,13 +18,13 @@ export default function Menu() {
             </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <NavLink to={"/404"} onClick={handleLinkClick}>
+            <NavLink to={"/error"} onClick={handleLinkClick}>
               View all categories
               <img src={arrow} alt="" />
             </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <NavLink to={"/404"} onClick={handleLinkClick}>
+            <NavLink to={"/error"} onClick={handleLinkClick}>
               Special Offers <img src={arrow} alt="" />
             </NavLink>
           </StyledListItem>
@@ -53,7 +53,7 @@ export default function Menu() {
 }
 
 const OuterContainer = styled.div<{ $menuOpen: boolean }>`
-  display: ${({ $menuOpen }) => ($menuOpen === true ? "flex" : "none")};
+  display: ${({ $menuOpen }) => ($menuOpen ? "flex" : "none")};
   justify-content: space-between;
   align-items: center;
   position: absolute;
