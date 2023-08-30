@@ -102,7 +102,7 @@ const ContactTitle = styled.h1`
   font-size: var(--font-size-xxl);
 `;
 
-const ContactText = styled.p`
+const ContactText = styled.div`
   color: var(--clr-dark-grey);
   font-size: var(--font-size-base);
   p:first-of-type {

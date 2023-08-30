@@ -162,6 +162,18 @@ export default function Sale() {
 const OuterBox = styled.div`
   display: flex;
   padding: calc(var(--header-height) + var(--margin-md)) var(--margin-xxlg);
+
+  @media (max-width: 900px) {
+    padding: calc(var(--header-height) + var(--margin-md)) var(--margin-xlg);
+  }
+
+  @media (max-width: 650px) {
+    padding: calc(var(--header-height) + var(--margin-md)) var(--margin-lg);
+  }
+
+  @media (max-width: 450px) {
+    padding: calc(var(--header-height) + var(--margin-md)) var(--margin-sm);
+  }
 `;
 
 const Offers = styled.div`
@@ -172,6 +184,7 @@ const Offers = styled.div`
 
 const Offer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: var(--margin-lg);
   padding: 4rem 0;
   max-width: 70rem;
@@ -179,6 +192,11 @@ const Offer = styled.div`
 
   img {
     height: 60vh;
+
+    @media (max-width: 900px) {
+      height: auto;
+      max-width: 85vw;
+    }
   }
 `;
 
@@ -241,6 +259,7 @@ const Copy = styled.div`
   display: flex;
   gap: var(--margin-sm);
   flex-direction: column;
+  max-width: 450px;
   ul {
     display: flex;
     flex-direction: column;

@@ -57,11 +57,8 @@ const InnerBox = styled.div`
   gap: var(--margin-xlg);
 
   & img {
-    width: 40%;
+    width: 30%;
     object-fit: contain;
-    @media (max-width: 900px) {
-      width: 30%;
-    }
   }
   @media (max-width: 900px) {
     display: grid;
