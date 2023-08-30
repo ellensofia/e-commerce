@@ -9,7 +9,7 @@ import SearchBar from "./SearchBar";
 
 export default function Header() {
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
-  const { menuOpen, toggleMenuOpen } = useMenuContext();
+  const { menuOpen } = useMenuContext();
 
   return (
     <StyledHeader>

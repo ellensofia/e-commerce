@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useMenuContext } from "../context/MenuContest";
 
 export default function BurgerMenu() {
-  const { menuOpen, toggleMenuOpen, setMenuOpen, burgerRef } = useMenuContext();
+  const { menuOpen, setMenuOpen, burgerRef } = useMenuContext();
 
   const handleBurgerClicked = () => {
     console.log();
