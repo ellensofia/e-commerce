@@ -78,17 +78,23 @@ const Form = styled.form`
 
   input {
     font-size: var(--font-size-base);
-    height: 2rem;
     border-radius: 0;
-    border: 1px solid var(--clr-dark-grey);
+    border: none;
+    border-bottom: 1px solid var(--clr-dark-grey);
   }
 
   textarea {
-    height: var(--margin-xxxlg);
+    height: var(--margin-xlg);
     font-family: var(--font-primary);
     font-size: var(--font-size-base);
     resize: none;
+    border: none;
+    border-bottom: 1px solid var(--clr-dark-grey);
     margin-bottom: var(--margin-xxsm);
+  }
+
+  label:nth-of-type(2) {
+    padding-top: var(--margin-xsm);
   }
 `;
 
@@ -100,7 +106,7 @@ const ContactText = styled.p`
   color: var(--clr-dark-grey);
   font-size: var(--font-size-base);
   p:first-of-type {
-    padding-bottom: var(--margin-small);
+    padding-bottom: var(--margin-sm);
   }
 `;
 
