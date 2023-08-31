@@ -5,11 +5,11 @@ import arrow from "../images/arrow.svg";
 import img from "./../../assets/images/ingredient2.jpg";
 
 export default function Menu() {
-  const { menuOpen, menuRef, handleLinkClick } = useMenuContext();
+  const { menuOpen, handleLinkClick } = useMenuContext();
 
   return (
     <OuterContainer $menuOpen={menuOpen}>
-      <nav ref={menuRef}>
+      <nav>
         <StyledList>
           <StyledListItem>
             <NavLink to={"/shop"} onClick={handleLinkClick}>

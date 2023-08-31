@@ -2,24 +2,11 @@ import styled from "styled-components";
 import { useMenuContext } from "../context/MenuContest";
 
 export default function BurgerMenu() {
-  const { menuOpen, setMenuOpen, burgerRef } = useMenuContext();
-
-  const handleBurgerClicked = () => {
-    console.log();
-    if (menuOpen === true) {
-      setMenuOpen(true);
-    } else {
-      setMenuOpen(true);
-    }
-  };
+  const { menuOpen, toggleMenuOpen } = useMenuContext();
 
   return (
-    <nav ref={burgerRef}>
-      <StyledBurgerMenu
-        $menuOpen={menuOpen}
-        onClick={handleBurgerClicked}
-        //  ref={burgerRef}
-      >
+    <nav>
+      <StyledBurgerMenu $menuOpen={menuOpen} onClick={toggleMenuOpen}>
         <Burger $menuOpen={menuOpen} />
       </StyledBurgerMenu>
     </nav>
