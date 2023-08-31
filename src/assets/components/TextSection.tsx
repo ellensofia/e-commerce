@@ -5,12 +5,10 @@ export default function TextSection() {
     <>
       <OuterBox>
         <Text>
-          Oasis offers a <span className="italic">holistic</span>, gentle
-          approach to personal wellbeing. It helps you revitalise{" "}
-          <span className="italic"> &</span> harmonise body,{" "}
-          <span className="italic">spirit</span>{" "}
-          <span className="italic"> &</span>{" "}
-          <span className="italic"> soul</span>.
+          Elevate your skin's vitality through a modern approach. Align{" "}
+          <span className="italic">&</span> rejuvenate body,{" "}
+          <span className="italic">mind</span>,{" "}
+          <span className="italic">&</span> inner well-being.
         </Text>
         <button id="button">Our story</button>
       </OuterBox>

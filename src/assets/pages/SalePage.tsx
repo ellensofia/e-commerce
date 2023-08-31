@@ -153,7 +153,6 @@ export default function Sale() {
             <button id="button">Add to Cart</button>
           </Copy>
         </Offer>
-        <Offer></Offer>
       </Offers>
     </OuterBox>
   );
@@ -189,6 +188,7 @@ const Offer = styled.div`
   padding: 4rem 0;
   max-width: 70rem;
   width: 100%;
+  border-bottom: 1px solid var(--clr-medium-grey);
 
   img {
     height: 60vh;

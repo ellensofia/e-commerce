@@ -62,20 +62,18 @@ const InnerBox = styled.div`
   }
   @media (max-width: 900px) {
     display: grid;
-    padding: 0 var(--margin-xxlg);
+    padding: 0 var(--margin-lg);
     gap: var(--margin-md);
 
     & img {
-      width: 100%;
+      width: 75%;
       padding: var(--margin-sm);
-    }
-    @media (max-width: 640px) {
-      padding: 0 var(--margin-md);
     }
   }
 
   @media (max-width: 640px) {
     & img {
+      padding: 0 var(--margin-sm);
       width: 100%;
     }
   }
@@ -94,10 +92,6 @@ const TextBox = styled.div`
     width: 2rem;
     font-size: var(--font-size-md);
     color: var(--clr-dark-grey);
-
-    @media (max-width: 900px) {
-      padding-right: var(--margin-sm);
-    }
   }
 
   ul {
