@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import image3 from "../images/ingredient6.jpg";
+import image3 from "../images/contact.jpg";
 
 export default function ContactPage() {
   return (
