@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import img1 from "../images/inst.jpg";
+import img2 from "../images/inst.png";
 import img3 from "../images/inst3.jpg";
 import img4 from "../images/inst4.jpg";
 import img5 from "../images/instagram-logo.png";
-import img2 from "../images/products-inst.png";
 
 export default function Socials() {
   return (
