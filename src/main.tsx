@@ -9,6 +9,7 @@ import {
 import App from "./App.tsx";
 import { MenuProvider } from "./assets/context/MenuContest.tsx";
 import AboutPage from "./assets/pages/AboutPage.tsx";
+import CategoriesPage from "./assets/pages/CategoriesPage.tsx";
 import ContactPage from "./assets/pages/ContactPage.tsx";
 import NotFound from "./assets/pages/NotFound.tsx";
 import SalePage from "./assets/pages/SalePage.tsx";
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="/about" element={<AboutPage />} />
       <Route path="/shop" element={<ShopPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/categories" element={<CategoriesPage />} />
       <Route path="/sale" element={<SalePage />} />
       <Route path="/shop/:id" element={<SingleProductPage />} />
       <Route path="/error" element={<NotFound />} />
