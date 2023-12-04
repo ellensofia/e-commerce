@@ -6,8 +6,7 @@ export default function TextSection() {
       <OuterBox>
         <Text>
           Elevate your skin's vitality through a modern approach. Align{" "}
-          <span className="italic">&</span> rejuvenate body,{" "}
-          <span className="italic">mind</span>,{" "}
+          <span className="italic">&</span> rejuvenate body, mind,{" "}
           <span className="italic">&</span> inner well-being.
         </Text>
         <button id="button">Our story</button>
@@ -17,7 +16,7 @@ export default function TextSection() {
 }
 
 const Text = styled.h2`
-  font-size: var(--font-size-xxxl);
+  font-size: var(--font-size-xxl);
   line-height: 1.3;
   text-align: center;
   max-width: 65rem;
