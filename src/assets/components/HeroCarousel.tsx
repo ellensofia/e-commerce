@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import image1 from "../images/image1.jpg";
-import image2 from "../images/image2.jpg";
-import image3 from "../images/image3.jpg";
+import image2 from "../images/image4.jpg";
+import image3 from "../images/image5.jpg";
 
 const images = [image1, image2, image3];
 
@@ -138,6 +138,12 @@ const StyledImage = styled.img`
   position: relative;
   max-height: 100%;
   height: 80vh;
+
+  @media (min-width: 640px) {
+    object-position: ${({ src }) =>
+      src?.includes("image5.jpg") ? "-20% 68%" : "center"};
+  }
+
   @media (max-width: 600px) {
     width: 100%;
   }
