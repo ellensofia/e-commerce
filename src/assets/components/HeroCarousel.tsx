@@ -141,7 +141,7 @@ const StyledImage = styled.img`
 
   @media (min-width: 640px) {
     object-position: ${({ src }) =>
-      src?.includes("image5.jpg") ? "-20% 68%" : "center"};
+      src?.includes("image5") ? "-20% 68%" : "center"};
   }
 
   @media (max-width: 600px) {
