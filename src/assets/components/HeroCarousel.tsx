@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import image1 from "../images/image1.jpg";
 import image2 from "../images/image4.jpg";
-import image3 from "../images/image5.jpg";
+import image5 from "../images/image5.jpg";
 
-const images = [image1, image2, image3];
+const images = [image1, image2, image5];
 
 interface StyledButtonProps {
   $isActive: boolean;
