@@ -126,7 +126,6 @@ const InnerContainer = styled.div`
 const StyledCarouselItem = styled.div<StyledItemProps>`
   position: absolute;
   height: 100%;
-  background-image: url(${placeholder});
   width: 100%;
   overflow: hidden;
   opacity: ${({ $isActive }) => ($isActive ? "1" : "0")};
@@ -135,6 +134,7 @@ const StyledCarouselItem = styled.div<StyledItemProps>`
 `;
 
 const StyledImage = styled.img`
+  background-image: url(${placeholder});
   width: 100vw;
   object-fit: cover;
   position: relative;
