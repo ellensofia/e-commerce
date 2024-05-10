@@ -24,7 +24,7 @@ export default function Menu() {
             </NavLink>
           </StyledListItem>
           <StyledListItem>
-            <NavLink to={"/special-offers"} onClick={handleLinkClick}>
+            <NavLink to={"/offers"} onClick={handleLinkClick}>
               Special Offers <img src={arrow} alt="" />
             </NavLink>
           </StyledListItem>
