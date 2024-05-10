@@ -84,7 +84,6 @@ const Form = styled.form`
   }
 
   textarea {
-    height: var(--margin-xlg);
     font-family: var(--font-primary);
     font-size: var(--font-size-base);
     resize: none;
