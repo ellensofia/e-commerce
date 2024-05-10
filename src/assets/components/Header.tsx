@@ -27,7 +27,7 @@ export default function Header() {
             <a href="/categories">Categories</a>
           </StyledListItem>
           <StyledListItem $menuOpen={menuOpen}>
-            <a href="/sale">Special Offers</a>
+            <a href="/special-offers">Special Offers</a>
           </StyledListItem>
           <StyledListItem $menuOpen={menuOpen}>
             <NavLink to={"/sale"}>Sale</NavLink>

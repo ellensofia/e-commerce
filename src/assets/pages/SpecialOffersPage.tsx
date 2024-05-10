@@ -3,7 +3,7 @@ import styled from "styled-components";
 import product2 from "./../images/4-products.png";
 import product from "./../images/product-group.png";
 
-export default function Sale() {
+export default function SpecialOffersPage() {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   return (
