@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import image1 from "../images/image1.jpg";
+import placeholder from "../images/image1placeholder.jpg";
 import image2 from "../images/image4.jpg";
 import image5 from "../images/image5.jpg";
 
@@ -72,15 +73,15 @@ export default function HeroCarousel() {
             onClick={() => {
               navigate("left");
             }}
-          ></StyledButton>
+          />
           <StyledButton
             $isActive={currentItemIndex === 1}
             onClick={() => navigate("middle")}
-          ></StyledButton>
+          />
           <StyledButton
             $isActive={currentItemIndex === 2}
             onClick={() => navigate("right")}
-          ></StyledButton>
+          />
         </Navigations>
       </OuterBox>
     </>
@@ -125,7 +126,7 @@ const InnerContainer = styled.div`
 const StyledCarouselItem = styled.div<StyledItemProps>`
   position: absolute;
   height: 100%;
-  background-image: url(image1);
+  background-image: url(${placeholder});
   width: 100%;
   overflow: hidden;
   opacity: ${({ $isActive }) => ($isActive ? "1" : "0")};
