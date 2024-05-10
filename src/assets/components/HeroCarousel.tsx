@@ -58,7 +58,12 @@ export default function HeroCarousel() {
               zindex={currentItemIndex === index ? "1" : "0"}
               $isActive={currentItemIndex === index}
             >
-              <StyledImage src={image} alt={image} key={index} />
+              <StyledImage
+                src={image}
+                alt={image}
+                key={index}
+                data-src={placeholder}
+              />
               <TextBox>
                 <h2>Special offer</h2>
                 <p>50% off selected items</p>
@@ -134,7 +139,6 @@ const StyledCarouselItem = styled.div<StyledItemProps>`
 `;
 
 const StyledImage = styled.img`
-  background-image: url(${placeholder});
   width: 100vw;
   object-fit: cover;
   position: relative;
