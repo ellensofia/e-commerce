@@ -6,7 +6,7 @@ export default function ContactPage() {
     <Container>
       <InnerContainer>
         <Copy>
-          <ContactTitle>Contact</ContactTitle>
+          <ContactTitle>Get in touch</ContactTitle>
           <ContactText>
             <p>
               Have questions about your skincare routine? Need personalized
@@ -73,7 +73,7 @@ const Form = styled.form`
   flex-direction: column;
   gap: var(--margin-xxsm);
   max-width: 30rem;
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
   position: relative;
 
   input {
