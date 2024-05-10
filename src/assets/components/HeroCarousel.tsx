@@ -125,6 +125,7 @@ const InnerContainer = styled.div`
 const StyledCarouselItem = styled.div<StyledItemProps>`
   position: absolute;
   height: 100%;
+  background-image: url(image1);
   width: 100%;
   overflow: hidden;
   opacity: ${({ $isActive }) => ($isActive ? "1" : "0")};
