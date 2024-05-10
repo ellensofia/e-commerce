@@ -15,7 +15,7 @@ import NotFound from "./assets/pages/NotFound.tsx";
 import SalePage from "./assets/pages/Sale.tsx";
 import ShopPage from "./assets/pages/ShopPage.tsx";
 import SingleProductPage from "./assets/pages/SingleProductPage.tsx";
-import SpecialOffers from "./assets/pages/SpecialOffersPage.tsx";
+import SpecialOffersPage from "./assets/pages/SpecialOffersPage.tsx";
 import StartPage from "./assets/pages/StartPage.tsx";
 import "./index.css";
 
@@ -26,7 +26,7 @@ const router = createBrowserRouter(
       <Route path="/about" element={<AboutPage />} />
       <Route path="/shop" element={<ShopPage />} />
       <Route path="/contact" element={<ContactPage />} />
-      <Route path="/special-offers" element={<SpecialOffers />} />
+      <Route path="/special-offers" element={<SpecialOffersPage />} />
       <Route path="/categories" element={<CategoriesPage />} />
       <Route path="/sale" element={<SalePage />} />
       <Route path="/shop/:id" element={<SingleProductPage />} />
