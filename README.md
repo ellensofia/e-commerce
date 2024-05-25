@@ -9,8 +9,6 @@ Oasis E-Shop is a school project aimed at creating a fictional brand, including 
 Demo link hosted on [Netlify](https://oasis-webshop.netlify.app/)
 
 <br>
-
-<br>
 <br>
 
 ## Graphic profile
