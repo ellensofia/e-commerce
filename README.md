@@ -6,4 +6,6 @@ https://oasis-webshop.netlify.app/
 
 ## About the Project
 
-Oasis E-Shop is a school project. The assignment required the creation of a fictitious brand with a graphic profile and the development of an online store to sell a minimum of two products or services. The project was built using React.js, TypeScript, and Styled Components.
+Oasis E-Shop is a school project aimed at creating a fictional brand, including the development of a graphic profile and an e-commerce website designed to sell at least two products or services. For this project I used React, TypeScript, and Styled Components.
+
+[Oasis - graphic profile .pdf](https://github.com/ellensofia/e-commerce/files/15443192/Oasis.-.graphic.profile.pdf)
