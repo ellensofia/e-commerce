@@ -15,5 +15,5 @@ Demo link hosted on [Netlify](https://oasis-webshop.netlify.app/)
 
 <br>
 
-![oasis](https://github.com/ellensofia/e-commerce/assets/80984009/17526193-68b8-48f6-9b34-34f6d98e7d18)
+![oasis](https://github.com/ellensofia/e-commerce/assets/80984009/65a61fec-73ee-42a8-9e22-652324ccf4c1)
 <img width="1205" alt="oasis mockups" src="https://github.com/ellensofia/e-commerce/assets/80984009/97637563-399d-4db4-a7ab-5496707a09f5">
