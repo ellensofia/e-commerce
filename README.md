@@ -1,4 +1,6 @@
-# ![oasis-logo](https://github.com/ellensofia/e-commerce/assets/80984009/a39f144d-645d-4d0b-ad8e-77714520473c)
+# Oasis e-commerce
+
+Oasis E-Shop is a school project aimed at creating a fictional brand, including the development of a graphic profile and an e-commerce website designed to sell at least two products or services. For this project I used React, TypeScript, and Styled Components.
 
 <br>
 
@@ -7,10 +9,6 @@
 Demo link hosted on [Netlify](https://oasis-webshop.netlify.app/)
 
 <br>
-
-# Oasis e-commerce
-
-Oasis E-Shop is a school project aimed at creating a fictional brand, including the development of a graphic profile and an e-commerce website designed to sell at least two products or services. For this project I used React, TypeScript, and Styled Components.
 
 <br>
 <br>
