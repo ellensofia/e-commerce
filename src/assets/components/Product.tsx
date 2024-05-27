@@ -2,9 +2,9 @@ import { Rating } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Product } from "../../data";
+import { IProduct } from "../../data";
 export interface Props {
-  product: Product;
+  product: IProduct;
 }
 
 export default function Product({ product }: Props) {

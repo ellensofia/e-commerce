@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import arrow from "../../assets/images/arrow-down.svg";
-import { Product, products } from "../../data";
+import { IProduct, products } from "../../data";
 import ReviewSection from "./ReviewSection";
 
 export interface Props {
-  product: Product;
+  product: IProduct;
 }
 
 export default function SingleProduct() {
