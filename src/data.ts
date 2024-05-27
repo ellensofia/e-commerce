@@ -1,4 +1,4 @@
-export interface Product {
+export interface IProduct {
   id: string;
   product_name: string;
   amount: string[];
@@ -14,6 +14,8 @@ export interface Product {
 }
 
 import image7 from "../src/assets/images/aloe-vera.png";
+import img3 from "../src/assets/images/category-3.jpg";
+import img5 from "../src/assets/images/category-5.jpg";
 import image1 from "../src/assets/images/cleanser-new.png";
 import image3 from "../src/assets/images/eye-cream.png";
 import ingredient1 from "../src/assets/images/ingredient1.jpg";
@@ -46,7 +48,8 @@ function getRandomDate() {
 
   return `${year}-${month}-${day}`;
 }
-export const products: Product[] = [
+
+export const products: IProduct[] = [
   {
     id: "1",
     product_name: "Exfoliating Serum 10% Glycolic Acid",
@@ -342,5 +345,73 @@ export const ingredients: Ingredient[] = [
     image: ingredient12,
     name: "Vitamin B5",
     info: "Hydrates and nourishes the skin, helping to maintain a healthy barrier.",
+  },
+];
+
+export const skintypes: string[] = [
+  "Oily",
+  "Dry",
+  "Normal",
+  "Combination",
+  "Acne",
+  "Sensitive",
+  "Dry",
+  "Mature",
+];
+
+export interface ICategory {
+  name: string;
+  image: string;
+}
+
+export const categories: ICategory[] = [
+  {
+    name: "Cleansers",
+    image: img5,
+  },
+  {
+    name: "Lip care",
+    image: image3,
+  },
+  {
+    name: "Sun protection",
+    image: ingredient1,
+  },
+  {
+    name: "Moisturizers",
+    image: ingredient1,
+  },
+  {
+    name: "Serum",
+    image: ingredient2,
+  },
+  {
+    name: "Lip care",
+    image: img3,
+  },
+  {
+    name: "Exfoliators",
+    image: ingredient12,
+  },
+
+  {
+    name: "Eye care",
+    image: ingredient1,
+  },
+  {
+    name: "Best sellers",
+    image: ingredient10,
+  },
+  {
+    name: "New in",
+    image: image3,
+  },
+  {
+    name: "Anti-aging",
+    image: ingredient11,
+  },
+  {
+    name: "Body care",
+    image: image3,
   },
 ];
