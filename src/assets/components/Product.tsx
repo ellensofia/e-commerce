@@ -45,6 +45,9 @@ export default function Product({ product }: Props) {
                       color: "#555",
                       fontSize: "0.9rem !important",
                     },
+                    "@media (max-width: 640px)": {
+                      fontSize: "0.8rem",
+                    },
                   }}
                 />
               </Review>
@@ -72,10 +75,13 @@ const ProductText = styled.div`
 
 const Review = styled.span`
   margin: 0;
-  font-size: var(--font-size-sm);
   display: flex;
   align-items: center;
   gap: var(--margin-xxsm);
+
+  .text {
+    font-size: var(--font-size-sm);
+  }
 `;
 
 const Bottom = styled.div`
