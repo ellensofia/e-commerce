@@ -41,15 +41,14 @@ const Burger = styled.div<{ $menuOpen: boolean }>`
   }
 
   &::after {
-    top: ${({ $menuOpen }) => ($menuOpen ? "0" : "-.6rem")};
+    top: ${({ $menuOpen }) => ($menuOpen ? "0" : "-.5rem")};
     transform: ${({ $menuOpen }) => ($menuOpen ? "rotate(45deg)" : "0")};
   }
 
   &::before {
     transform: ${({ $menuOpen }) =>
       $menuOpen ? "rotate(-45deg)" : "rotate(0)"};
-    top: 0.6rem;
-    top: ${({ $menuOpen }) => ($menuOpen ? "0" : "0.6rem")};
+    top: ${({ $menuOpen }) => ($menuOpen ? "0" : "0.5rem")};
   }
 
   display: none;
