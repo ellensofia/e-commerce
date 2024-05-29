@@ -39,35 +39,31 @@ export default function AboutPage() {
 }
 
 const Container = styled.div`
-  margin-top: calc(var(--header-height) + var(--margin-lg));
-  margin-bottom: var(--margin-lg);
-  padding: 0 var(--margin-xlg);
+  margin-top: var(--header-height);
+  margin-left: var(--margin-xlg);
   display: flex;
   gap: var(--margin-lg);
   justify-content: center;
   align-items: center;
   flex-direction: row;
-
   & .img {
-    height: 60vh;
+    width: 50vw;
+    height: calc(100dvh - var(--header-height));
+    max-width: 100%;
     object-fit: cover;
-    width: auto;
-  }
-
-  @media (max-width: 1040px) {
-    & .img {
-      height: auto;
-      width: 50%;
+    @media (max-width: 640px) {
+      width: 80vw;
+      height: 70vw;
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 840px) {
+    margin-left: var(--margin-lg);
+  }
+
+  @media (max-width: 640px) {
     flex-direction: column;
-    padding: 0 var(--margin-md);
-
-    & .img {
-      width: 100%;
-    }
+    margin: calc(var(--header-height) + var(--margin-lg)) 0 var(--margin-lg);
   }
 `;
 
@@ -79,7 +75,7 @@ const Copy = styled.div`
   width: 50%;
   max-width: 36rem;
   @media (max-width: 700px) {
-    width: 100%;
+    width: 80%;
   }
 `;
 

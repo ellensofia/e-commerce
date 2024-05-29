@@ -6,7 +6,7 @@ export default function ContactPage() {
     <Container>
       <InnerContainer>
         <Copy>
-          <ContactTitle>Get in touch</ContactTitle>
+          <ContactTitle>Get in contact</ContactTitle>
           <ContactText>
             <p>
               Have questions about your skincare routine? Need personalized
@@ -31,11 +31,19 @@ export default function ContactPage() {
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
-  padding: 0 2rem;
-  margin: calc(var(--margin-xlg) + var(--header-height)) 0;
-  margin-bottom: var(--margin-xlg);
+  //padding: 0 2rem;
+  // margin: calc(var(--margin-xlg) + var(--header-height)) 0;
+  //margin-bottom: var(--margin-xlg);
+  margin-top: var(--header-height);
+
+  @media (max-width: 640px) {
+    align-items: center;
+    justify-content: center;
+    margin-top: calc(var(--header-height) + var(--margin-lg));
+    margin-bottom: var(--margin-lg);
+  }
 `;
 
 const InnerContainer = styled.div`
@@ -44,14 +52,8 @@ const InnerContainer = styled.div`
   align-items: center;
   gap: var(--margin-md);
 
-  @media (max-width: 1024px) {
-    align-items: unset;
-    margin-top: calc(var(--header-height) + var(--margin-large));
-    margin-bottom: var(--margin-large);
-  }
-
   @media (max-width: 640px) {
-    gap: var(--margin-xlg);
+    gap: var(--margin-lg);
     flex-direction: column;
     align-items: center;
   }
@@ -63,8 +65,13 @@ const Copy = styled.div`
   gap: var(--margin-xsm);
   max-width: 30rem;
 
-  @media screen and (max-width: 1024px) {
-    max-width: 400px;
+  @media (max-width: 1024px) {
+    max-width: 40vw;
+  }
+
+  @media (max-width: 640px) {
+    width: 400px;
+    max-width: 80vw;
   }
 `;
 
@@ -72,7 +79,6 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: var(--margin-xxsm);
-  max-width: 30rem;
   font-family: var(--font-primary);
   position: relative;
 
@@ -95,6 +101,13 @@ const Form = styled.form`
   label:nth-of-type(2) {
     padding-top: var(--margin-xsm);
   }
+
+  @media (max-width: 740px) {
+    textarea {
+      margin-bottom: var(--margin-xsm);
+    }
+    gap: 0;
+  }
 `;
 
 const ContactTitle = styled.h1`
@@ -111,8 +124,13 @@ const ContactText = styled.div`
 
 const ContactImg = styled.div`
   & img {
-    width: 400px;
+    width: 50vw;
+    height: calc(100dvh - var(--header-height));
     max-width: 100%;
     object-fit: cover;
+    @media (max-width: 640px) {
+      width: 80vw;
+      height: 50vw;
+    }
   }
 `;
