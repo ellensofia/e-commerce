@@ -78,10 +78,6 @@ const Review = styled.span`
   display: flex;
   align-items: center;
   gap: var(--margin-xxsm);
-
-  .text {
-    font-size: var(--font-size-sm);
-  }
 `;
 
 const Bottom = styled.div`
@@ -90,6 +86,7 @@ const Bottom = styled.div`
   justify-content: space-between;
   width: 100%;
   padding-bottom: var(--margin-xsm);
+  gap: var(--margin-xxsm);
 `;
 
 const Price = styled.p`
@@ -110,6 +107,9 @@ const OuterBox = styled.div`
   width: 100%;
   height: 100%;
   justify-content: space-evenly;
+  @media (max-width: 600px) {
+    padding: var(--margin-sm);
+  }
 `;
 
 const StyledLink = styled(Link)`
