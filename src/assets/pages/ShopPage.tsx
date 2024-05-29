@@ -31,9 +31,6 @@ export default function ShopPage() {
           );
         return matchesCategory && matchesSkintype;
       });
-      console.log("hej, alla filtrerade objekt", filtered);
-      console.log("hej", activeCategoryFilters);
-      console.log("hej", activeSkintypeFilters);
       setFilteredProducts(filtered);
     } else {
       setFilteredProducts(products);
