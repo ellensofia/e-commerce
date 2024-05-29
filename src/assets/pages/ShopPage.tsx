@@ -74,7 +74,7 @@ const InnerContainer = styled.div`
 
 const ProductGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   border-top: 1px solid var(--clr-dark-grey);
   border-left: 1px solid var(--clr-dark-grey);
   flex: 1;
@@ -86,8 +86,11 @@ const ProductGrid = styled.div`
     border-bottom: 1px solid var(--clr-dark-grey);
     border-right: 1px solid var(--clr-dark-grey);
   }
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 
-  @media screen and (max-width: 640px) {
+  @media (max-width: 400px) {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
 `;
