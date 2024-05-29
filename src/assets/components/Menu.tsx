@@ -47,7 +47,7 @@ export default function Menu() {
           </StyledListItem>
         </StyledList>
       </nav>
-      <MenuImg src={img} alt=""></MenuImg>
+      <MenuImg src={img} alt="" />
     </OuterContainer>
   );
 }
@@ -104,6 +104,7 @@ const StyledListItem = styled.li`
     width: calc(50vw - 3rem);
     justify-content: space-between;
     gap: var(--margin-xxxsm);
+    letter-spacing: 0.02em;
 
     img {
       width: 1.4rem;

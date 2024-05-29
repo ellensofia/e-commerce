@@ -55,7 +55,7 @@ export default function Header() {
         <SearchBar
           isExpanded={isSearchExpanded}
           setIsexpanded={setIsSearchExpanded}
-        ></SearchBar>
+        />
         <BurgerMenu />
       </StyledRight>
     </StyledHeader>
@@ -87,6 +87,7 @@ const StyledListItem = styled.li<{ $menuOpen: boolean }>`
     color: var(--clr-dark-grey);
     display: flex;
     gap: var(--margin-sm);
+    letter-spacing: 0.02em;
 
     &:hover {
       text-decoration: underline;
