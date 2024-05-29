@@ -1,9 +1,9 @@
 import { Rating } from "@mui/material";
 import styled from "styled-components";
-import { Product } from "../../data";
+import { IProduct } from "../../data";
 
 interface Props {
-  product: Product;
+  product: IProduct;
 }
 
 export default function ReviewSection({ product }: Props) {
