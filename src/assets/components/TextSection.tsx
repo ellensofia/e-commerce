@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function TextSection() {
@@ -9,7 +10,9 @@ export default function TextSection() {
           <span className="italic">&</span> rejuvenate body, mind,{" "}
           <span className="italic">&</span> inner well-being.
         </Text>
-        <button id="button">Our story</button>
+        <Link id="button" to={`/about`} className="button">
+          Our story
+        </Link>
       </OuterBox>
     </>
   );

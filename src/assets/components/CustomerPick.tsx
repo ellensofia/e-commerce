@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import image1 from "../../assets/images/product-group.png";
 
@@ -38,7 +39,9 @@ export default function CustomerPick() {
               </div>
             </li>
           </ul>
-          <StyledButton id="button">Read more</StyledButton>
+          <StyledButton id="button" to={`/offers`} className="button">
+            Shop skincare sets
+          </StyledButton>
         </TextBox>
       </InnerBox>
     </OuterBox>
@@ -132,10 +135,10 @@ const CustomerTitle = styled.h2`
   }
 `;
 
-const StyledButton = styled.button`
-  width: fit-content;
+const StyledButton = styled(Link)`
+  /*   width: fit-content;
   border-radius: 2rem;
   background-color: transparent;
   border: 1px solid var(--clr-dark-grey);
-  color: var(--clr-dark-grey);
+  color: var(--clr-dark-grey); */
 `;
