@@ -1,5 +1,6 @@
 import { Rating } from "@mui/material";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { IProduct } from "../../data";
 export interface Props {
@@ -46,9 +47,19 @@ export default function productCard({
             readOnly
             sx={{
               paddingLeft: ".6rem",
-              "& .MuiRating-icon SVG": {
-                color: "var(--clr-dark-grey)",
-                fontSize: "0.9rem",
+              "& .MuiRating-icon svg": {
+                color: "#555555 !important",
+              },
+              "& .MuiRating-root svg": {
+                color: "#555555 !important",
+              },
+              "& .MuiRating-iconFilled SVG": {
+                color: "#555555 !important",
+              },
+              "& .MuiRating-icon ": {
+                color: "#555",
+                fontSize: "0.9rem !important",
+
                 "@media (max-width: 640px)": {
                   fontSize: "0.8rem",
                 },
@@ -87,6 +98,11 @@ export default function productCard({
           ))}
         </Amounts>
         <span>{price} EUR</span>
+
+        <Link to={`/shop/${product.id}`} key={index}>
+          <span>View product</span>
+        </Link>
+
         <Button id="button">Add to cart</Button>
       </ProductText>
     </StyledCarouselItem>
@@ -135,7 +151,7 @@ const ProductText = styled.div`
   flex-direction: column;
   gap: 1.2rem;
   justify-content: center;
-  color: #505050;
+  color: #505050 !important;
   font-size: var(--font-size-base);
   @media (max-width: 1090px) {
     gap: 0.7rem;
