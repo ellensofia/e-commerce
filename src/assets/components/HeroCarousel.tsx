@@ -132,7 +132,6 @@ const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  //max-width: 600px;
   padding-left: 10vw;
 
   & p {
@@ -167,8 +166,6 @@ const StyledImage = styled.img`
   height: 80vh;
   left: 0;
   object-position: ${({ src }) => src?.includes("image3") && "50% 75%"};
-  //object-position: ${({ src }) => src?.includes("image1") && "20% 35%"};
-  border: 4px solid ${({ src }) => (src?.includes("image3") ? "pink" : "green")};
 
   @media (max-width: 600px) {
     width: 100%;
