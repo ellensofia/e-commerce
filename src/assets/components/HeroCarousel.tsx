@@ -2,13 +2,17 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+//import placeholder from "../images/image1placeholder.jpg";
+import image1Desktop from "../images/image1-desktop.jpg";
 import image1 from "../images/image1.jpg";
-import placeholder from "../images/image1placeholder.jpg";
-import image2 from "../images/image4.jpg";
-import image5 from "../images/image5.jpg";
+import image2 from "../images/image2.jpg";
+import image3 from "../images/image3.jpg";
 
-const images = [image1, image2, image5];
-
+function getImages() {
+  return window.innerWidth > 900
+    ? [image1Desktop, image2, image3]
+    : [image1, image2, image3];
+}
 interface StyledButtonProps {
   $isActive: boolean;
 }
@@ -24,7 +28,6 @@ export default function HeroCarousel() {
   let interval: ReturnType<typeof setInterval>;
 
   const navigate = (direction: string) => {
-    // Stop the interval
     clearInterval(interval);
 
     if (direction === "left") {
@@ -37,9 +40,24 @@ export default function HeroCarousel() {
   };
 
   useEffect(() => {
+    const updateImgSizes = () => {
+      if (window.innerWidth > 900) {
+        console.log("uppfyller resize");
+
+        //images = [image1desktop, image2, image3];
+        getImages();
+      }
+
+      console.log("resize");
+    };
+
+    window.addEventListener("resize", updateImgSizes);
+  }, []);
+
+  useEffect(() => {
     // Set up the initial interval
     const interval = setInterval(() => {
-      setCurrentItemIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentItemIndex((prevIndex) => (prevIndex + 1) % getImages().length);
     }, delay);
 
     // Clean up the interval on unmount
@@ -52,7 +70,7 @@ export default function HeroCarousel() {
     <>
       <OuterBox>
         <InnerContainer>
-          {images.map((image, index) => (
+          {getImages().map((image, index) => (
             <StyledCarouselItem
               key={index}
               zindex={currentItemIndex === index ? "1" : "0"}
@@ -62,7 +80,7 @@ export default function HeroCarousel() {
                 src={image}
                 alt={image}
                 key={index}
-                data-src={placeholder}
+                //data-src={placeholder}
               />
               <TextBox>
                 <h2>Special offer</h2>
@@ -114,6 +132,8 @@ const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  //max-width: 600px;
+  padding-left: 10vw;
 
   & p {
     font-size: var(--font-size-md);
@@ -142,13 +162,13 @@ const StyledImage = styled.img`
   width: 100vw;
   object-fit: cover;
   position: relative;
+  overflow: hidden;
   max-height: 100%;
   height: 80vh;
-
-  @media (min-width: 640px) {
-    object-position: ${({ src }) =>
-      src?.includes("image5") ? "-20% 68%" : "center"};
-  }
+  left: 0;
+  object-position: ${({ src }) => src?.includes("image3") && "50% 75%"};
+  //object-position: ${({ src }) => src?.includes("image1") && "20% 35%"};
+  border: 4px solid ${({ src }) => (src?.includes("image3") ? "pink" : "green")};
 
   @media (max-width: 600px) {
     width: 100%;
@@ -198,7 +218,6 @@ const SaleButton = styled(NavLink)`
   width: fit-content;
   border-radius: 2rem;
   padding: 0.8rem 1.8rem;
-
   font-size: var(--font-size-base);
   background-color: transparent;
   border: 1px solid var(--clr-white);
