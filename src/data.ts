@@ -386,14 +386,7 @@ export const categories: ICategory[] = [
     name: "Cleanser",
     image: img5,
   },
-  {
-    name: "Lip care",
-    image: image3,
-  },
-  {
-    name: "Sun protection",
-    image: ingredient1,
-  },
+
   {
     name: "Moisturizer",
     image: ingredient1,
@@ -430,5 +423,9 @@ export const categories: ICategory[] = [
   {
     name: "Body care",
     image: image3,
+  },
+  {
+    name: "Sun protection",
+    image: ingredient1,
   },
 ];
