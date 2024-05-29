@@ -76,9 +76,6 @@ const Review = styled.span`
   display: flex;
   align-items: center;
   gap: var(--margin-xxsm);
-  @media (max-width: 600px) {
-    font-size: 12px;
-  }
 `;
 
 const Bottom = styled.div`
