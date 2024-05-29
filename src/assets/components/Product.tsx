@@ -43,7 +43,7 @@ export default function Product({ product }: Props) {
                     },
                     "& .MuiRating-icon SVG": {
                       color: "#555",
-                      fontSize: "var(--font-size-base)",
+                      fontSize: "0.9rem !important",
                     },
                   }}
                 />
