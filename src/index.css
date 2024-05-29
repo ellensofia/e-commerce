@@ -124,7 +124,8 @@ button {
   font-family: var(--font-primary);
 }
 
-button {
+button,
+.button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.8rem 1.8rem;
