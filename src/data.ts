@@ -1,6 +1,8 @@
 export interface IProduct {
   id: string;
   product_name: string;
+  category: string[];
+  skinType: string[];
   amount: string[];
   product_description: string;
   prices: number[];
@@ -53,6 +55,8 @@ export const products: IProduct[] = [
   {
     id: "1",
     product_name: "Exfoliating Serum 10% Glycolic Acid",
+    category: ["Exfoliator"],
+    skinType: ["Normal", "Oily"],
     amount: ["5ml", "15ml"],
     product_description:
       "A powerful serum containing 10% glycolic acid for gentle exfoliation and skin renewal. Helps to improve skin texture, reduce hyperpigmentation, and minimize the appearance of fine lines and wrinkles.",
@@ -85,6 +89,8 @@ export const products: IProduct[] = [
   {
     id: "2",
     product_name: "Revitalizing Eye Cream",
+    category: ["Eye care"],
+    skinType: ["Normal", "Oily", "Sensitive"],
     amount: ["5ml", "15ml"],
     product_description:
       "A revitalizing eye cream that targets puffiness, dark circles, and fine lines around the delicate eye area. Formulated with peptides and botanical extracts to improve elasticity and brighten the skin.",
@@ -108,6 +114,8 @@ export const products: IProduct[] = [
   {
     id: "3",
     product_name: "Moisturizing Cream with Hyaluronic Acid",
+    category: ["Moisturizer"],
+    skinType: ["Dry", "Normal"],
     amount: ["15ml", "30ml"],
     product_description:
       "An ultra-hydrating cream enriched with nourishing ingredients like hyaluronic acid and vitamins. Provides long-lasting moisture and helps to improve skin elasticity. Suitable for all skin types.",
@@ -141,6 +149,8 @@ export const products: IProduct[] = [
   {
     id: "4",
     product_name: "Hydrating Face Mist with Rosewater",
+    category: ["Toner"],
+    skinType: ["Normal", "Dry", "Sensitive"],
     amount: ["30ml", "100ml"],
     product_description:
       "A hydrating face mist enriched with pure rosewater to refresh and revitalize the skin. Provides an instant boost of hydration and helps to set makeup. Can be used throughout the day for a quick pick-me-up.",
@@ -173,6 +183,8 @@ export const products: IProduct[] = [
   {
     id: "5",
     product_name: "Anti-Aging Night Cream",
+    category: ["Anti-aging", "New in"],
+    skinType: ["Mature", "Dry"],
     amount: ["30ml", "60ml"],
     product_description:
       "A nourishing night cream that targets multiple signs of aging, including fine lines, wrinkles, and dullness. Infused with potent antioxidants and peptides to promote skin renewal and improve elasticity.",
@@ -205,6 +217,8 @@ export const products: IProduct[] = [
   {
     id: "6",
     product_name: "Brightening Vitamin C Serum",
+    category: ["Serum", "Best sellers"],
+    skinType: ["Oily", "Dry", "Normal", "Combination", "Acne", "Mature"],
     amount: ["30ml"],
     product_description:
       "A brightening serum infused with vitamin C to even out skin tone, reduce dark spots, and enhance radiance. Provides antioxidant protection and boosts collagen production for a youthful complexion.",
@@ -232,6 +246,8 @@ export const products: IProduct[] = [
   {
     id: "7",
     product_name: "Soothing Aloe Vera Gel",
+    category: ["Body care"],
+    skinType: ["Sensitive", "Normal", "Oily"],
     amount: ["150ml"],
     product_description:
       "A soothing gel enriched with aloe vera to calm and hydrate the skin. Helps to relieve redness, irritation, and sunburn. Suitable for sensitive skin.",
@@ -248,6 +264,8 @@ export const products: IProduct[] = [
   {
     id: "8",
     product_name: "Cleansing Gel with Tea Tree Oil",
+    category: ["Cleanser"],
+    skinType: ["Oily", "Acne", "Combination"],
     amount: ["50ml", "150ml"],
     product_description:
       "A refreshing cleansing gel that effectively removes impurities, excess oil, and makeup without stripping the skin's natural moisture. Enriched with tea tree oil for its antibacterial properties. Leaves the skin feeling clean, balanced, and refreshed.",
@@ -355,7 +373,6 @@ export const skintypes: string[] = [
   "Combination",
   "Acne",
   "Sensitive",
-  "Dry",
   "Mature",
 ];
 
@@ -366,7 +383,7 @@ export interface ICategory {
 
 export const categories: ICategory[] = [
   {
-    name: "Cleansers",
+    name: "Cleanser",
     image: img5,
   },
   {
@@ -378,7 +395,7 @@ export const categories: ICategory[] = [
     image: ingredient1,
   },
   {
-    name: "Moisturizers",
+    name: "Moisturizer",
     image: ingredient1,
   },
   {
@@ -386,11 +403,11 @@ export const categories: ICategory[] = [
     image: ingredient2,
   },
   {
-    name: "Lip care",
+    name: "Toner",
     image: img3,
   },
   {
-    name: "Exfoliators",
+    name: "Exfoliator",
     image: ingredient12,
   },
 
