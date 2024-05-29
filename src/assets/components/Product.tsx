@@ -129,6 +129,9 @@ const StyledImage = styled.img`
   @media (max-width: 900px) {
     width: 120px;
     height: 40vw;
+  }
+
+  @media (max-width: 450px) {
     min-width: 120px;
   }
 `;
