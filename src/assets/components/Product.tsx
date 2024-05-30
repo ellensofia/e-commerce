@@ -77,7 +77,7 @@ const Review = styled.span`
   margin: 0;
   display: flex;
   align-items: center;
-  gap: var(--margin-xxsm);
+  gap: 4px;
 `;
 
 const Bottom = styled.div`
@@ -133,11 +133,12 @@ const StyledImage = styled.img`
   margin: 0 auto;
 
   @media (max-width: 900px) {
+    min-width: auto;
     width: 120px;
-    height: 40vw;
+    height: 45vw;
   }
 
   @media (max-width: 450px) {
-    min-width: 120px;
+    min-width: 140px;
   }
 `;
