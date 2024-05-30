@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
 import arrow from "../../assets/images/arrow.svg";
 import { categories, skintypes } from "../../data";
@@ -35,6 +35,12 @@ export default function Filter({
         : [...prevFilters, selectedFilter]
     );
   };
+
+  useEffect(() => {
+    if (window.innerWidth < 500) {
+      setExpandedFilter(false);
+    }
+  }, []);
 
   return (
     <Container $expandedFilter={expandedFilter}>
@@ -126,6 +132,9 @@ const Container = styled.div<{ $expandedFilter: boolean }>`
   width: 250px;
   border-bottom: 1px solid var(--clr-dark-grey);
   width: ${({ $expandedFilter }) => ($expandedFilter ? "250px" : "2.2rem")};
+  @media (max-width: 660px) {
+    width: ${({ $expandedFilter }) => ($expandedFilter ? "180px" : "2.2rem")};
+  }
 `;
 
 const Top = styled.div<{ $expandedFilter: boolean }>`
