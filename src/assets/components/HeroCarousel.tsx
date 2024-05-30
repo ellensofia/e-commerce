@@ -1,18 +1,11 @@
-// import { Title } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-//import placeholder from "../images/image1placeholder.jpg";
 import image1Desktop from "../images/image1-desktop.jpg";
 import image1 from "../images/image1.jpg";
 import image2 from "../images/image2.jpg";
 import image3 from "../images/image3.jpg";
 
-function getImages() {
-  return window.innerWidth > 900
-    ? [image1Desktop, image2, image3]
-    : [image1, image2, image3];
-}
 interface StyledButtonProps {
   $isActive: boolean;
 }
@@ -27,9 +20,13 @@ export default function HeroCarousel() {
   const [delay] = useState(6000);
   let interval: ReturnType<typeof setInterval>;
 
-  const navigate = (direction: string) => {
-    clearInterval(interval);
+  function getImages() {
+    return window.innerWidth > 900
+      ? [image1Desktop, image2, image3]
+      : [image1, image2, image3];
+  }
 
+  const navigate = (direction: string) => {
     if (direction === "left") {
       setCurrentItemIndex(0);
     } else if (direction === "middle") {
@@ -37,30 +34,25 @@ export default function HeroCarousel() {
     } else if (direction === "right") {
       setCurrentItemIndex(2);
     }
+    clearInterval(interval);
   };
 
   useEffect(() => {
     const updateImgSizes = () => {
       if (window.innerWidth > 900) {
-        console.log("uppfyller resize");
-
-        //images = [image1desktop, image2, image3];
         getImages();
       }
-
-      console.log("resize");
     };
 
     window.addEventListener("resize", updateImgSizes);
+    return window.removeEventListener("resize", updateImgSizes);
   }, []);
 
   useEffect(() => {
-    // Set up the initial interval
     const interval = setInterval(() => {
       setCurrentItemIndex((prevIndex) => (prevIndex + 1) % getImages().length);
     }, delay);
 
-    // Clean up the interval on unmount
     return () => {
       clearInterval(interval);
     };
@@ -76,12 +68,7 @@ export default function HeroCarousel() {
               zindex={currentItemIndex === index ? "1" : "0"}
               $isActive={currentItemIndex === index}
             >
-              <StyledImage
-                src={image}
-                alt={image}
-                key={index}
-                //data-src={placeholder}
-              />
+              <StyledImage src={image} alt={image} key={index} />
               <TextBox>
                 <h2>Special offer</h2>
                 <p>50% off selected items</p>
