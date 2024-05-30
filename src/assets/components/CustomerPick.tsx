@@ -75,6 +75,7 @@ const InnerBox = styled.div`
   }
 
   @media (max-width: 640px) {
+    padding: 0 var(--margin-md);
     & img {
       padding: 0 var(--margin-sm);
       width: 100%;

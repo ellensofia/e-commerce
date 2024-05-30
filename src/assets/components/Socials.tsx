@@ -1,26 +1,25 @@
 import styled from "styled-components";
+import arrow from "../images/arrow.svg";
 import img1 from "../images/inst.jpg";
 import img2 from "../images/inst.png";
 import img3 from "../images/inst3.jpg";
 import img4 from "../images/inst4.jpg";
-import img5 from "../images/instagram-logo.png";
 
 export default function Socials() {
   return (
     <OuterBox>
       <InnerBox>
-        <Top>
-          <Title>Follow us</Title>
-          <Icons>
-            <img src={img5} alt="" />
-          </Icons>
-        </Top>
+        <h2>Follow us</h2>
         <Imgs>
           <img src={img3} alt="" />
           <img src={img2} alt="" />
           <img src={img1} alt="" />
           <img src={img4} alt="" />
         </Imgs>
+        <Bottom>
+          <span>Instagram</span>
+          <img src={arrow} />
+        </Bottom>
       </InnerBox>
     </OuterBox>
   );
@@ -29,12 +28,9 @@ export default function Socials() {
 const OuterBox = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin-bottom: var(--margin-xxlg);
-  @media (max-width: 640px) {
-    margin-bottom: var(--margin-xlg);
-  }
+  margin-top: var(--margin-lg);
 `;
 
 const InnerBox = styled.div`
@@ -45,16 +41,13 @@ const InnerBox = styled.div`
   gap: var(--margin-xsm);
   padding: 0 var(--margin-md);
 
+  h2 {
+    font-size: var(--font-size-xl);
+    //text-align: center;
+  }
+
   @media (max-width: 640px) {
     padding: 0 var(--margin-sm);
-  }
-`;
-
-const Title = styled.h2`
-  font-size: var(--font-size-md);
-
-  @media (max-width: 640px) {
-    font-size: var(--font-size-base);
   }
 `;
 
@@ -76,30 +69,41 @@ const Imgs = styled.div`
   }
 `;
 
-const Top = styled.div`
+const Bottom = styled.div`
   display: flex;
   align-items: center;
-  gap: var(--margin-sm);
+  justify-content: flex-end;
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--clr-black);
+    & img {
+      transition: 0.2s ease;
+      transform: translateX(0.5rem);
+    }
+  }
+
+  display: flex;
+  gap: var(--margin-xxsm);
+  align-items: center;
+
+  span {
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
   & img {
-    width: 250px;
+    width: 1.25rem;
   }
 
   @media (max-width: 640px) {
-    gap: var(--margin-xsm);
-  }
-`;
+    span {
+      font-size: var(--font-size-sm);
+    }
 
-const Icons = styled.div`
-  display: flex;
-  gap: var(--margin-sm);
-  cursor: pointer;
-  & img {
-    width: 20px;
-    height: 20px;
-
-    @media (max-width: 640px) {
-      width: 16px;
-      height: 16px;
+    & img {
+      width: 1rem;
     }
   }
 `;

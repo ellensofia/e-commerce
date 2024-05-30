@@ -19,7 +19,7 @@ export default function Menu() {
           </StyledListItem>
           <StyledListItem>
             <NavLink to={"/error"} onClick={handleLinkClick}>
-              View all categories
+              Categories
               <img src={arrow} alt="" />
             </NavLink>
           </StyledListItem>
@@ -65,18 +65,19 @@ const OuterContainer = styled.div<{ $menuOpen: boolean }>`
   border-bottom: 1px solid var(--clr-dark-grey);
   padding: var(--margin-sm);
   gap: var(--margin-md);
+
   @media (max-width: 450px) {
-    padding-right: 0;
-    padding: var(--margin-xsm) 0 var(--margin-xsm) var(--margin-xsm);
-    gap: var(--margin-xsm);
+    padding: 0;
   }
 `;
+
 const MenuImg = styled.img`
   height: 22rem;
   width: 50vw;
   object-fit: cover;
-  @media (max-width: 350px) {
-    width: 40vw;
+  @media (max-width: 450px) {
+    width: 48vw;
+    height: 19rem;
   }
 `;
 
@@ -88,7 +89,6 @@ const StyledList = styled.ul`
   padding-left: var(--margin-sm);
 
   @media (max-width: 450px) {
-    padding-left: 0px;
     gap: var(--margin-sm);
   }
 `;
@@ -109,6 +109,7 @@ const StyledListItem = styled.li`
     img {
       width: 1.4rem;
     }
+
     &:hover {
       text-decoration: underline;
       & img {
@@ -118,6 +119,7 @@ const StyledListItem = styled.li`
     }
     @media (max-width: 450px) {
       width: unset;
+      width: 50vw;
     }
   }
 `;

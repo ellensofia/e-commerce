@@ -89,28 +89,21 @@ const Overlay = styled.div`
       width: 1.5rem;
       stroke: var(--clr-dark-grey);
     }
-
-    &:hover {
-      font-weight: 400;
-      text-decoration: underline;
-      svg {
-        transform: translateX(var(--margin-xxxsm));
-      }
-    }
   }
 
   &:hover {
-    background-color: #00000083;
-
+    background-color: #0000008e;
     h2,
     p,
-    a,
     svg {
       display: flex;
       color: var(--clr-white);
     }
     svg line {
       stroke: var(--clr-white);
+    }
+    a {
+      display: none;
     }
   }
 `;
